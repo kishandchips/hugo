@@ -1,0 +1,209 @@
+/* ======================
+	BUTTON STYLES
+   ====================== */
+
+.btn{
+	display: inline-block;
+	line-height: 40px;
+	padding: 0 1.4em;
+	color: #fff;
+	// font-size: 1em;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	border: 1px solid transparent;
+	background-color: #000;
+	@include transition(all,0.3s);
+
+	&:hover{
+		color: #333;
+		background-color: #fff;
+		border: 1px solid #333;
+	}
+
+	&.secondary{
+		color: #333;
+		background-color: #fff;
+		
+		&:hover{
+			color: #fff;
+			background-color: #000;
+			border: 1px solid #fff;
+		}
+	}
+}
+
+/* ======================
+	FORM ELEMENTS
+   ====================== */
+
+label{
+	font-size: 1.15em;
+	@include fanwood;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+input[type="text"],
+input[type="email"],{
+	height: 40px;
+}
+
+input[type="text"],textarea{
+
+	&:focus{
+		@include single-box-shadow;
+	}
+}
+
+input[type="submit"]{
+	@extend .btn;
+}
+
+/* ======================
+	CONTACT FORM
+   ====================== */
+
+.contact-form{
+	h3{
+		margin-top: 0;
+	}
+}//.contact-form
+
+/* ======================
+	LIGHTBOX EMAIL
+   ====================== */
+
+.gform_wrapper{
+
+	.gfield_label{
+		font-weight: normal !important;
+	}
+
+	.ginput_container{
+		input[type="text"],input[type="email"],
+		textarea{
+			width: 100% !important;
+			margin-bottom: 1em;
+			padding:0.6em;
+			font-size: 1em;
+			background: rgba(245,245,245,0.32);
+			border: 1px solid rgba(151,151,151,0.30);
+		}			
+	}
+
+	&.lightbox-email_wrapper{
+		max-width: 100%;
+		margin:0;
+		padding:0 25%;
+
+		@media screen and (max-width: 800px){
+			padding: 0 10%;
+		}
+
+		form.lightbox-email{
+			display: inline-block;
+			width:100%;
+			margin:0;
+			color: #fff;
+
+			.gform_body{
+				display: inline-block;
+				width: 80%;
+
+				@media screen and (max-width: 480px){
+					width: 70%;
+				}
+
+				label{
+					text-align: left;
+				}		
+			}
+
+			.ginput_container{
+				input{
+					color: #fff;
+					background: rgba(245,245,245,1);
+				}
+			}
+
+			.gform_footer{
+				display: inline-block;
+				width: 18%;
+				margin-top: 0;
+				padding: 0;
+
+				input[type="submit"]{
+					@extend .btn.secondary;
+				}
+			}
+		}// form			
+	}// .lightbox-email_wrapper
+
+	&.contact-form_wrapper{
+		margin: 0;
+		padding: 0 10%;
+
+		@media screen and (max-width: 767px){
+			padding: 0;
+		}
+	}
+
+	.contact-form{
+		.gform_title{
+			margin: 0;
+			font-size: 1.71em;
+			font-weight: 300;
+		}
+
+		.gform_description{
+			font-size: 1.23em;
+			@include fanwood;
+		}
+
+		.gform_footer{
+			margin: 1em 0 2em 0;
+			padding: 0;
+			text-align: center;
+		}
+	}//contact-form
+
+	.lightbox-email, .contact-form{
+		div.validation_error{
+			padding: 0.5em;
+			color: #fff;
+			font-size: 1em;
+			font-weight: normal;
+			background-color: #e74c3c;
+			@include border-radius(3px);
+		}
+		
+		li.gfield.gfield_error{
+			background-color: #fff;
+			border: none;
+
+			.validation_message{
+				margin: 0;
+				padding: 0 !important;
+			}
+		}		
+	}
+
+}// .gform_wrapper
+
+
+
+.gform_confirmation_wrapper{
+	.gform_confirmation_message{
+		margin-top: 2em;
+		padding: 1em;
+		font-size: 1.3em;
+		@include fanwood;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		border: 1px solid black;
+	}			
+}
+
+.gform_confirmation_wrapper.lightbox-email{
+	color: #fff;
+}

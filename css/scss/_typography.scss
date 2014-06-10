@@ -1,0 +1,129 @@
+// IMPORT FONT
+@font-face {
+    font-family: 'gt_pressura_trialbold';
+    src: url('fonts/gt-pressura-bold-trial-webfont.eot');
+    src: url('fonts/gt-pressura-bold-trial-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/gt-pressura-bold-trial-webfont.woff') format('woff'),
+         url('fonts/gt-pressura-bold-trial-webfont.ttf') format('truetype'),
+         url('fonts/gt-pressura-bold-trial-webfont.svg#gt_pressura_trialbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'gt_pressura_triallight';
+    src: url('fonts/gt-pressura-light-trial-webfont.eot');
+    src: url('fonts/gt-pressura-light-trial-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/gt-pressura-light-trial-webfont.woff') format('woff'),
+         url('fonts/gt-pressura-light-trial-webfont.ttf') format('truetype'),
+         url('fonts/gt-pressura-light-trial-webfont.svg#gt_pressura_triallight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@mixin gtbold{
+    font-family: 'gt_pressura_trialbold';
+}
+
+@mixin gtlight{
+	font-family: 'gt_pressura_triallight';
+}
+
+@mixin fanwood{
+	font-family: 'Fanwood Text', serif;
+	font-weight:normal;
+}
+
+@mixin opensans{
+	font-family: 'Open Sans', sans-serif;
+	font-weight:normal;
+}
+
+/* 	============================================= 
+	============================================= */
+	
+body{
+	color: #111;
+	font-size: 0.875em;
+	@include opensans;
+	line-height: 1.7;
+	-webkit-font-smoothing: antialiased;
+
+	@media screen and (max-width: 767px){
+		font-size: 80%;
+	}
+}
+
+h1,h2,h3,h4,h5,h6{
+	@include fanwood;	
+	font-weight: 300;
+	letter-spacing: 1px;
+	line-height: 1;
+}
+
+h2{
+	font-size: 2.57em;
+}
+
+h3{
+	font-size: 1.71em;
+}
+
+h4,h5,h6{
+	font-size: 1.5em;
+}
+
+a{
+	color: #111;
+	text-decoration: none;
+}
+
+#header .links{
+	a{
+		padding-bottom: 5px;
+		text-transform: uppercase;
+		border-bottom:1px solid transparent;
+		@include single-transition(all,0.3s);
+		
+		&:hover{
+			border-bottom:1px solid #111;
+		}
+	}
+}
+
+.meta{
+	@include fanwood;
+	font-style: italic;
+}
+
+%category-heading{
+	font-size: 1.43em;
+	@include fanwood;
+	font-style: italic;
+}
+
+%category-link{
+	color: #fff;
+	font-size: 2.5em;
+	@include gtbold;
+	font-style: normal;
+	text-transform: uppercase;
+	line-height: 0.9;
+
+	a{
+		display: inline-block;
+		padding: 0.35em 0.35em 0.15em 0.35em;
+		color: #fff;
+		border: 1px solid transparent;
+		@include transition(border,.3s);
+
+		&:hover{
+			border: 1px solid white;
+		}
+	}
+
+	@media screen and (max-width: 768px){
+		font-size: 2em;
+	}
+}

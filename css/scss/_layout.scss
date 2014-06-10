@@ -1,0 +1,897 @@
+/* ==========================================================================
+	HEADER
+   ========================================================================== */
+.splash{
+	opacity: 1;
+	visibility: visible;
+	position:fixed;
+	top:0;right:0;bottom:0;left:0;
+	background-image: url(../img/colour06.jpg);
+	background-size: cover;
+	z-index:9999;
+
+	.valign{
+		width: 100%;
+		text-align: center;
+	}
+
+	.splashdamage{
+		display: inline-block;
+		padding: 0.6em 0.8em 0.5em 0.8em;
+		font-size: 3em;
+		@include gtbold;
+		text-transform: uppercase;
+	}
+}
+
+.header-weezy{
+	position: fixed;
+	top:0;
+	left:0;
+	right:0;
+	height:45px;
+	padding: 0 15px;
+	background-color: #fff;
+	line-height: 45px;
+	text-align: center;
+	z-index: 5;
+
+	@media screen and (max-width: 550px){
+		height:60px;
+	}
+}
+
+#header{
+	display:inline-block;
+	width:100%;
+	/*max-width: 1220px;*/
+	overflow: hidden;
+
+	.links a{
+		margin-left: 1em;
+		padding-bottom: 5px;
+		@include gtlight;
+		text-transform: uppercase;
+		border-bottom:1px solid transparent;
+		@include single-transition(all,0.3s);
+		
+		&:hover{
+			border-bottom:1px solid #111;
+		}
+
+		&:first-child{
+			margin-left: 0;
+		}
+	}
+
+	.counter{
+		padding: 4px 4px 1px 4px;
+		color: #fff;
+		background-color: #e74c3c;
+		border-radius: 4px;
+		@include transition(all,0.2s);
+
+		&.bounce{
+			position: relative;
+			top:-2px;
+		}
+	}
+
+	@media screen and (max-width: 550px){
+		line-height: 30px;
+		text-align: center;
+		.logo{
+			width: 100%;
+		}
+
+		.links{
+			width: 100%;
+		}
+	}
+}
+
+/* ==========================================================================
+	CONTENT
+   ========================================================================== */
+
+body{
+	&.page-template-page-lightbox-php{
+		background-color: #000;
+
+		%black{
+			background-color: #000;
+		}
+		
+		.header-weezy{
+			@extend %black;
+		}
+
+		#header{
+			@extend %black;
+
+			.links a{
+				color: #fff;
+
+				&:hover{
+					border-bottom:1px solid #fff;
+				}				
+			}
+		}
+		
+		.flexslider{
+			@extend %black;
+
+			a{
+				color: #fff;
+			}
+			
+			.flex-direction-nav{
+				li:hover{
+					background-image: none;
+					background-color: transparent;
+				}				
+			}
+		}
+
+		#gallery-content{
+			@extend %black;
+		}
+	}/*lightbox page*/
+	
+	&.home{
+		#weezy{
+			padding: 0;
+		}
+	}/*home page*/
+}
+// WRAPPER
+#weezy{
+	max-width: 1600px;
+	height:100%;
+	min-height:100%;
+}
+
+#main{
+	position: relative;
+	height:100%;
+	padding-top:45px;
+	overflow:hidden;
+
+
+	.home &{
+		overflow: initial;
+
+		&.container{
+			width: 100%;
+			max-width: initial;
+		}
+	}
+
+	.page-template-page-contact-php &{
+		height: initial;
+		overflow: initial;
+	}
+}
+
+/* ======================
+	HOMEPAGE
+   ====================== */
+%albums{
+	position: relative;
+	background-size: cover;
+	background-position: center;
+}
+
+.albums{
+	position: relative;
+
+	>.column{
+		padding:0;
+		
+		@media screen and (max-width: 767px){
+			width:100%;
+		}
+	}
+
+	.album{
+		position: relative;
+		width:100%;
+		@include transition(all,0.3s);
+
+		&.sizeone{
+			@extend %albums;
+			padding-top: 60%;
+		}
+
+		&.sizetwo{
+			@extend %albums;
+			padding-top: 120%;
+			
+			@media screen and (max-width: 767px){
+				padding-top: 60%;
+			}
+			@media screen and (max-width: 500px){
+				padding-top: 80%;
+			}
+		}
+		
+		&.sizethree{
+			@extend %albums;
+			padding-top: 30%;
+
+			@media screen and (max-width: 767px){
+				padding-top: 60%;
+			}
+			@media screen and (max-width: 500px){
+				padding-top: 80%;
+			}
+		}
+
+		.valign{
+			width: 100%;
+			text-align: center;
+		}
+	
+		h2{
+			position: relative;
+			top:0;
+			margin: 0;
+			color: #fff;
+			font-size: 5em;
+			@include gtlight;
+			text-transform: uppercase;
+			@include transition(all,.3s);
+		}
+
+		.category-links{
+			position: relative;
+			bottom:2em;
+			margin:0;
+			padding:0;
+			list-style-type: none;
+			visibility: hidden;
+			@include opacity(0);
+			@include transition(all,.3s);
+
+
+			li.heading{
+				@extend %category-heading;
+				text-transform: initial;
+			}
+
+			li{
+				@extend %category-link;
+			}
+		}
+		
+		.background{
+			@extend %albums;
+			position: absolute;
+			top:0;right:0;bottom:0;left:0;
+			visibility: hidden;
+			@include opacity(0);
+			@include transition(opacity,.5s);
+			@include translateZ(0);
+
+			&.visible{
+				visibility: visible;
+				@include opacity(1);
+			}
+		}
+
+		.overlay{
+			position: absolute;
+			top:0;right:0;bottom:0;left:0;
+			background-color: rgba(0,0,0,.65);
+			visibility: hidden;
+			@include opacity(0);
+			@include transition(opacity,0.3s);
+		}
+
+		&.active{
+
+			h2{
+				top:-1em;
+				visibility: hidden;
+				@include opacity(0);
+			}
+
+			.category-links{
+				bottom:0;
+				visibility: visible;
+				@include opacity(1);				
+			}
+
+			.overlay{
+				visibility: visible;
+				@include opacity(1);
+			}
+
+		}
+	}
+}
+/* ======================
+	GALLERY
+   ====================== */ 
+
+#gallery-content{
+	position: absolute;
+	top:0;right:0;bottom:0;left:0;
+	padding-top: 45px;
+	background-color: #fff;
+	@include transition(bottom,0.3s);
+	z-index: 2;
+
+	@media screen and (max-width:700px){
+		overflow-y: auto;
+	}
+
+	&.hide{
+		position:absolute;
+		top: 100%;
+	}
+	
+	.summary{
+		width: 300px;
+		padding: 2em 4em 2em 15px;
+
+		@media screen and (max-width:767px){
+			width: 250px;
+		}
+
+		@media screen and (max-width:700px){
+			float: none;
+			width: 100%;
+			padding: 2em 15px;
+			padding-right: 0;
+		}
+
+		h2{
+			margin:0 0 0.5em 0;
+			font-size: 2.14em;
+		}
+	}
+
+	.gallery{
+		height: 100%;
+		padding-bottom: 10px;
+		overflow-y: auto;
+		
+		.page-template-page-lightbox-php &{
+			padding-bottom: 150px;
+		}
+
+		@media screen and (max-width:700px){
+			width: 100%;
+			height: initial;
+		}
+
+		ul{
+			padding:0 ;
+			list-style: none;
+
+			li.column{
+				height:100%;
+				margin-bottom: 0.5em;
+				padding: 0.5em;
+				overflow: hidden;
+
+				&.col-1-3{
+					@media screen and (max-width:1000px){
+						width: 50%;
+					}
+				}
+
+				&.col-1-6{
+					@media screen and (max-width: 1100px){
+						width: 25%;
+					}
+					@media screen and (max-width: 900px){
+						width: 33%;
+					}
+					@media screen and (max-width: 700px){
+						width: 50%;
+					}
+				}
+
+				a{
+					display: inline-block;
+					width: 100%;
+					height: 100%;
+					text-align: center;
+					
+					.portrait{
+						height:100%;
+						width: auto;
+					}
+
+					.landscape{
+						width: 100%;
+						height: auto;
+						vertical-align: middle;
+					}
+				}
+			}			
+		}
+
+	}
+} 
+
+.vertical{
+	display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+/* ======================
+	LIGHTBOX
+   ====================== */
+
+.lightbox-actions{
+	position: absolute;
+	top:initial;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: black;
+
+	&.hide{
+		top:100%;
+	}
+} 
+
+.lightbox{
+	width:100%;
+	height: 90%;
+	padding: 0 15px;
+	color: #fff;
+	overflow-y: auto;
+
+	.frame{
+		padding: 5%;
+		border: 2px dashed #3f3f3f;
+		@include border-radius(3px);
+
+		.row{
+			width: 80%;
+			margin: 0 auto;
+
+			@media screen and (max-width: 650px){
+				width: 100%;
+			}
+		}
+
+		h2.big{
+			margin:0 0 0.5em 0;
+			font-size: 4em;
+			@include gtlight;
+			text-transform: uppercase;
+			text-align: center;
+			
+			@media screen and (max-width: 650px){
+				font-size: 2em;
+			}
+		}
+
+		.column{
+			text-align: center;
+
+			@media screen and (max-width: 650px){
+				text-align: left;
+				&.col-1-3{
+					width: 100%;
+					margin-bottom: 1em;
+				}
+			}
+		}
+
+		strong{
+			display: inline-block;
+			line-height: 50px;
+			width: 50px;
+			color: #000;
+			font-size: 2.5em;
+			text-align: center;
+			background-color: #fff;
+			@include border-radius(50px);
+
+			@media screen and (max-width: 650px){
+				font-size: 1em;
+				line-height: 30px;
+				width: 30px;
+				@include border-radius(30px);
+			}
+		}
+
+		p{
+			padding-right: 5%;
+			
+			@media screen and (max-width: 650px){
+				display: inline;
+				padding-left: 5px;
+			}
+		}
+	}
+}
+
+/* ======================
+	CONTACT
+   ====================== */
+
+.bio-section{
+	position: relative;
+	height: 388px;
+	overflow: hidden;
+	border-bottom: 5px solid #000;
+
+	.bio-text{
+		float: right;
+		height: 100%;
+		width: 70%;
+		padding:5em 2em 0 20%;
+		color: #fff;
+		text-align: justify;
+		line-height: 1.8;
+		@include filter-gradient(#000000, #a60000, horizontal); // IE6-9
+		@include background-image(linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 52%,rgba(0,0,0,0.65) 99%));
+		
+		@media screen and (max-width:800px){
+			width: 100%;
+			padding: 5em 2em;
+		}
+
+		h3:first-child{
+			margin:0;
+		}
+	}
+}// .bio-section
+
+.contact-section{
+	overflow: hidden;
+	border-right: 1px solid rgba(151,151,151,0.17);
+	border-left: 1px solid rgba(151,151,151,0.17);
+
+	.contact-details{
+		padding: 0;
+		text-align: center;
+		border-right: 1px solid rgba(151,151,151,0.17);
+		
+		@media screen and (max-width:765px){
+			width: 100%;
+			border-right: none;
+			border-bottom: 1px solid rgba(151,151,151,0.17);
+		}
+
+		.detail{
+			padding: 3em 0 2em 0;
+			border-top:1px solid rgba(151,151,151,0.17);
+			@include single-transition(background-color, 0.5s);
+
+			@media screen and (max-width:765px){
+				float:left;
+				width: 33%;
+				height: 260px;
+			}
+
+			@media screen and (max-width:600px){
+				float: none;
+				width: 100%;
+				height: initial;
+			}
+
+			&:first-child{
+				border-top: none;
+			}
+
+			&:hover{
+				background-color: #F5F5F5;
+			}
+
+			a{
+				color: #e74c3c;
+				border-bottom: 1px solid transparent;
+				@include single-transition(border-color, 0.3s);
+
+				&:hover{
+					border-bottom: 1px solid #e74c3c;
+				}
+			}
+		}
+
+		i{
+			display: block;
+			@extend %icon;
+			font-size: 3em;
+		}
+
+		h3{
+			display: inline-block;
+			margin:1em 0 0.5em 0;
+			font-size: 1.29em;
+			text-transform: uppercase;
+			border-bottom: 2px solid #000;
+		}
+
+		p{
+			margin-top: 0;
+		}
+	}//.contact-details
+
+	div.form-section{
+		padding-top: 4em;
+
+		@media screen and (max-width: 765px){
+			width: 100%;
+		}
+	}
+}//.contact-section
+
+/* ======================
+	OVERLAY MENU
+   ====================== */ 
+
+#overlaymenu{
+	z-index: 10;
+	visibility: hidden;
+	position: fixed;
+	top:0;right:0;bottom: 0;left: 0;
+	color: #fff;
+	text-align: center;
+	background-color: rgba(0,0,0, 0.9);
+	@include opacity(0);
+	@include single-transition(all,0.5s);
+	overflow-y: auto;
+
+	&.visible{
+		visibility: visible;
+		@include opacity(1);
+
+/*		@media screen and (max-width: 767px){
+			overflow-y: auto;
+		}*/
+	}
+
+	a{
+		color: #fff;
+	}
+
+	header{
+		padding: 0 15px;
+		line-height: 45px;
+		text-transform: uppercase;
+	}
+
+	.valign{
+		width: 100%;
+		@media screen and (max-width:767px){
+			position:relative;
+			top:initial;
+		}	
+	}
+
+	h2{
+		font-size: 2.5em;
+	}
+
+	%menu{
+		float:left;
+		width: 50%;
+		@media screen and (max-width:767px){
+			width: 100%;
+		}			
+	}
+
+	nav{
+		overflow: hidden;
+		vertical-align: top;
+
+		&.menu-overlay-menu-left-container{
+			@extend %menu;
+			border-right: 1px solid #525252;
+		}
+		&.menu-overlay-menu-right-container{
+			@extend %menu;
+		}
+
+		ul.menu{
+			margin: 0;
+			padding: 0;
+
+			>li{
+				>a{
+					@extend %category-heading;
+				}
+			}
+		}
+
+		ul.sub-menu{
+			margin: 0;
+			padding: 0;
+
+			li{
+				@extend %category-link;
+			}
+		}
+	}/*nav*/
+}/*overlay menu*/
+
+/* ======================
+	MODAL
+   ====================== */ 
+
+.modal{
+	visibility: hidden;
+	position: absolute;
+	top: 1em;
+	left: 25%;
+	width: 50%;
+	padding: 1em;
+	background-color: #fff;
+	border: 1px solid rgba(51,51,51,0.2);
+	z-index:10;
+	@include opacity(0);
+	@include border-radius(3px);
+	@include single-transition(all,0.3s);
+
+	@media screen and (max-width: 600px){
+		left: 5%;
+		width: 90%;
+	}
+	
+	&.visible{
+		visibility: visible;
+		@include opacity(1);
+	}
+
+
+	.message{
+		margin: 0;
+		color: #333;
+		font-size: 2em;
+		letter-spacing: 1px;
+		@include fanwood;
+		
+		@media screen and (max-width:600px){
+			font-size: 1em;
+		}
+
+		&.success:before{
+			margin-right: 1em;
+			content: "\e604";
+			font-size: 1em;
+			@extend %icon;
+		}
+
+		&.fail:before{
+			margin-right: 1em;
+			content: "\e605";
+			font-size: 1em;
+			@extend %icon;
+		}
+	}
+}
+
+/* ======================
+	Flexslider
+   ====================== */ 
+
+.flexslider{
+	z-index: 1;
+
+	@media screen and (max-width: 480px){
+		padding-bottom: 90px;
+	}
+
+	.slides{
+		padding: 0 60px;
+	}
+
+	.image{
+		display: inline-block;
+		position:relative;
+
+		&:hover a.lightbox-btn, &:hover a.lightbox-remove{
+			display: inline-block;
+		}
+
+		a.lightbox-btn, a.lightbox-remove{
+			position: absolute;
+			bottom:0;
+			left:0;
+			padding: 10px;
+			color: #fff;
+			text-transform: uppercase;
+			background-color: #000;
+			cursor: pointer;
+			@include transition(all,0.2s);
+
+			&:before{
+				content: "\e603";
+				margin-right: 10px;
+				color: #fff;
+				font-size: 1em;
+				font-weight: 700;
+				@extend %icon;
+			}			
+		}
+	}
+
+	.toggle-gallery{
+		text-transform: uppercase;
+		&:before{
+			content: "\e600";
+			font-size: 2em;
+			@extend %icon;
+		}
+
+		.page-template-page-lightbox-php &{
+			color: #fff;
+		}
+	}
+		
+	footer{
+		position: absolute;
+		bottom:0;
+		padding: 0 15px;
+		z-index: 10;
+	}
+
+	.gallery-meta{
+		margin-left: 2.86em;
+		font-size: 1.14em;
+		@include fanwood;
+		z-index: 2;
+
+		@media screen and (max-width:767px){
+			display: block;
+			margin-left: 0;
+		}
+	}
+
+	.flex-direction-nav{
+		li{
+			position: absolute;
+			top:0;
+			bottom:70px;
+			width: 60px;
+			z-index: 1;
+
+
+			&.leftnav{
+				left:0;
+			}
+
+			&.rightnav{
+				right:0;
+			}
+
+			&:hover{
+				// needs latest Compass, add '@import "compass"' to your scss
+				background-color: rgb(255,255,255); // Old browsers
+				@include filter-gradient(#ffffff, #ffffff, vertical); // IE6-8
+				// IE9 SVG, needs conditional override of 'filter' to 'none'
+				$experimental-support-for-svg: true;
+				@include background-image(linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 25%,rgba(229,229,229,1) 75%,rgba(255,255,255,1) 100%));
+			}
+		}
+		
+		a{
+			width: 25px
+		}
+
+	}
+
+	.flex-direction-nav .flex-prev .icon-circle-arrow-left:before {content:"\e600";}
+	.flex-direction-nav .flex-next .icon-circle-arrow-right:before {content:"\e6";}
+}
+
+/* ======================
+	TOUCH
+   ====================== */ 
+
+   html.no-touch{
+		a.lightbox-btn, a.lightbox-remove{
+			display: none;
+		}
+   }
