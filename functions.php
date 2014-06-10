@@ -32,6 +32,7 @@ function custom_styles(){
 
 function custom_scripts(){
 	wp_enqueue_script('modernizr', get_template_directory_uri() . '/js/plugins/modernizr.js', array('jquery'), '');
+	wp_enqueue_script('lazyload', get_template_directory_uri() . '/js/plugins/jquery.lazyload.js', array('jquery'), '', true);
 	wp_enqueue_script('flexslider', get_template_directory_uri() . '/js/plugins/jquery.flexslider.js', array('jquery'), '', true);
 	wp_enqueue_script('cookie', get_template_directory_uri() . '/js/plugins/jquery.cookie.js', array('jquery'), '', true);
 	wp_enqueue_script('main', get_template_directory_uri() . '/js/main.js', array('jquery'), '', true);

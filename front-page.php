@@ -1,6 +1,5 @@
 <?php get_header(); ?>
 <?php
-	global $post;
 	$pageid =$post->ID;
 ?>
 
@@ -10,156 +9,24 @@
 	</div>
 </div>
 
-<div class="albums clearfix">
-	<div class="column col-1-2">
-		<div class="album sizetwo" style="background-image:url(<?php the_field('lifestyle_portraits_bg', $pageid) ?>)">
-			<div class="background"></div>
-			<div class="overlay"></div>
-
-			<div class="valign">
-				<ul class="category-links">
-					<li class="heading">Lifestyle Portraits</li>
-					<?php  
-						$query = new WP_Query(array(
-							'tax_query' => array(
-						        array(
-						        'taxonomy' => 'album-category',
-						        'field' => 'slug',
-						        'terms' => 'lifestyle portraits',
-						    ))
-					    ));
-					?>
-					<?php while($query->have_posts()): $query->the_post(); ?>
-						<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );	?>
-						<li data-bg="<?php echo $url; ?>">
-							<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-						</li>
-					<?php endwhile; ?>						
-				</ul>
-			</div>
+<section class="album-grid clearfix">
+	<?php  
+		
+		$query = new WP_Query(array(
+			'post_type' => 'albums',
+			'post_status' => array('publish'),
+	    ));
+	?>
+	<?php while($query->have_posts()): $query->the_post(); ?>
+	<section class="album">
+		<header>
+		<?php the_title(); ?>		
+		</header>
+		<div class="album-images">
+			
 		</div>
-		<!-- end of lifestyle portraits -->
-
-		<div class="album sizeone" style="background-image:url(<?php the_field('features_bg', $pageid) ?>)">
-			<div class="background"></div>
-			<div class="overlay"></div>
-
-			<div class="valign">
-				<ul class="category-links">
-					<li class="heading">Features</li>
-					<?php  
-						$query = new WP_Query(array(
-							'tax_query' => array(
-						        array(
-						        'taxonomy' => 'album-category',
-						        'field' => 'slug',
-						        'terms' => 'features',
-						    ))
-					    ));
-					?>	
-					<?php while($query->have_posts()): $query->the_post(); ?>
-						<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );	?>
-						<li data-bg="<?php echo $url; ?>">
-							<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-						</li>
-					<?php endwhile; ?>						
-				</ul>	
-			</div>
-		</div>
-		<!-- end of features -->
-
-	</div><!-- left -->
-	
-	<div class="column col-1-2">
-		<div class="album sizeone" style="background-image:url(<?php the_field('nature_bg', $pageid) ?>)">
-			<div class="background"></div>
-			<div class="overlay"></div>
-
-			<div class="valign">
-				<ul class="category-links">
-					<li class="heading">Nature</li>
-					<?php  
-						$query = new WP_Query(array(
-							'tax_query' => array(
-						        array(
-						        'taxonomy' => 'album-category',
-						        'field' => 'slug',
-						        'terms' => 'nature',
-						    ))
-					    ));
-					?>
-					<?php while($query->have_posts()): $query->the_post(); ?>
-						<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );	?>
-						<li data-bg="<?php echo $url; ?>">
-							<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-						</li>
-					<?php endwhile; ?>						
-				</ul>
-			</div>
-		</div>
-		<!-- end of nature -->
-
-		<div class="album sizetwo" style="background-image:url(<?php the_field('formal_portraits_bg', $pageid) ?>)">
-			<div class="background"></div>
-			<div class="overlay"></div>
-
-			<div class="valign">
-				<ul class="category-links">
-					<li class="heading">Formal Portraits</li>
-					<?php  
-						$query = new WP_Query(array(
-							'tax_query' => array(
-						        array(
-						        'taxonomy' => 'album-category',
-						        'field' => 'slug',
-						        'terms' => 'formal portraits',
-						    ))
-					    ));
-					?>
-					<?php while($query->have_posts()): $query->the_post(); ?>
-						<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );	?>
-						<li data-bg="<?php echo $url; ?>">
-							<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-						</li>
-					<?php endwhile; ?>						
-				</ul>
-			</div>
-		</div>	
-		<!-- end of formal portraits -->
-
-	</div><!-- right -->
-
-	<div class="column col-full">
-		<div class="album sizethree" style="background-image:url(<?php the_field('landscapes_bg', $pageid) ?>)">
-			<div class="background"></div>
-			<div class="overlay"></div>
-
-			<div class="valign">
-				<ul class="category-links">
-					<li class="heading">Landscapes</li>
-					<?php  
-						$query = new WP_Query(array(
-							'tax_query' => array(
-						        array(
-						        'taxonomy' => 'album-category',
-						        'field' => 'slug',
-						        'terms' => 'landscapes',
-						    ))
-					    ));
-					?>
-					<?php while($query->have_posts()): $query->the_post(); ?>
-						<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );	?>
-						<li data-bg="<?php echo $url; ?>">
-							<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-						</li>
-					<?php endwhile; ?>						
-				</ul>
-			</div>
-		</div>
-		<!-- end of landscapes -->
-
-	</div>
-	<!-- bottom -->
-</div>
+	</section>
+	<?php endwhile; ?>
+</section>
 <!-- end of albums -->
 <?php get_footer(); ?>

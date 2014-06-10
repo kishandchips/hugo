@@ -47,6 +47,18 @@
 	/*max-width: 1220px;*/
 	overflow: hidden;
 
+	.color-toggle{
+		background-color: transparent;
+		border: none;
+		outline: none;
+
+		&:before{
+			content: "\e604";
+			@extend %icon;
+			
+		}
+	}
+
 	.links a{
 		margin-left: 1em;
 		padding-bottom: 5px;
@@ -65,14 +77,13 @@
 	}
 
 	.counter{
+		position: relative;
 		padding: 4px 4px 1px 4px;
 		color: #fff;
-		background-color: #e74c3c;
-		border-radius: 4px;
+		background-color: #333;
 		@include transition(all,0.2s);
 
 		&.bounce{
-			position: relative;
 			top:-2px;
 		}
 	}
@@ -95,60 +106,20 @@
    ========================================================================== */
 
 body{
-	&.page-template-page-lightbox-php{
-		background-color: #000;
-
-		%black{
-			background-color: #000;
-		}
-		
-		.header-weezy{
-			@extend %black;
-		}
-
-		#header{
-			@extend %black;
-
-			.links a{
-				color: #fff;
-
-				&:hover{
-					border-bottom:1px solid #fff;
-				}				
-			}
-		}
-		
-		.flexslider{
-			@extend %black;
-
-			a{
-				color: #fff;
-			}
-			
-			.flex-direction-nav{
-				li:hover{
-					background-image: none;
-					background-color: transparent;
-				}				
-			}
-		}
-
-		#gallery-content{
-			@extend %black;
-		}
-	}/*lightbox page*/
 	
 	&.home{
 		#weezy{
 			padding: 0;
 		}
 	}/*home page*/
+
 }
 // WRAPPER
 #weezy{
 	max-width: 1600px;
 	height:100%;
 	min-height:100%;
+	margin:0 auto;
 }
 
 #main{
@@ -170,6 +141,33 @@ body{
 	.page-template-page-contact-php &{
 		height: initial;
 		overflow: initial;
+	}
+
+	&.black{
+		.flexslider{
+			background-color: black;
+
+			a{
+				color: #fff;
+			}
+			
+			footer{
+				color: #fff;
+			}
+		}
+
+		#gallery-content{
+			color: #fff;
+			background-color: #000;
+		}
+
+		.flex-direction-nav li{
+			background-color: #000;
+
+			&:hover{
+				background-color: #000;
+			}
+		}
 	}
 }
 
@@ -722,16 +720,12 @@ body{
 
 .modal{
 	visibility: hidden;
-	position: absolute;
-	top: 1em;
-	left: 25%;
-	width: 50%;
-	padding: 1em;
+	padding: 0em 1em;
 	background-color: #fff;
 	border: 1px solid rgba(51,51,51,0.2);
 	z-index:10;
 	@include opacity(0);
-	@include border-radius(3px);
+	@include border-radius(1px);
 	@include single-transition(all,0.3s);
 
 	@media screen and (max-width: 600px){
@@ -748,7 +742,7 @@ body{
 	.message{
 		margin: 0;
 		color: #333;
-		font-size: 2em;
+		font-size: 1.2em;
 		letter-spacing: 1px;
 		@include fanwood;
 		
@@ -757,16 +751,18 @@ body{
 		}
 
 		&.success:before{
-			margin-right: 1em;
+			margin-right: 0.5em;
+			color: #2ecc71;
 			content: "\e604";
-			font-size: 1em;
+			font-size: 1.5em;
 			@extend %icon;
 		}
 
 		&.fail:before{
-			margin-right: 1em;
+			margin-right: 0.5em;
+			color: #e74c3c;
 			content: "\e605";
-			font-size: 1em;
+			font-size: 1.5em;
 			@extend %icon;
 		}
 	}
@@ -824,10 +820,6 @@ body{
 			font-size: 2em;
 			@extend %icon;
 		}
-
-		.page-template-page-lightbox-php &{
-			color: #fff;
-		}
 	}
 		
 	footer{
@@ -856,6 +848,8 @@ body{
 			bottom:70px;
 			width: 60px;
 			z-index: 1;
+			background-color: #fff;
+			@include transition(background-color,0.3s);
 
 
 			&.leftnav{
@@ -867,8 +861,6 @@ body{
 			}
 
 			&:hover{
-				// needs latest Compass, add '@import "compass"' to your scss
-				background-color: rgb(255,255,255); // Old browsers
 				@include filter-gradient(#ffffff, #ffffff, vertical); // IE6-8
 				// IE9 SVG, needs conditional override of 'filter' to 'none'
 				$experimental-support-for-svg: true;
@@ -884,6 +876,25 @@ body{
 
 	.flex-direction-nav .flex-prev .icon-circle-arrow-left:before {content:"\e600";}
 	.flex-direction-nav .flex-next .icon-circle-arrow-right:before {content:"\e6";}
+}
+/* ======================
+	LazyLoad
+   ====================== */ 
+
+.b-lazy {
+	max-width: 100%;
+	@include transition(opacity,1s);
+	@include opacity(0);
+}
+
+.b-lazy.b-loaded {
+	@include opacity(0.8);
+	@include filter(grayscale(80%));
+
+	&:hover{
+		@include opacity(1);
+		@include filter(grayscale(0%));
+	}
 }
 
 /* ======================

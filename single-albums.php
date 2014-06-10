@@ -10,7 +10,7 @@
 				<?php foreach( $images as $image ): ?>
 					<li>
 						<div class="image valign">
-							<img  width="<?php echo $image['width']; ?>" height="<?php echo $image['height']; ?>" src="<?php echo $image['url']; ?>" alt="<?php echo $image['title']; ?>">									
+							<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['title']; ?>" width="<?php echo $image['width']; ?>" height="<?php echo $image['height']; ?>"  >									
 						<a class="lightbox-btn" href="#" data-id="<?php echo $image['id']; ?>">Save to Lightbox</a>
 						</div>
 					</li>
@@ -43,7 +43,7 @@
 				<?php foreach( $images as $image ): ?>
 					<li class="column col-1-3">
 						<a href="#" >
-							<span class="vertical"></span><img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" width="<?php echo $image['width']; ?>" height="<?php echo $image['height']; ?>">
+							<span class="vertical"></span><img class="b-lazy" src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== data-src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" width="<?php echo $image['width']; ?>" height="<?php echo $image['height']; ?>">
 						</a>
 					</li>
 				<?php endforeach;?>

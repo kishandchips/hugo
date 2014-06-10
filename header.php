@@ -13,12 +13,9 @@
 	<header id="header">
 		<div class="logo left">
 			<a href="<?php echo home_url(); ?>">
-				<?php if(is_page('lightbox')) : ?>
-					<img src="<?php echo get_template_directory_uri(); ?>/img/logow.png"  alt="Hugo Rittson Photography">
-				<?php else : ?>
-					<img src="<?php echo get_template_directory_uri(); ?>/img/logo.png"  alt="Hugo Rittson Photography">
-				<?php endif; ?>
+				<img src="<?php echo get_template_directory_uri(); ?>/img/logo.png"  alt="Hugo Rittson Photography">
 			</a>
+			<button class="color-toggle" aria-label="Switch Colour"></button>
 		</div>
 		<div class="links right">
 			<a class="menu-button" href="#" title="Galleries">Galleries</a>

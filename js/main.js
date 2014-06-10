@@ -12,6 +12,8 @@
 			this.aspectRatio();
 			this.lightbox.init();
 			this.lightbox.basket();
+			this.colorToggle();
+			this.modal.position();
 
 			$(window).resize(function(){
 				main.aspectRatio();
@@ -122,13 +124,18 @@
 		modal: {
 			vars: {},
 
-			timeout: function(){
-				var modal = $('.modal'),
-				message = $('.modal .message');
-				
-				setTimeout(function(){
-					modal.removeClass('visible');
-				},3000);
+			init: function(){
+				this.position();
+			},
+
+			position: function(){
+				parentWidth = $('.slides').width();
+				parentHeight = $('.slides').height();  
+        		elementWidth = $('.modal').width();
+        		elementHeight = $('.modal').height();
+
+        		$('.modal').css('left', parentWidth/2 - elementWidth/2);
+        		$('.modal').css('top', parentHeight/2 - elementHeight/2);
 			},
 
 			message: function(status){
@@ -139,15 +146,21 @@
 					message.removeClass('fail');
 					message.addClass('success').html('Image successfully added to lightbox.');
 					modal.toggleClass('visible');
-					main.modal.timeout();
+					// main.modal.timeout();
 
 				} else {
 					message.removeClass('success');
 					message.addClass('fail').html('Image already exists in the lightbox.');
 					modal.toggleClass('visible');
-					main.modal.timeout();
+					// main.modal.timeout();
 				}
 			}
+		},
+
+		colorToggle: function(){
+			$('.color-toggle').on('click', function(){
+				$('#main').toggleClass('black');
+			});
 		},
 
 		lightbox: {
@@ -253,6 +266,10 @@
 	main.init();
 
 	$(window).load(function() {
+		var bLazy = new Blazy({
+		     container: '.gallery'
+	    });
+
 		$('.flexslider').flexslider({
 			animation: "fade",
 			animationSpeed: 850,
@@ -262,6 +279,7 @@
 				main.galleryMetaData();
 			}
 		});
+
 		$('.splash').delay(1000).fadeOut(1000);
 	});
 })(jQuery);
