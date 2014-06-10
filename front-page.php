@@ -14,8 +14,11 @@
 		
 		$query = new WP_Query(array(
 			'post_type' => 'albums',
-			'post_status' => array('publish'),
+			'post_status' => 'publish',
+			'posts_per_page' => -1,
+			'caller_get_posts'=> 1				
 	    ));
+    
 	?>
 	<?php while($query->have_posts()): $query->the_post(); ?>
 	<section class="album">
