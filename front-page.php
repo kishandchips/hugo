@@ -45,8 +45,6 @@
 
 			            }
 			            echo "</ul>";
-
-			            echo 'Spyros';
 			        }
 			        
 			 ?>
