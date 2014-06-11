@@ -174,7 +174,7 @@ body{
 /* ======================
 	HOMEPAGE
    ====================== */
-%albums{
+/*%albums{
 	position: relative;
 	background-size: cover;
 	background-position: center;
@@ -307,7 +307,23 @@ body{
 
 		}
 	}
+}*/
+
+.album{
+	header{
+		border-top: 1px solid rgba(51,51,51,0.2);
+		border-bottom: 1px solid rgba(51,51,51,0.2);
+		
+		h2{		
+			margin: 0;
+			padding:0.5em 15px 0.1em 15px;;
+			@include gtlight;
+			text-transform: uppercase;
+		}
+	}
 }
+
+
 /* ======================
 	GALLERY
    ====================== */ 
