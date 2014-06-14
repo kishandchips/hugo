@@ -10,62 +10,39 @@
 </div>
 
 <section class="album-grid clearfix">
+	<?php $terms = get_terms( 'album-category' ) ?>
 
-<?php query_posts(array( 
-	'post_type' => 'albums',
-	'posts_per_page' => -1,
-	'post_parent' => 0
-)); ?>
+	<?php foreach ($terms as $term) : ?>
+		<div class="album-cat">
+			<header>
+				<h2><?php echo $term->name; ?></h2>	
+			</header>
+		
+			<?php $query = new WP_Query(array(
+					'post_type' => 'albums',
+					'posts_per_page' => -1,
+					'album-category' => $term->slug
+				)); 
+			?>
+			<div class="album-items clearfix">
+				<?php if($query->have_posts()): while($query->have_posts()): $query->the_post(); ?>
+				<?php $images = get_field('images', $post->ID); ?>
 
-<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-
-	<section class="album">
-		<header>
-			<h2>
-				<?php the_title(); ?>					
-			</h2>
-		</header>
-
-		<?php 
-	        $args=array(
-	                'orderby' => 'menu_order',
-	                'order' => 'ASC',
-	                'posts_per_page' => -1,
-	                'post_type' => 'albums',
-	                'post_parent' => $post->ID
-	        );
-
-	        $childpages = new WP_Query($args);
-		?>
-
-		<?php while ($childpages->have_posts()): $childpages->the_post() ?>
-
-		<?php
-			$args = array(
-				'post_type' => 'attachment',
-				'numberposts' => -1,
-				'post_parent' => $post->ID,
-				'exclude' => get_post_thumbnail_id( $post->ID )
-			);
-
-			$attachments = get_children($args);
-			if ($attachments) {
-				foreach ($attachments as $attachment) {
-					echo '<p>';
-					the_attachment_link($attachment->ID, false);
-					echo '</p>';
-					echo '<pre>';
-					var_dump($attachment);					
-					echo '</pre>';
-				}
-			}
-		?>
-
-		<?php endwhile; ?>
-	</section>
-<?php endwhile; endif; ?>
+				<?php if($images): ?>
+					<?php foreach ($images as $image):?>
+						<div class="item" data-id="<?php echo $image['id']; ?>">
+							<a href="<?php the_permalink(); ?>">
+								<div class="overlay"></div>
+								<img class="b-lazy" data-src="<?php echo $image['sizes']['grid-item'] ?> " alt="<?php echo $image['alt']; ?>" width="<?php echo $image['width']; ?>" height="<?php echo $image['height'];?>" src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==>
+							</a>
+						</div>							
+					<?php endforeach; ?>				
+				<?php endif; ?>
+				<?php endwhile; endif; ?>
+			</div><!-- album-items -->
+		</div><!-- album-cat-->
+	<?php endforeach; ?>
 
 
-</section>
-<!-- end of albums -->
+</section><!-- end of album-grid -->
 <?php get_footer(); ?>

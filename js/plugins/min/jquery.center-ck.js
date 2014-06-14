@@ -1,0 +1,1 @@
+jQuery.fn.centerfill=function(){return this.each(function(){var t=jQuery(this).width(),i=jQuery(this).height(),e=jQuery(this).parent();e.css("position","relative");var h=jQuery(e).width(),r=jQuery(e).height(),s=t/h,n=i/r,u=Math.min(s,n),o=t/u,a=i/u;jQuery(this).width(o).height(a).css({position:"absolute",left:(o-h)/-2,top:(a-r)/-2})})};

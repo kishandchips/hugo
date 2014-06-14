@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?-jb7k62');
-	src:url('fonts/icomoon.eot?#iefix-jb7k62') format('embedded-opentype'),
-		url('fonts/icomoon.woff?-jb7k62') format('woff'),
-		url('fonts/icomoon.ttf?-jb7k62') format('truetype'),
-		url('fonts/icomoon.svg?-jb7k62#icomoon') format('svg');
+	src:url('fonts/icomoon.eot?-3h0pza');
+	src:url('fonts/icomoon.eot?#iefix-3h0pza') format('embedded-opentype'),
+		url('fonts/icomoon.woff?-3h0pza') format('woff'),
+		url('fonts/icomoon.ttf?-3h0pza') format('truetype'),
+		url('fonts/icomoon.svg?-3h0pza#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -23,8 +23,18 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-
-
+.icon-check:before {
+	content: "\e116";
+}
+.icon-cross:before {
+	content: "\e117";
+}
+.icon-eye:before {
+	content: "\e605";
+}
+.icon-contrast:before {
+	content: "\e604";
+}
 .icon-phone:before {
 	content: "\e606";
 }
@@ -45,10 +55,4 @@
 }
 .icon-grid:before {
 	content: "\e600";
-}
-.icon-cross:before {
-	content: "\e117";
-}
-.icon-contrast:before {
-	content: "\e604";
 }

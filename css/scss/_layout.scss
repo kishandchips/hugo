@@ -127,10 +127,11 @@ body{
 	height:100%;
 	padding-top:45px;
 	overflow:hidden;
+	@include transition(background-color, 0.3s);
 
 
 	.home &{
-		overflow: initial;
+		height: initial;
 
 		&.container{
 			width: 100%;
@@ -144,8 +145,11 @@ body{
 	}
 
 	&.black{
+		background-color: #000;
+
+		//Home
+
 		.flexslider{
-			background-color: black;
 
 			a{
 				color: #fff;
@@ -166,6 +170,16 @@ body{
 
 			&:hover{
 				background-color: #000;
+				background-image: none;
+			}
+		}
+
+		.lightbox{
+			color: #fff;
+
+			strong{
+				color: #000;
+				background-color:#fff;
 			}
 		}
 	}
@@ -309,8 +323,9 @@ body{
 	}
 }*/
 
-.album{
+.album-grid{
 	header{
+		background-color: #fff;
 		border-top: 1px solid rgba(51,51,51,0.2);
 		border-bottom: 1px solid rgba(51,51,51,0.2);
 		
@@ -321,7 +336,56 @@ body{
 			text-transform: uppercase;
 		}
 	}
-}
+	
+	.album-items{
+		.item{
+			position: relative;
+			width: 10%;
+			float:left;
+			@include transition(all,0.3s);
+
+			@media screen and (max-width: 1000px){
+				width: 20%;
+			}
+
+			@media screen and (max-width: 800px){
+				width: 25%;
+			}
+
+			@media screen and (max-width: 600px){
+				width: 50%;
+			}
+
+			.overlay{
+				z-index: 2;
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0,0,0,.65);
+				visibility: hidden;
+				@include opacity(0);
+				@include transition(opacity,0.3s);
+
+				&:after{
+					width: 100%;
+					color: #fff;
+					content: "\e605";
+					font-size: 2.5em;
+					text-align: center;
+					@extend %icon;
+					@extend .valign;
+				}
+			}
+			
+			&:hover{
+				.overlay{
+					visibility: visible;
+					@include opacity(1);					
+				}
+			}
+		}
+	}
+}//.album
 
 
 /* ======================
@@ -333,7 +397,7 @@ body{
 	top:0;right:0;bottom:0;left:0;
 	padding-top: 45px;
 	background-color: #fff;
-	@include transition(bottom,0.3s);
+	@include transition(bottom,0.5s);
 	z-index: 2;
 
 	@media screen and (max-width:700px){
@@ -459,7 +523,7 @@ body{
 	width:100%;
 	height: 90%;
 	padding: 0 15px;
-	color: #fff;
+	color: #000;
 	overflow-y: auto;
 
 	.frame{
@@ -504,10 +568,10 @@ body{
 			display: inline-block;
 			line-height: 50px;
 			width: 50px;
-			color: #000;
+			color: #fff;
 			font-size: 2.5em;
 			text-align: center;
-			background-color: #fff;
+			background-color: #000;
 			@include border-radius(50px);
 
 			@media screen and (max-width: 650px){
@@ -735,8 +799,12 @@ body{
    ====================== */ 
 
 .modal{
+	position: absolute;
+	top:0;
 	visibility: hidden;
+	width:100%;
 	padding: 0em 1em;
+	text-align: center;
 	background-color: #fff;
 	border: 1px solid rgba(51,51,51,0.2);
 	z-index:10;
@@ -761,6 +829,7 @@ body{
 		font-size: 1.2em;
 		letter-spacing: 1px;
 		@include fanwood;
+		background-color: #fff;
 		
 		@media screen and (max-width:600px){
 			font-size: 1em;
@@ -769,7 +838,7 @@ body{
 		&.success:before{
 			margin-right: 0.5em;
 			color: #2ecc71;
-			content: "\e604";
+			content: "\e116";
 			font-size: 1.5em;
 			@extend %icon;
 		}
@@ -777,7 +846,7 @@ body{
 		&.fail:before{
 			margin-right: 0.5em;
 			color: #e74c3c;
-			content: "\e605";
+			content: "\e117";
 			font-size: 1.5em;
 			@extend %icon;
 		}
@@ -785,47 +854,50 @@ body{
 }
 
 /* ======================
-	Flexslider
+	Single Albums
    ====================== */ 
 
 .flexslider{
 	z-index: 1;
+	visibility:hidden;
+
+	&.visible{
+		visibility: visible;
+	}
 
 	@media screen and (max-width: 480px){
 		padding-bottom: 90px;
 	}
 
-	.slides{
+	ul.slides{
 		padding: 0 60px;
-	}
+		
+		.image{
+			&:hover a.lightbox-btn, &:hover a.lightbox-remove{
+				visibility: visible;
+				@include opacity(1);
+			}
 
-	.image{
-		display: inline-block;
-		position:relative;
-
-		&:hover a.lightbox-btn, &:hover a.lightbox-remove{
-			display: inline-block;
-		}
-
-		a.lightbox-btn, a.lightbox-remove{
-			position: absolute;
-			bottom:0;
-			left:0;
-			padding: 10px;
-			color: #fff;
-			text-transform: uppercase;
-			background-color: #000;
-			cursor: pointer;
-			@include transition(all,0.2s);
-
-			&:before{
-				content: "\e603";
-				margin-right: 10px;
+			a.lightbox-btn, a.lightbox-remove{
+				position: absolute;
+				bottom:0;
+				left:0;
+				padding: 10px;
 				color: #fff;
-				font-size: 1em;
-				font-weight: 700;
-				@extend %icon;
-			}			
+				text-transform: uppercase;
+				background-color: #000;
+				cursor: pointer;
+				@include transition(all,0.2s);
+
+				&:before{
+					content: "\e603";
+					margin-right: 10px;
+					color: #fff;
+					font-size: 1em;
+					font-weight: 700;
+					@extend %icon;
+				}			
+			}
 		}
 	}
 
@@ -904,12 +976,10 @@ body{
 }
 
 .b-lazy.b-loaded {
-	@include opacity(0.8);
-	@include filter(grayscale(80%));
+	@include opacity(1);
 
 	&:hover{
-		@include opacity(1);
-		@include filter(grayscale(0%));
+		@include opacity(0.7);
 	}
 }
 
@@ -919,6 +989,7 @@ body{
 
    html.no-touch{
 		a.lightbox-btn, a.lightbox-remove{
-			display: none;
+			visibility: hidden;
+			@include opacity(0);
 		}
    }

@@ -18,7 +18,8 @@ define('THEME_NAME', 'hugo');
 	add_action( 'wp_enqueue_scripts', 'custom_styles', 30 );
 	add_action( 'wp_enqueue_scripts', 'custom_scripts', 30 );
 
-
+// Image sizes
+	add_image_size( 'grid-item', 300, 300, true );
 // Functions
 
 function add_editor_styles() {
@@ -100,9 +101,14 @@ function album_category() {
 
 function gallery_meta(){
 	global $post;
-	$parents = get_post_ancestors( $post->ID ); 
-	$id = $parents[0];
- 	$output = get_the_title($id);
+
+	$categories = get_the_terms($post->ID, 'album-category' );
+
+	foreach ($categories as $category) {
+		$catname = $category->name;
+	}
+
+ 	$output = $catname;
  	$output .= ' / ' . get_the_title();
  	echo $output;
 }

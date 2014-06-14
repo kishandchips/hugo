@@ -38,10 +38,6 @@
 
 </div><!-- OVERLAY MENU -->
 
-<div class="modal">
-	<p class="message success"></p>
-</div><!-- MODAL -->
-
 <?php wp_footer(); ?>
 </body>
 </html>
