@@ -555,44 +555,77 @@ a {
   font-weight: normal;
   font-style: italic; }
 
-/* line 100, scss/_typography.scss */
-#overlaymenu nav ul.menu > li > a {
-  margin-bottom: 0.5em;
-  font-size: 1.43em;
-  font-family: 'Fanwood Text', serif;
-  font-weight: normal;
-  font-style: italic; }
-
-/* line 107, scss/_typography.scss */
-#overlaymenu nav ul.sub-menu li {
+/* ======================
+	BUTTON STYLES
+   ====================== */
+/* line 5, scss/_button.scss */
+.btn, input[type="submit"] {
+  display: inline-block;
+  padding: 1em 1.4em 0.7em 1.4em;
   color: #fff;
-  font-size: 2.5em;
-  font-family: 'gt_pressura_trialbold';
-  font-style: normal;
   text-transform: uppercase;
-  line-height: 0.9; }
-  /* line 115, scss/_typography.scss */
-  #overlaymenu nav ul.sub-menu li a {
-    display: inline-block;
-    padding: 0.35em 0.35em 0.15em 0.35em;
+  font-family: 'gt_pressura_triallight';
+  line-height: 1;
+  letter-spacing: 1px;
+  border: 1px solid transparent;
+  background-color: #000;
+  -moz-transition: all, 0.3s;
+  -o-transition: all, 0.3s;
+  -webkit-transition: all, 0.3s;
+  transition: all, 0.3s; }
+  /* line 17, scss/_button.scss */
+  .btn:hover, input[type="submit"]:hover {
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #333; }
+  /* line 23, scss/_button.scss */
+  .btn.secondary, input.secondary[type="submit"], .gform_wrapper.lightbox-email_wrapper form.lightbox-email .gform_footer input[type="submit"] {
     color: #fff;
-    border: 1px solid transparent;
-    -moz-transition: border, 0.3s;
-    -o-transition: border, 0.3s;
-    -webkit-transition: border, 0.3s;
-    transition: border, 0.3s; }
-    /* line 122, scss/_typography.scss */
-    #overlaymenu nav ul.sub-menu li a:hover {
-      border: 1px solid white; }
-  @media screen and (max-width: 768px) {
-    /* line 107, scss/_typography.scss */
-    #overlaymenu nav ul.sub-menu li {
-      font-size: 2em; } }
+    background-color: #000; }
+    /* line 27, scss/_button.scss */
+    .btn.secondary:hover, input.secondary[type="submit"]:hover, .gform_wrapper.lightbox-email_wrapper form.lightbox-email .gform_footer input[type="submit"]:hover {
+      color: #333;
+      background-color: #fff;
+      border: 1px solid #000; }
+
+/* line 35, scss/_button.scss */
+.button {
+  outline: none;
+  border: none;
+  background-color: transparent; }
+
+/* line 40, scss/_button.scss */
+.toggle-gallery, .color-toggle, .lightbox-toggle {
+  font-size: 0.875em;
+  text-transform: uppercase;
+  letter-spacing: 1px; }
+
+/* line 48, scss/_button.scss */
+.toggle-gallery:before {
+  position: relative;
+  top: -1px;
+  content: "\e600";
+  font-size: 2em; }
+
+/* line 59, scss/_button.scss */
+.color-toggle:before {
+  position: relative;
+  top: -1px;
+  margin-right: 5px;
+  content: "\e604"; }
+
+/* line 71, scss/_button.scss */
+.lightbox-toggle:before {
+  position: relative;
+  top: -1px;
+  margin-right: 5px;
+  content: "\e609";
+  font-size: 1.5em; }
 
 @font-face {
   font-family: 'icomoon';
-  src: url("fonts/icomoon.eot?-3h0pza");
-  src: url("fonts/icomoon.eot?#iefix-3h0pza") format("embedded-opentype"), url("fonts/icomoon.woff?-3h0pza") format("woff"), url("fonts/icomoon.ttf?-3h0pza") format("truetype"), url("fonts/icomoon.svg?-3h0pza#icomoon") format("svg");
+  src: url("fonts/icomoon.eot?6fbz05");
+  src: url("fonts/icomoon.eot?#iefix6fbz05") format("embedded-opentype"), url("fonts/icomoon.woff?6fbz05") format("woff"), url("fonts/icomoon.ttf?6fbz05") format("truetype"), url("fonts/icomoon.svg?6fbz05#icomoon") format("svg");
   font-weight: normal;
   font-style: normal; }
 /* line 12, scss/_icons.scss */
@@ -609,48 +642,56 @@ a {
   -moz-osx-font-smoothing: grayscale; }
 
 /* line 26, scss/_icons.scss */
-.icon-check:before {
-  content: "\e116"; }
+.icon-minus:before {
+  content: "\e60a"; }
 
 /* line 29, scss/_icons.scss */
-.icon-cross:before {
-  content: "\e117"; }
-
-/* line 32, scss/_icons.scss */
-.icon-eye:before {
+.icon-plus:before {
   content: "\e605"; }
 
-/* line 35, scss/_icons.scss */
-.icon-contrast:before {
+/* line 32, scss/_icons.scss */
+.icon-toggle:before {
   content: "\e604"; }
 
-/* line 38, scss/_icons.scss */
+/* line 35, scss/_icons.scss */
 .icon-phone:before {
   content: "\e606"; }
 
-/* line 41, scss/_icons.scss */
+/* line 38, scss/_icons.scss */
 .icon-map:before {
   content: "\e607"; }
 
-/* line 44, scss/_icons.scss */
+/* line 41, scss/_icons.scss */
 .icon-mail:before {
   content: "\e608"; }
 
-/* line 47, scss/_icons.scss */
+/* line 44, scss/_icons.scss */
 .icon-lightbox-icon:before {
   content: "\e603"; }
 
-/* line 50, scss/_icons.scss */
+/* line 47, scss/_icons.scss */
 .icon-arrowright:before {
   content: "\e601"; }
 
-/* line 53, scss/_icons.scss */
+/* line 50, scss/_icons.scss */
 .icon-arrowleft:before {
   content: "\e602"; }
 
+/* line 53, scss/_icons.scss */
+.icon-check:before {
+  content: "\e116"; }
+
 /* line 56, scss/_icons.scss */
+.icon-cross:before {
+  content: "\e117"; }
+
+/* line 59, scss/_icons.scss */
 .icon-grid:before {
   content: "\e600"; }
+
+/* line 62, scss/_icons.scss */
+.icon-send:before {
+  content: "\e609"; }
 
 /* ==================== 
     BASE
@@ -684,7 +725,7 @@ img {
   float: right; }
 
 /* line 31, scss/_misc.scss */
-.valign, .album-grid .album-items .item .overlay:after {
+.valign, section.flexslider ul.slides li .image {
   position: absolute;
   top: 50%;
   -moz-transform: translateY(-50%);
@@ -693,181 +734,244 @@ img {
   transform: translateY(-50%); }
 
 /* line 37, scss/_misc.scss */
-#header .color-toggle:before, .album-grid .album-items .item .overlay:after, .contact-section .contact-details i, .modal .message.success:before, .modal .message.fail:before, .flexslider ul.slides .image a.lightbox-btn:before, .flexslider ul.slides .image a.lightbox-remove:before, .flexslider .toggle-gallery:before {
+.halign {
+  position: absolute;
+  left: 50%;
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%); }
+
+/* line 43, scss/_misc.scss */
+.calign, .firefox .slides .image img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%); }
+
+/* line 50, scss/_misc.scss */
+.toggle-gallery:before, .color-toggle:before, .lightbox-toggle:before, #contact .contact-section .details i, .modal .message.success:before, .modal .message.fail:before {
   font-family: 'icomoon';
   speak: none;
   vertical-align: middle; }
 
-/* line 43, scss/_misc.scss */
+/* line 56, scss/_misc.scss */
 hr.split-page {
   margin: 4em 0; }
 
-/* ======================
-	BUTTON STYLES
-   ====================== */
-/* line 5, scss/_forms.scss */
-.btn, input[type="submit"] {
-  display: inline-block;
-  line-height: 40px;
-  padding: 0 1.4em;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border: 1px solid transparent;
-  background-color: #000;
-  -moz-transition: all, 0.3s;
-  -o-transition: all, 0.3s;
-  -webkit-transition: all, 0.3s;
-  transition: all, 0.3s; }
-  /* line 17, scss/_forms.scss */
-  .btn:hover, input[type="submit"]:hover {
-    color: #333;
-    background-color: #fff;
-    border: 1px solid #333; }
-  /* line 23, scss/_forms.scss */
-  .btn.secondary, input.secondary[type="submit"], .gform_wrapper.lightbox-email_wrapper form.lightbox-email .gform_footer input[type="submit"] {
-    color: #333;
-    background-color: #fff; }
-    /* line 27, scss/_forms.scss */
-    .btn.secondary:hover, input.secondary[type="submit"]:hover, .gform_wrapper.lightbox-email_wrapper form.lightbox-email .gform_footer input[type="submit"]:hover {
-      color: #fff;
-      background-color: #000;
-      border: 1px solid #fff; }
+/* line 60, scss/_misc.scss */
+.visible, .lightbox-form-wrapper.visible, section.flexslider.visible, section.flexslider ul.slides li .image:hover button {
+  visibility: visible;
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1; }
 
 /* ======================
 	FORM ELEMENTS
    ====================== */
-/* line 39, scss/_forms.scss */
-label {
+/* line 5, scss/_forms.scss */
+label, .gfield_label {
   font-size: 1.15em;
-  font-family: 'Fanwood Text', serif;
-  font-weight: normal;
+  font-weight: 400;
+  font-family: 'gt_pressura_triallight';
   text-transform: uppercase;
   letter-spacing: 1px; }
 
-/* line 46, scss/_forms.scss */
+/* line 13, scss/_forms.scss */
 input[type="text"],
 input[type="email"] {
   height: 40px; }
 
-/* line 53, scss/_forms.scss */
-input[type="text"]:focus, textarea:focus {
-  -moz-box-shadow: 0px 5px #333333;
-  -webkit-box-shadow: 0px 5px #333333;
-  box-shadow: 0px 5px #333333; }
+/* line 18, scss/_forms.scss */
+input[type="text"], textarea {
+  -moz-transition: all, 0.3s;
+  -o-transition: all, 0.3s;
+  -webkit-transition: all, 0.3s;
+  transition: all, 0.3s; }
+  /* line 21, scss/_forms.scss */
+  input[type="text"]:focus, textarea:focus {
+    -moz-box-shadow: 0px 5px #333333;
+    -webkit-box-shadow: 0px 5px #333333;
+    box-shadow: 0px 5px #333333; }
 
 /* ======================
 	CONTACT FORM
    ====================== */
-/* line 67, scss/_forms.scss */
+/* line 35, scss/_forms.scss */
 .contact-form h3 {
   margin-top: 0; }
 
 /* ======================
-	LIGHTBOX EMAIL
+	LIGHTBOX FORM
    ====================== */
-/* line 78, scss/_forms.scss */
-.gform_wrapper .gfield_label {
-  font-weight: normal !important; }
-/* line 83, scss/_forms.scss */
-.gform_wrapper .ginput_container input[type="text"], .gform_wrapper .ginput_container input[type="email"],
-.gform_wrapper .ginput_container textarea {
-  width: 100% !important;
-  margin-bottom: 1em;
-  padding: 0.6em;
-  font-size: 1em;
-  background: rgba(245, 245, 245, 0.32);
-  border: 1px solid rgba(151, 151, 151, 0.3); }
-/* line 94, scss/_forms.scss */
-.gform_wrapper.lightbox-email_wrapper {
-  max-width: 100%;
-  margin: 0;
-  padding: 0 25%; }
-  @media screen and (max-width: 800px) {
-    /* line 94, scss/_forms.scss */
-    .gform_wrapper.lightbox-email_wrapper {
-      padding: 0 10%; } }
-  /* line 103, scss/_forms.scss */
-  .gform_wrapper.lightbox-email_wrapper form.lightbox-email {
+/* line 44, scss/_forms.scss */
+.lightbox-form-wrapper {
+  visibility: hidden;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background-color: rgba(250, 250, 250, 0.9);
+  -moz-transition: all, 0.3s;
+  -o-transition: all, 0.3s;
+  -webkit-transition: all, 0.3s;
+  transition: all, 0.3s; }
+  /* line 57, scss/_forms.scss */
+  .lightbox-form-wrapper.visible, section.lightbox-form-wrapper.flexslider.visible, section.flexslider ul.slides li .image:hover button.lightbox-form-wrapper {
+    overflow-y: auto; }
+    /* line 61, scss/_forms.scss */
+    .lightbox-form-wrapper.visible .lightbox-form, section.flexslider ul.slides li .image:hover button.lightbox-form-wrapper .lightbox-form {
+      top: 0; }
+  /* line 66, scss/_forms.scss */
+  .lightbox-form-wrapper .lightbox-form {
     display: inline-block;
+    position: relative;
+    top: -200px;
+    margin-top: 2em;
+    -moz-transition: all, 0.3s;
+    -o-transition: all, 0.3s;
+    -webkit-transition: all, 0.3s;
+    transition: all, 0.3s; }
+    /* line 73, scss/_forms.scss */
+    .lightbox-form-wrapper .lightbox-form .lightbox-toggle {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.5em; }
+  /* line 81, scss/_forms.scss */
+  .lightbox-form-wrapper .gform_confirmation_wrapper {
     width: 100%;
-    margin: 0;
-    color: #fff; }
-    /* line 109, scss/_forms.scss */
-    .gform_wrapper.lightbox-email_wrapper form.lightbox-email .gform_body {
-      display: inline-block;
-      width: 80%; }
-      @media screen and (max-width: 480px) {
-        /* line 109, scss/_forms.scss */
-        .gform_wrapper.lightbox-email_wrapper form.lightbox-email .gform_body {
-          width: 70%; } }
-      /* line 117, scss/_forms.scss */
-      .gform_wrapper.lightbox-email_wrapper form.lightbox-email .gform_body label {
-        text-align: left; }
-    /* line 123, scss/_forms.scss */
-    .gform_wrapper.lightbox-email_wrapper form.lightbox-email .ginput_container input {
+    max-width: 600px;
+    margin: 2em auto 0 auto;
+    background-color: #fff;
+    border: 1px solid #ddd; }
+    /* line 88, scss/_forms.scss */
+    .lightbox-form-wrapper .gform_confirmation_wrapper .gform_confirmation_message {
+      padding: 2em;
       color: #fff;
-      background: whitesmoke; }
-    /* line 129, scss/_forms.scss */
-    .gform_wrapper.lightbox-email_wrapper form.lightbox-email .gform_footer {
-      display: inline-block;
-      width: 18%;
-      margin-top: 0;
-      padding: 0; }
-/* line 142, scss/_forms.scss */
-.gform_wrapper.contact-form_wrapper {
-  margin: 0;
-  padding: 0 10%; }
-  @media screen and (max-width: 767px) {
-    /* line 142, scss/_forms.scss */
-    .gform_wrapper.contact-form_wrapper {
-      padding: 0; } }
-/* line 152, scss/_forms.scss */
-.gform_wrapper .contact-form .gform_title {
-  margin: 0;
-  font-size: 1.71em;
-  font-weight: 300; }
-/* line 158, scss/_forms.scss */
-.gform_wrapper .contact-form .gform_description {
-  font-size: 1.23em;
-  font-family: 'Fanwood Text', serif;
-  font-weight: normal; }
-/* line 163, scss/_forms.scss */
-.gform_wrapper .contact-form .gform_footer {
-  margin: 1em 0 2em 0;
-  padding: 0;
-  text-align: center; }
-/* line 171, scss/_forms.scss */
-.gform_wrapper .lightbox-email div.validation_error, .gform_wrapper .contact-form div.validation_error {
-  padding: 0.5em;
-  color: #fff;
-  font-size: 1em;
-  font-weight: normal;
-  background-color: #e74c3c;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px; }
-/* line 180, scss/_forms.scss */
-.gform_wrapper .lightbox-email li.gfield.gfield_error, .gform_wrapper .contact-form li.gfield.gfield_error {
-  background-color: #fff;
-  border: none; }
-  /* line 184, scss/_forms.scss */
-  .gform_wrapper .lightbox-email li.gfield.gfield_error .validation_message, .gform_wrapper .contact-form li.gfield.gfield_error .validation_message {
+      font-size: 2em;
+      font-family: 'gt_pressura_triallight';
+      text-transform: uppercase;
+      background-color: #2ecc71; }
+
+/* ======================
+	GFORM STUFF
+   ====================== */
+/* line 103, scss/_forms.scss */
+.gform_wrapper {
+  margin: 0 auto !important;
+  /* ======================
+  	LIGHTBOX
+     ====================== */
+  /* ======================
+  	CONTACT
+     ====================== */ }
+  /* line 106, scss/_forms.scss */
+  .gform_wrapper .gform_heading {
+    width: 100% !important;
     margin: 0;
-    padding: 0 !important; }
+    color: #333; }
+    /* line 111, scss/_forms.scss */
+    .gform_wrapper .gform_heading .gform_title {
+      margin: 0;
+      font-size: 1.71em;
+      font-weight: 300;
+      text-transform: uppercase;
+      font-family: 'gt_pressura_trialbold'; }
+    /* line 119, scss/_forms.scss */
+    .gform_wrapper .gform_heading .gform_description {
+      font-family: 'gt_pressura_triallight'; }
+  @media screen and (max-width: 550px) {
+    /* line 127, scss/_forms.scss */
+    .gform_wrapper .gfield .ginput_complex .ginput_left, .gform_wrapper .gfield .ginput_complex .ginput_right {
+      width: 100%; } }
+  /* line 131, scss/_forms.scss */
+  .gform_wrapper .gfield .ginput_complex span > input {
+    margin-bottom: 0; }
+  /* line 137, scss/_forms.scss */
+  .gform_wrapper .ginput_container input[type="text"], .gform_wrapper .ginput_container input[type="email"],
+  .gform_wrapper .ginput_container textarea {
+    width: 100% !important;
+    margin-bottom: 1em;
+    padding: 0.6em;
+    font-size: 1em;
+    color: #000;
+    background: whitesmoke;
+    border: 1px solid rgba(213, 213, 213, 0.3);
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px; }
+  /* line 150, scss/_forms.scss */
+  .gform_wrapper .gform_footer {
+    text-align: right; }
+  /* line 158, scss/_forms.scss */
+  .gform_wrapper.lightbox-email_wrapper {
+    width: 100%;
+    max-width: 600px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top: 3px solid #ea6153;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px; }
+    /* line 166, scss/_forms.scss */
+    .gform_wrapper.lightbox-email_wrapper form.lightbox-email {
+      display: inline-block;
+      width: 100%;
+      margin: 0;
+      padding: 0 3em;
+      color: #fff; }
+      /* line 173, scss/_forms.scss */
+      .gform_wrapper.lightbox-email_wrapper form.lightbox-email .gform_heading {
+        padding-top: 3em; }
+      /* line 178, scss/_forms.scss */
+      .gform_wrapper.lightbox-email_wrapper form.lightbox-email .gform_body label {
+        color: #000;
+        text-align: left; }
+      /* line 184, scss/_forms.scss */
+      .gform_wrapper.lightbox-email_wrapper form.lightbox-email .gform_footer {
+        margin-top: 0;
+        padding-bottom: 3em; }
+  /* line 199, scss/_forms.scss */
+  .gform_wrapper.contact-form_wrapper {
+    max-width: 100%; }
+    @media screen and (max-width: 767px) {
+      /* line 199, scss/_forms.scss */
+      .gform_wrapper.contact-form_wrapper {
+        padding: 0; } }
+  /* line 208, scss/_forms.scss */
+  .gform_wrapper .contact-form .gform_footer {
+    margin: 1em 0 2em 0;
+    padding: 0; }
+  /* line 215, scss/_forms.scss */
+  .gform_wrapper .lightbox-email div.validation_error, .gform_wrapper .contact-form div.validation_error {
+    padding: 0.5em;
+    color: #fff;
+    font-size: 1em;
+    font-weight: normal;
+    background-color: #e74c3c;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px; }
+  /* line 224, scss/_forms.scss */
+  .gform_wrapper .lightbox-email li.gfield.gfield_error, .gform_wrapper .contact-form li.gfield.gfield_error {
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: #fff;
+    border: none; }
+    /* line 230, scss/_forms.scss */
+    .gform_wrapper .lightbox-email li.gfield.gfield_error .validation_message, .gform_wrapper .contact-form li.gfield.gfield_error .validation_message {
+      margin: 0;
+      padding: 0 !important; }
 
-/* line 196, scss/_forms.scss */
-.gform_confirmation_wrapper .gform_confirmation_message {
-  margin-top: 2em;
-  padding: 1em;
-  font-size: 1.3em;
-  font-family: 'Fanwood Text', serif;
-  font-weight: normal;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border: 1px solid black; }
-
-/* line 207, scss/_forms.scss */
+/* line 251, scss/_forms.scss */
 .gform_confirmation_wrapper.lightbox-email {
   color: #fff; }
 
@@ -887,7 +991,7 @@ input[type="text"]:focus, textarea:focus {
   background-size: cover;
   z-index: 9999; }
   /* line 13, scss/_layout.scss */
-  .splash .valign, .splash .album-grid .album-items .item .overlay:after, .album-grid .album-items .item .splash .overlay:after {
+  .splash .valign, .splash section.flexslider ul.slides li .image, section.flexslider ul.slides li .splash .image {
     width: 100%;
     text-align: center; }
   /* line 18, scss/_layout.scss */
@@ -899,40 +1003,24 @@ input[type="text"]:focus, textarea:focus {
     text-transform: uppercase; }
 
 /* line 27, scss/_layout.scss */
-.header-weezy {
+#header {
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
   height: 45px;
-  padding: 0 15px;
-  background-color: #fff;
   line-height: 45px;
+  padding: 0 15px;
   text-align: center;
-  z-index: 5; }
+  background-color: #fff;
+  z-index: 15;
+  overflow: hidden; }
   @media screen and (max-width: 550px) {
     /* line 27, scss/_layout.scss */
-    .header-weezy {
+    #header {
       height: 60px; } }
-
-/* line 44, scss/_layout.scss */
-#header {
-  display: inline-block;
-  width: 100%;
-  /*max-width: 1220px;*/
-  overflow: hidden; }
-  /* line 50, scss/_layout.scss */
-  #header .color-toggle {
-    background-color: transparent;
-    border: none;
-    outline: none; }
-    /* line 55, scss/_layout.scss */
-    #header .color-toggle:before {
-      content: "\e604"; }
-  /* line 62, scss/_layout.scss */
+  /* line 43, scss/_layout.scss */
   #header .links a {
     margin-left: 1em;
-    padding-bottom: 5px;
     font-family: 'gt_pressura_triallight';
     text-transform: uppercase;
     border-bottom: 1px solid transparent;
@@ -940,55 +1028,46 @@ input[type="text"]:focus, textarea:focus {
     -o-transition: all 0.3s;
     -webkit-transition: all 0.3s;
     transition: all 0.3s; }
-    /* line 70, scss/_layout.scss */
+    /* line 50, scss/_layout.scss */
     #header .links a:hover {
       border-bottom: 1px solid #111; }
-    /* line 74, scss/_layout.scss */
+    /* line 54, scss/_layout.scss */
     #header .links a:first-child {
       margin-left: 0; }
-  /* line 79, scss/_layout.scss */
+  /* line 59, scss/_layout.scss */
   #header .counter {
-    position: relative;
-    padding: 4px 4px 1px 4px;
-    color: #fff;
-    background-color: #333;
-    -moz-transition: all, 0.2s;
-    -o-transition: all, 0.2s;
-    -webkit-transition: all, 0.2s;
-    transition: all, 0.2s; }
-    /* line 86, scss/_layout.scss */
-    #header .counter.bounce {
-      top: -2px; }
+    margin-left: 5px;
+    color: #e74c3c; }
   @media screen and (max-width: 550px) {
-    /* line 44, scss/_layout.scss */
+    /* line 27, scss/_layout.scss */
     #header {
       line-height: 30px;
       text-align: center; }
-      /* line 94, scss/_layout.scss */
+      /* line 67, scss/_layout.scss */
       #header .logo {
         width: 100%; }
-      /* line 98, scss/_layout.scss */
+      /* line 71, scss/_layout.scss */
       #header .links {
         width: 100%; } }
 
 /* ==========================================================================
 	CONTENT
    ========================================================================== */
-/* line 108, scss/_layout.scss */
+/* line 81, scss/_layout.scss */
 body {
   /*home page*/ }
-  /* line 111, scss/_layout.scss */
+  /* line 83, scss/_layout.scss */
   body.home #weezy {
     padding: 0; }
 
-/* line 118, scss/_layout.scss */
+/* line 90, scss/_layout.scss */
 #weezy {
   max-width: 1600px;
   height: 100%;
   min-height: 100%;
   margin: 0 auto; }
 
-/* line 125, scss/_layout.scss */
+/* line 97, scss/_layout.scss */
 #main {
   position: relative;
   height: 100%;
@@ -998,41 +1077,50 @@ body {
   -o-transition: background-color, 0.3s;
   -webkit-transition: background-color, 0.3s;
   transition: background-color, 0.3s; }
-  /* line 133, scss/_layout.scss */
+  @media screen and (max-width: 550px) {
+    /* line 97, scss/_layout.scss */
+    #main {
+      padding-top: 60px; } }
+  /* line 108, scss/_layout.scss */
   .home #main {
     height: initial; }
-    /* line 136, scss/_layout.scss */
-    .home #main.container {
-      width: 100%;
-      max-width: initial; }
-  /* line 142, scss/_layout.scss */
+  /* line 112, scss/_layout.scss */
   .page-template-page-contact-php #main {
-    height: initial;
     overflow: initial; }
-  /* line 147, scss/_layout.scss */
+  /* line 116, scss/_layout.scss */
   #main.black {
+    color: #fff;
     background-color: #000; }
-    /* line 154, scss/_layout.scss */
-    #main.black .flexslider a {
-      color: #fff; }
-    /* line 158, scss/_layout.scss */
-    #main.black .flexslider footer {
-      color: #fff; }
-    /* line 163, scss/_layout.scss */
-    #main.black #gallery-content {
+    /* line 121, scss/_layout.scss */
+    #main.black .flexslider {
+      background-color: #000; }
+      /* line 124, scss/_layout.scss */
+      #main.black .flexslider a {
+        color: #fff; }
+      /* line 128, scss/_layout.scss */
+      #main.black .flexslider .flex-direction-nav li a {
+        background-color: #000; }
+        /* line 131, scss/_layout.scss */
+        #main.black .flexslider .flex-direction-nav li a:hover {
+          background-color: #000;
+          background-image: none; }
+      /* line 137, scss/_layout.scss */
+      #main.black .flexslider footer {
+        color: #fff; }
+        /* line 139, scss/_layout.scss */
+        #main.black .flexslider footer .button {
+          color: #fff; }
+    /* line 146, scss/_layout.scss */
+    #main.black .gallery-content {
       color: #fff;
       background-color: #000; }
-    /* line 168, scss/_layout.scss */
-    #main.black .flex-direction-nav li {
-      background-color: #000; }
-      /* line 171, scss/_layout.scss */
-      #main.black .flex-direction-nav li:hover {
-        background-color: #000;
-        background-image: none; }
-    /* line 177, scss/_layout.scss */
+      /* line 151, scss/_layout.scss */
+      #main.black .gallery-content footer .button {
+        color: #fff; }
+    /* line 158, scss/_layout.scss */
     #main.black .lightbox {
       color: #fff; }
-      /* line 180, scss/_layout.scss */
+      /* line 161, scss/_layout.scss */
       #main.black .lightbox strong {
         color: #000;
         background-color: #fff; }
@@ -1174,18 +1262,19 @@ body {
 		}
 	}
 }*/
-/* line 327, scss/_layout.scss */
+/* line 308, scss/_layout.scss */
 .album-grid header {
+  padding: 0.9em 15px 0.5em 15px;
   background-color: #fff;
   border-top: 1px solid rgba(51, 51, 51, 0.2);
   border-bottom: 1px solid rgba(51, 51, 51, 0.2); }
-  /* line 332, scss/_layout.scss */
+  /* line 314, scss/_layout.scss */
   .album-grid header h2 {
     margin: 0;
-    padding: 0.5em 15px 0.1em 15px;
+    font-size: 1.5em;
     font-family: 'gt_pressura_triallight';
     text-transform: uppercase; }
-/* line 341, scss/_layout.scss */
+/* line 323, scss/_layout.scss */
 .album-grid .album-items .item {
   position: relative;
   width: 10%;
@@ -1195,18 +1284,18 @@ body {
   -webkit-transition: all, 0.3s;
   transition: all, 0.3s; }
   @media screen and (max-width: 1000px) {
-    /* line 341, scss/_layout.scss */
+    /* line 323, scss/_layout.scss */
     .album-grid .album-items .item {
       width: 20%; } }
   @media screen and (max-width: 800px) {
-    /* line 341, scss/_layout.scss */
+    /* line 323, scss/_layout.scss */
     .album-grid .album-items .item {
       width: 25%; } }
   @media screen and (max-width: 600px) {
-    /* line 341, scss/_layout.scss */
+    /* line 323, scss/_layout.scss */
     .album-grid .album-items .item {
       width: 50%; } }
-  /* line 359, scss/_layout.scss */
+  /* line 341, scss/_layout.scss */
   .album-grid .album-items .item .overlay {
     z-index: 2;
     position: absolute;
@@ -1219,15 +1308,17 @@ body {
     -moz-transition: opacity, 0.3s;
     -o-transition: opacity, 0.3s;
     -webkit-transition: opacity, 0.3s;
-    transition: opacity, 0.3s; }
-    /* line 369, scss/_layout.scss */
-    .album-grid .album-items .item .overlay:after {
-      width: 100%;
+    transition: opacity, 0.3s;
+    text-align: center; }
+    /* line 352, scss/_layout.scss */
+    .album-grid .album-items .item .overlay span {
+      display: inline-block;
       color: #fff;
-      content: "\e605";
-      font-size: 2.5em;
-      text-align: center; }
-  /* line 381, scss/_layout.scss */
+      font-style: italic;
+      font-family: 'Fanwood Text', serif;
+      font-weight: normal;
+      line-height: 1; }
+  /* line 363, scss/_layout.scss */
   .album-grid .album-items .item:hover .overlay {
     visibility: visible;
     filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
@@ -1236,8 +1327,8 @@ body {
 /* ======================
 	GALLERY
    ====================== */
-/* line 395, scss/_layout.scss */
-#gallery-content {
+/* line 377, scss/_layout.scss */
+.gallery-content {
   position: absolute;
   top: 0;
   right: 0;
@@ -1249,90 +1340,84 @@ body {
   -o-transition: bottom, 0.5s;
   -webkit-transition: bottom, 0.5s;
   transition: bottom, 0.5s;
-  z-index: 2; }
+  z-index: 10; }
   @media screen and (max-width: 700px) {
-    /* line 395, scss/_layout.scss */
-    #gallery-content {
+    /* line 377, scss/_layout.scss */
+    .gallery-content {
       overflow-y: auto; } }
-  /* line 407, scss/_layout.scss */
-  #gallery-content.hide {
-    position: absolute;
+  /* line 389, scss/_layout.scss */
+  .gallery-content.hide {
     top: 100%; }
-  /* line 412, scss/_layout.scss */
-  #gallery-content .summary {
+  /* line 393, scss/_layout.scss */
+  .gallery-content .summary {
     width: 300px;
     padding: 2em 4em 2em 15px; }
     @media screen and (max-width: 767px) {
-      /* line 412, scss/_layout.scss */
-      #gallery-content .summary {
+      /* line 393, scss/_layout.scss */
+      .gallery-content .summary {
         width: 250px; } }
     @media screen and (max-width: 700px) {
-      /* line 412, scss/_layout.scss */
-      #gallery-content .summary {
+      /* line 393, scss/_layout.scss */
+      .gallery-content .summary {
         float: none;
         width: 100%;
         padding: 2em 15px;
         padding-right: 0; } }
-    /* line 427, scss/_layout.scss */
-    #gallery-content .summary h2 {
+    /* line 408, scss/_layout.scss */
+    .gallery-content .summary h2 {
       margin: 0 0 0.5em 0;
       font-size: 2.14em; }
-  /* line 433, scss/_layout.scss */
-  #gallery-content .gallery {
+  /* line 414, scss/_layout.scss */
+  .gallery-content .gallery {
     height: 100%;
     padding-bottom: 10px;
     overflow-y: auto; }
-    /* line 438, scss/_layout.scss */
-    .page-template-page-lightbox-php #gallery-content .gallery {
-      padding-bottom: 150px; }
     @media screen and (max-width: 700px) {
-      /* line 433, scss/_layout.scss */
-      #gallery-content .gallery {
+      /* line 414, scss/_layout.scss */
+      .gallery-content .gallery {
         width: 100%;
         height: initial; } }
-    /* line 447, scss/_layout.scss */
-    #gallery-content .gallery ul {
+    /* line 424, scss/_layout.scss */
+    .gallery-content .gallery ul {
       padding: 0;
       list-style: none; }
-      /* line 451, scss/_layout.scss */
-      #gallery-content .gallery ul li.column {
-        height: 100%;
+      /* line 428, scss/_layout.scss */
+      .gallery-content .gallery ul li.column {
         margin-bottom: 0.5em;
-        padding: 0.5em;
-        overflow: hidden; }
+        padding: 0.5em; }
         @media screen and (max-width: 1000px) {
-          /* line 457, scss/_layout.scss */
-          #gallery-content .gallery ul li.column.col-1-3 {
+          /* line 432, scss/_layout.scss */
+          .gallery-content .gallery ul li.column.col-1-3 {
             width: 50%; } }
         @media screen and (max-width: 1100px) {
-          /* line 463, scss/_layout.scss */
-          #gallery-content .gallery ul li.column.col-1-6 {
+          /* line 438, scss/_layout.scss */
+          .gallery-content .gallery ul li.column.col-1-6 {
             width: 25%; } }
         @media screen and (max-width: 900px) {
-          /* line 463, scss/_layout.scss */
-          #gallery-content .gallery ul li.column.col-1-6 {
+          /* line 438, scss/_layout.scss */
+          .gallery-content .gallery ul li.column.col-1-6 {
             width: 33%; } }
         @media screen and (max-width: 700px) {
-          /* line 463, scss/_layout.scss */
-          #gallery-content .gallery ul li.column.col-1-6 {
+          /* line 438, scss/_layout.scss */
+          .gallery-content .gallery ul li.column.col-1-6 {
             width: 50%; } }
-        /* line 475, scss/_layout.scss */
-        #gallery-content .gallery ul li.column a {
+        /* line 450, scss/_layout.scss */
+        .gallery-content .gallery ul li.column a {
           display: inline-block;
           width: 100%;
           height: 100%;
           text-align: center; }
-          /* line 481, scss/_layout.scss */
-          #gallery-content .gallery ul li.column a .portrait {
+          /* line 456, scss/_layout.scss */
+          .gallery-content .gallery ul li.column a .portrait {
             height: 100%;
             width: auto; }
-          /* line 486, scss/_layout.scss */
-          #gallery-content .gallery ul li.column a .landscape {
+          /* line 461, scss/_layout.scss */
+          .gallery-content .gallery ul li.column a .landscape {
             width: 100%;
             height: auto;
             vertical-align: middle; }
 
-/* line 498, scss/_layout.scss */
+/* line 472, scss/_layout.scss */
 .vertical {
   display: inline-block;
   height: 100%;
@@ -1341,42 +1426,40 @@ body {
 /* ======================
 	LIGHTBOX
    ====================== */
-/* line 508, scss/_layout.scss */
-.lightbox-actions {
+/* line 483, scss/_layout.scss */
+.page-template-page-lightbox-php .gallery-content footer {
   position: absolute;
-  top: initial;
   bottom: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
-  background-color: black; }
-  /* line 517, scss/_layout.scss */
-  .lightbox-actions.hide {
-    top: 100%; }
-
-/* line 522, scss/_layout.scss */
-.lightbox {
   width: 100%;
-  height: 90%;
+  padding: 5px 15px;
+  background-color: #fff;
+  z-index: 10;
+  -moz-transition: all, 0.3s;
+  -o-transition: all, 0.3s;
+  -webkit-transition: all, 0.3s;
+  transition: all, 0.3s; }
+
+/* line 496, scss/_layout.scss */
+.lightbox {
   padding: 0 15px;
   color: #000;
   overflow-y: auto; }
-  /* line 529, scss/_layout.scss */
+  /* line 501, scss/_layout.scss */
   .lightbox .frame {
     padding: 5%;
     border: 2px dashed #3f3f3f;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius: 3px; }
-    /* line 534, scss/_layout.scss */
+    /* line 506, scss/_layout.scss */
     .lightbox .frame .row {
       width: 80%;
       margin: 0 auto; }
       @media screen and (max-width: 650px) {
-        /* line 534, scss/_layout.scss */
+        /* line 506, scss/_layout.scss */
         .lightbox .frame .row {
           width: 100%; } }
-    /* line 543, scss/_layout.scss */
+    /* line 515, scss/_layout.scss */
     .lightbox .frame h2.big {
       margin: 0 0 0.5em 0;
       font-size: 4em;
@@ -1384,21 +1467,21 @@ body {
       text-transform: uppercase;
       text-align: center; }
       @media screen and (max-width: 650px) {
-        /* line 543, scss/_layout.scss */
+        /* line 515, scss/_layout.scss */
         .lightbox .frame h2.big {
           font-size: 2em; } }
-    /* line 555, scss/_layout.scss */
+    /* line 527, scss/_layout.scss */
     .lightbox .frame .column {
       text-align: center; }
       @media screen and (max-width: 650px) {
-        /* line 555, scss/_layout.scss */
+        /* line 527, scss/_layout.scss */
         .lightbox .frame .column {
           text-align: left; }
-          /* line 560, scss/_layout.scss */
+          /* line 532, scss/_layout.scss */
           .lightbox .frame .column.col-1-3 {
             width: 100%;
             margin-bottom: 1em; } }
-    /* line 567, scss/_layout.scss */
+    /* line 539, scss/_layout.scss */
     .lightbox .frame strong {
       display: inline-block;
       line-height: 50px;
@@ -1411,7 +1494,7 @@ body {
       -webkit-border-radius: 50px;
       border-radius: 50px; }
       @media screen and (max-width: 650px) {
-        /* line 567, scss/_layout.scss */
+        /* line 539, scss/_layout.scss */
         .lightbox .frame strong {
           font-size: 1em;
           line-height: 30px;
@@ -1419,11 +1502,11 @@ body {
           -moz-border-radius: 30px;
           -webkit-border-radius: 30px;
           border-radius: 30px; } }
-    /* line 585, scss/_layout.scss */
+    /* line 557, scss/_layout.scss */
     .lightbox .frame p {
       padding-right: 5%; }
       @media screen and (max-width: 650px) {
-        /* line 585, scss/_layout.scss */
+        /* line 557, scss/_layout.scss */
         .lightbox .frame p {
           display: inline;
           padding-left: 5px; } }
@@ -1431,14 +1514,14 @@ body {
 /* ======================
 	CONTACT
    ====================== */
-/* line 600, scss/_layout.scss */
-.bio-section {
-  position: relative;
-  height: 388px;
+/* line 572, scss/_layout.scss */
+#contact header {
+  height: 400px;
   overflow: hidden;
+  background-size: cover;
   border-bottom: 5px solid #000; }
-  /* line 606, scss/_layout.scss */
-  .bio-section .bio-text {
+  /* line 578, scss/_layout.scss */
+  #contact header .content {
     float: right;
     height: 100%;
     width: 70%;
@@ -1452,32 +1535,29 @@ body {
     background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 52%, rgba(0, 0, 0, 0.65) 99%);
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 52%, rgba(0, 0, 0, 0.65) 99%); }
     @media screen and (max-width: 800px) {
-      /* line 606, scss/_layout.scss */
-      .bio-section .bio-text {
+      /* line 578, scss/_layout.scss */
+      #contact header .content {
         width: 100%;
         padding: 5em 2em; } }
-    /* line 622, scss/_layout.scss */
-    .bio-section .bio-text h3:first-child {
+    /* line 594, scss/_layout.scss */
+    #contact header .content h3:first-child {
       margin: 0; }
-
-/* line 628, scss/_layout.scss */
-.contact-section {
-  overflow: hidden;
-  border-right: 1px solid rgba(151, 151, 151, 0.17);
-  border-left: 1px solid rgba(151, 151, 151, 0.17); }
-  /* line 633, scss/_layout.scss */
-  .contact-section .contact-details {
+/* line 600, scss/_layout.scss */
+#contact .contact-section {
+  overflow: hidden; }
+  /* line 603, scss/_layout.scss */
+  #contact .contact-section .details {
     padding: 0;
     text-align: center;
     border-right: 1px solid rgba(151, 151, 151, 0.17); }
     @media screen and (max-width: 765px) {
-      /* line 633, scss/_layout.scss */
-      .contact-section .contact-details {
+      /* line 603, scss/_layout.scss */
+      #contact .contact-section .details {
         width: 100%;
         border-right: none;
         border-bottom: 1px solid rgba(151, 151, 151, 0.17); } }
-    /* line 644, scss/_layout.scss */
-    .contact-section .contact-details .detail {
+    /* line 614, scss/_layout.scss */
+    #contact .contact-section .details .detail {
       padding: 3em 0 2em 0;
       border-top: 1px solid rgba(151, 151, 151, 0.17);
       -moz-transition: background-color 0.5s;
@@ -1485,60 +1565,97 @@ body {
       -webkit-transition: background-color 0.5s;
       transition: background-color 0.5s; }
       @media screen and (max-width: 765px) {
-        /* line 644, scss/_layout.scss */
-        .contact-section .contact-details .detail {
+        /* line 614, scss/_layout.scss */
+        #contact .contact-section .details .detail {
           float: left;
           width: 33%;
           height: 260px; } }
       @media screen and (max-width: 600px) {
-        /* line 644, scss/_layout.scss */
-        .contact-section .contact-details .detail {
+        /* line 614, scss/_layout.scss */
+        #contact .contact-section .details .detail {
           float: none;
           width: 100%;
           height: initial; } }
-      /* line 661, scss/_layout.scss */
-      .contact-section .contact-details .detail:first-child {
+      /* line 631, scss/_layout.scss */
+      #contact .contact-section .details .detail:first-child {
         border-top: none; }
-      /* line 665, scss/_layout.scss */
-      .contact-section .contact-details .detail:hover {
+      /* line 635, scss/_layout.scss */
+      #contact .contact-section .details .detail:hover {
         background-color: #F5F5F5; }
-      /* line 669, scss/_layout.scss */
-      .contact-section .contact-details .detail a {
+      /* line 639, scss/_layout.scss */
+      #contact .contact-section .details .detail a {
         color: #e74c3c;
         border-bottom: 1px solid transparent;
         -moz-transition: border-color 0.3s;
         -o-transition: border-color 0.3s;
         -webkit-transition: border-color 0.3s;
         transition: border-color 0.3s; }
-        /* line 674, scss/_layout.scss */
-        .contact-section .contact-details .detail a:hover {
+        /* line 644, scss/_layout.scss */
+        #contact .contact-section .details .detail a:hover {
           border-bottom: 1px solid #e74c3c; }
-    /* line 680, scss/_layout.scss */
-    .contact-section .contact-details i {
+    /* line 650, scss/_layout.scss */
+    #contact .contact-section .details i {
       display: block;
       font-size: 3em; }
-    /* line 686, scss/_layout.scss */
-    .contact-section .contact-details h3 {
+    /* line 656, scss/_layout.scss */
+    #contact .contact-section .details h3 {
       display: inline-block;
       margin: 1em 0 0.5em 0;
       font-size: 1.29em;
       text-transform: uppercase;
       border-bottom: 2px solid #000; }
-    /* line 694, scss/_layout.scss */
-    .contact-section .contact-details p {
+    /* line 664, scss/_layout.scss */
+    #contact .contact-section .details p {
       margin-top: 0; }
-  /* line 699, scss/_layout.scss */
-  .contact-section div.form-section {
-    padding-top: 4em; }
+  /* line 669, scss/_layout.scss */
+  #contact .contact-section .form {
+    padding: 4em 10% 0; }
     @media screen and (max-width: 765px) {
-      /* line 699, scss/_layout.scss */
-      .contact-section div.form-section {
+      /* line 669, scss/_layout.scss */
+      #contact .contact-section .form {
         width: 100%; } }
 
 /* ======================
 	OVERLAY MENU
    ====================== */
-/* line 712, scss/_layout.scss */
+/* line 681, scss/_layout.scss */
+#overlaymenu nav ul.menu > li > a {
+  margin-bottom: 0.5em;
+  font-size: 1.43em;
+  font-family: 'Fanwood Text', serif;
+  font-weight: normal;
+  font-style: italic; }
+
+/* line 688, scss/_layout.scss */
+#overlaymenu nav ul.sub-menu li {
+  color: #fff;
+  font-size: 2.5em;
+  font-family: 'gt_pressura_trialbold';
+  font-style: normal;
+  text-transform: uppercase;
+  line-height: 0.9; }
+  /* line 696, scss/_layout.scss */
+  #overlaymenu nav ul.sub-menu li a {
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: inline-block;
+    padding: 0.35em 0.35em 0.15em 0.35em;
+    color: #fff;
+    border: 1px solid transparent;
+    -moz-transition: border, 0.3s;
+    -o-transition: border, 0.3s;
+    -webkit-transition: border, 0.3s;
+    transition: border, 0.3s; }
+    /* line 704, scss/_layout.scss */
+    #overlaymenu nav ul.sub-menu li a:hover {
+      border: 1px solid white; }
+  @media screen and (max-width: 768px) {
+    /* line 688, scss/_layout.scss */
+    #overlaymenu nav ul.sub-menu li {
+      font-size: 2em; } }
+
+/* line 714, scss/_layout.scss */
 #overlaymenu {
   z-index: 10;
   visibility: hidden;
@@ -1558,53 +1675,53 @@ body {
   transition: all 0.5s;
   overflow-y: auto;
   /*nav*/ }
-  /* line 724, scss/_layout.scss */
-  #overlaymenu.visible {
+  /* line 726, scss/_layout.scss */
+  #overlaymenu.visible, section.flexslider ul.slides li .image:hover button#overlaymenu {
     visibility: visible;
     filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
     opacity: 1;
     /*		@media screen and (max-width: 767px){
     			overflow-y: auto;
     		}*/ }
-  /* line 733, scss/_layout.scss */
+  /* line 735, scss/_layout.scss */
   #overlaymenu a {
     color: #fff; }
-  /* line 737, scss/_layout.scss */
+  /* line 739, scss/_layout.scss */
   #overlaymenu header {
     padding: 0 15px;
     line-height: 45px;
     text-transform: uppercase; }
-  /* line 743, scss/_layout.scss */
-  #overlaymenu .valign, #overlaymenu .album-grid .album-items .item .overlay:after, .album-grid .album-items .item #overlaymenu .overlay:after {
+  /* line 745, scss/_layout.scss */
+  #overlaymenu .valign, #overlaymenu section.flexslider ul.slides li .image, section.flexslider ul.slides li #overlaymenu .image {
     width: 100%; }
     @media screen and (max-width: 767px) {
-      /* line 743, scss/_layout.scss */
-      #overlaymenu .valign, #overlaymenu .album-grid .album-items .item .overlay:after, .album-grid .album-items .item #overlaymenu .overlay:after {
+      /* line 745, scss/_layout.scss */
+      #overlaymenu .valign, #overlaymenu section.flexslider ul.slides li .image, section.flexslider ul.slides li #overlaymenu .image {
         position: relative;
         top: initial; } }
-  /* line 751, scss/_layout.scss */
+  /* line 753, scss/_layout.scss */
   #overlaymenu h2 {
     font-size: 2.5em; }
-  /* line 755, scss/_layout.scss */
+  /* line 757, scss/_layout.scss */
   #overlaymenu nav.menu-overlay-menu-left-container, #overlaymenu nav.menu-overlay-menu-right-container {
     float: left;
     width: 50%; }
     @media screen and (max-width: 767px) {
-      /* line 755, scss/_layout.scss */
+      /* line 757, scss/_layout.scss */
       #overlaymenu nav.menu-overlay-menu-left-container, #overlaymenu nav.menu-overlay-menu-right-container {
         width: 100%; } }
-  /* line 763, scss/_layout.scss */
+  /* line 765, scss/_layout.scss */
   #overlaymenu nav {
     overflow: hidden;
     vertical-align: top; }
-    /* line 767, scss/_layout.scss */
+    /* line 769, scss/_layout.scss */
     #overlaymenu nav.menu-overlay-menu-left-container {
       border-right: 1px solid #525252; }
-    /* line 775, scss/_layout.scss */
+    /* line 777, scss/_layout.scss */
     #overlaymenu nav ul.menu {
       margin: 0;
       padding: 0; }
-    /* line 786, scss/_layout.scss */
+    /* line 788, scss/_layout.scss */
     #overlaymenu nav ul.sub-menu {
       margin: 0;
       padding: 0; }
@@ -1613,33 +1730,31 @@ body {
 /* ======================
 	MODAL
    ====================== */
-/* line 801, scss/_layout.scss */
+/* line 803, scss/_layout.scss */
 .modal {
   position: absolute;
-  top: 0;
   visibility: hidden;
   width: 100%;
-  padding: 0em 1em;
+  padding: 0em 2em;
   text-align: center;
   background-color: #fff;
-  border: 1px solid rgba(51, 51, 51, 0.2);
   z-index: 10;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
-  -moz-border-radius: 1px;
-  -webkit-border-radius: 1px;
-  border-radius: 1px;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
   -moz-transition: all 0.3s;
   -o-transition: all 0.3s;
   -webkit-transition: all 0.3s;
   transition: all 0.3s; }
   @media screen and (max-width: 600px) {
-    /* line 801, scss/_layout.scss */
+    /* line 803, scss/_layout.scss */
     .modal {
       left: 5%;
       width: 90%; } }
   /* line 820, scss/_layout.scss */
-  .modal.visible {
+  .modal.visible, section.modal.flexslider.visible, section.flexslider ul.slides li .image:hover button.modal {
     visibility: visible;
     filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
     opacity: 1; }
@@ -1670,112 +1785,82 @@ body {
       font-size: 1.5em; }
 
 /* ======================
-	Single Albums
+	SINGLE ALBUM FLEXSLIDER
    ====================== */
 /* line 860, scss/_layout.scss */
-.flexslider {
-  z-index: 1;
-  visibility: hidden; }
-  /* line 864, scss/_layout.scss */
-  .flexslider.visible {
-    visibility: visible; }
+section.flexslider {
+  height: 100%;
+  margin: 0;
+  padding: 0 0 60px 0;
+  border: none;
+  -moz-transition: background-color, 0.3s;
+  -o-transition: background-color, 0.3s;
+  -webkit-transition: background-color, 0.3s;
+  transition: background-color, 0.3s; }
   @media screen and (max-width: 480px) {
     /* line 860, scss/_layout.scss */
-    .flexslider {
+    section.flexslider {
       padding-bottom: 90px; } }
-  /* line 872, scss/_layout.scss */
-  .flexslider ul.slides {
-    padding: 0 60px; }
-    /* line 876, scss/_layout.scss */
-    .flexslider ul.slides .image:hover a.lightbox-btn, .flexslider ul.slides .image:hover a.lightbox-remove {
-      visibility: visible;
-      filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
-      opacity: 1; }
-    /* line 881, scss/_layout.scss */
-    .flexslider ul.slides .image a.lightbox-btn, .flexslider ul.slides .image a.lightbox-remove {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      padding: 10px;
-      color: #fff;
-      text-transform: uppercase;
-      background-color: #000;
-      cursor: pointer;
-      -moz-transition: all, 0.2s;
-      -o-transition: all, 0.2s;
-      -webkit-transition: all, 0.2s;
-      transition: all, 0.2s; }
-      /* line 892, scss/_layout.scss */
-      .flexslider ul.slides .image a.lightbox-btn:before, .flexslider ul.slides .image a.lightbox-remove:before {
-        content: "\e603";
-        margin-right: 10px;
+  /* line 875, scss/_layout.scss */
+  section.flexslider ul.slides {
+    height: 100%;
+    margin: 0;
+    padding: 0 40px; }
+    /* line 880, scss/_layout.scss */
+    section.flexslider ul.slides li {
+      height: 100%;
+      text-align: center; }
+      /* line 884, scss/_layout.scss */
+      section.flexslider ul.slides li .image {
+        position: relative;
+        display: inline-block; }
+      /* line 897, scss/_layout.scss */
+      section.flexslider ul.slides li img {
+        max-height: 100%;
+        width: auto;
+        -moz-backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden; }
+      /* line 903, scss/_layout.scss */
+      section.flexslider ul.slides li button.lightbox-add, section.flexslider ul.slides li button.lightbox-remove {
+        visibility: hidden;
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+        opacity: 0;
+        -moz-transition: opacity, 0.2s;
+        -o-transition: opacity, 0.2s;
+        -webkit-transition: opacity, 0.2s;
+        transition: opacity, 0.2s;
+        display: inline-block;
+        padding: 10px;
         color: #fff;
-        font-size: 1em;
-        font-weight: 700; }
-  /* line 904, scss/_layout.scss */
-  .flexslider .toggle-gallery {
-    text-transform: uppercase; }
-    /* line 906, scss/_layout.scss */
-    .flexslider .toggle-gallery:before {
-      content: "\e600";
-      font-size: 2em; }
-  /* line 913, scss/_layout.scss */
-  .flexslider footer {
+        text-transform: uppercase; }
+        /* line 913, scss/_layout.scss */
+        section.flexslider ul.slides li button.lightbox-add:before, section.flexslider ul.slides li button.lightbox-remove:before {
+          font-size: 3em; }
+  /* line 920, scss/_layout.scss */
+  section.flexslider footer {
     position: absolute;
     bottom: 0;
-    padding: 0 15px;
+    padding: 5px 15px;
     z-index: 10; }
-  /* line 920, scss/_layout.scss */
-  .flexslider .gallery-meta {
+  /* line 927, scss/_layout.scss */
+  section.flexslider .gallery-meta {
     margin-left: 2.86em;
     font-size: 1.14em;
     font-family: 'Fanwood Text', serif;
     font-weight: normal;
+    text-transform: capitalize;
     z-index: 2; }
     @media screen and (max-width: 767px) {
-      /* line 920, scss/_layout.scss */
-      .flexslider .gallery-meta {
+      /* line 927, scss/_layout.scss */
+      section.flexslider .gallery-meta {
         display: block;
         margin-left: 0; } }
-  /* line 933, scss/_layout.scss */
-  .flexslider .flex-direction-nav li {
-    position: absolute;
-    top: 0;
-    bottom: 70px;
-    width: 60px;
-    z-index: 1;
-    background-color: #fff;
-    -moz-transition: background-color, 0.3s;
-    -o-transition: background-color, 0.3s;
-    -webkit-transition: background-color, 0.3s;
-    transition: background-color, 0.3s; }
-    /* line 943, scss/_layout.scss */
-    .flexslider .flex-direction-nav li.leftnav {
-      left: 0; }
-    /* line 947, scss/_layout.scss */
-    .flexslider .flex-direction-nav li.rightnav {
-      right: 0; }
-    /* line 951, scss/_layout.scss */
-    .flexslider .flex-direction-nav li:hover {
-      *zoom: 1;
-      filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFFFFFF', endColorstr='#FFFFFFFF');
-      background-image: -moz-linear-gradient(top, #ffffff 0%, #e5e5e5 25%, #e5e5e5 75%, #ffffff 100%);
-      background-image: -webkit-linear-gradient(top, #ffffff 0%, #e5e5e5 25%, #e5e5e5 75%, #ffffff 100%);
-      background-image: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 25%, #e5e5e5 75%, #ffffff 100%); }
-  /* line 959, scss/_layout.scss */
-  .flexslider .flex-direction-nav a {
-    width: 25px; }
-  /* line 965, scss/_layout.scss */
-  .flexslider .flex-direction-nav .flex-prev .icon-circle-arrow-left:before {
-    content: "\e600"; }
-  /* line 966, scss/_layout.scss */
-  .flexslider .flex-direction-nav .flex-next .icon-circle-arrow-right:before {
-    content: "\e6"; }
 
 /* ======================
 	LazyLoad
    ====================== */
-/* line 972, scss/_layout.scss */
+/* line 944, scss/_layout.scss */
 .b-lazy {
   max-width: 100%;
   -moz-transition: opacity, 1s;
@@ -1785,20 +1870,19 @@ body {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0; }
 
-/* line 978, scss/_layout.scss */
+/* line 950, scss/_layout.scss */
 .b-lazy.b-loaded {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1; }
-  /* line 981, scss/_layout.scss */
+  /* line 953, scss/_layout.scss */
   .b-lazy.b-loaded:hover {
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
     opacity: 0.7; }
 
 /* ======================
-	TOUCH
+	TOUCH & STUFF
    ====================== */
-/* line 991, scss/_layout.scss */
-html.no-touch a.lightbox-btn, html.no-touch a.lightbox-remove {
-  visibility: hidden;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0; }
+/* line 962, scss/_layout.scss */
+.firefox .slides .image {
+  width: 100%;
+  height: 100%; }

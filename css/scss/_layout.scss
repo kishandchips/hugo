@@ -24,44 +24,24 @@
 	}
 }
 
-.header-weezy{
+#header{
 	position: fixed;
 	top:0;
-	left:0;
-	right:0;
+	width: 100%;
 	height:45px;
-	padding: 0 15px;
-	background-color: #fff;
 	line-height: 45px;
+	padding: 0 15px;
 	text-align: center;
-	z-index: 5;
+	background-color: #fff;
+	z-index: 15;
+	overflow: hidden;
 
 	@media screen and (max-width: 550px){
 		height:60px;
 	}
-}
-
-#header{
-	display:inline-block;
-	width:100%;
-	/*max-width: 1220px;*/
-	overflow: hidden;
-
-	.color-toggle{
-		background-color: transparent;
-		border: none;
-		outline: none;
-
-		&:before{
-			content: "\e604";
-			@extend %icon;
-			
-		}
-	}
-
+	
 	.links a{
 		margin-left: 1em;
-		padding-bottom: 5px;
 		@include gtlight;
 		text-transform: uppercase;
 		border-bottom:1px solid transparent;
@@ -77,15 +57,8 @@
 	}
 
 	.counter{
-		position: relative;
-		padding: 4px 4px 1px 4px;
-		color: #fff;
-		background-color: #333;
-		@include transition(all,0.2s);
-
-		&.bounce{
-			top:-2px;
-		}
+		margin-left: 5px;
+		color: #e74c3c;
 	}
 
 	@media screen and (max-width: 550px){
@@ -106,14 +79,13 @@
    ========================================================================== */
 
 body{
-	
 	&.home{
 		#weezy{
 			padding: 0;
 		}
 	}/*home page*/
-
 }
+
 // WRAPPER
 #weezy{
 	max-width: 1600px;
@@ -129,51 +101,60 @@ body{
 	overflow:hidden;
 	@include transition(background-color, 0.3s);
 
+	@media screen and (max-width: 550px){
+		padding-top: 60px;
+	}
 
 	.home &{
 		height: initial;
-
-		&.container{
-			width: 100%;
-			max-width: initial;
-		}
 	}
 
 	.page-template-page-contact-php &{
-		height: initial;
 		overflow: initial;
 	}
 
 	&.black{
+		color: #fff;
 		background-color: #000;
 
-		//Home
-
+		//Flexslider
 		.flexslider{
+			background-color: #000;
 
 			a{
 				color: #fff;
 			}
+
+			.flex-direction-nav li a{
+				background-color: #000;
+
+				&:hover{
+					background-color: #000;
+					background-image: none;
+				}
+			}
 			
 			footer{
 				color: #fff;
+				.button{
+					color: #fff;					
+				}
 			}
 		}
 
-		#gallery-content{
+		//Galleries
+		.gallery-content{
 			color: #fff;
 			background-color: #000;
-		}
-
-		.flex-direction-nav li{
-			background-color: #000;
-
-			&:hover{
-				background-color: #000;
-				background-image: none;
+			
+			footer{
+				.button{
+					color: #fff;					
+				}
 			}
 		}
 
+		//Lightbox
 		.lightbox{
 			color: #fff;
 
@@ -325,13 +306,14 @@ body{
 
 .album-grid{
 	header{
+		padding:0.9em 15px 0.5em 15px;;
 		background-color: #fff;
 		border-top: 1px solid rgba(51,51,51,0.2);
 		border-bottom: 1px solid rgba(51,51,51,0.2);
 		
 		h2{		
 			margin: 0;
-			padding:0.5em 15px 0.1em 15px;;
+			font-size: 1.5em;
 			@include gtlight;
 			text-transform: uppercase;
 		}
@@ -365,16 +347,16 @@ body{
 				visibility: hidden;
 				@include opacity(0);
 				@include transition(opacity,0.3s);
+				text-align: center;
 
-				&:after{
-					width: 100%;
+				span{
+					display: inline-block;
 					color: #fff;
-					content: "\e605";
-					font-size: 2.5em;
-					text-align: center;
-					@extend %icon;
-					@extend .valign;
+					font-style: italic;
+					@include fanwood;
+					line-height: 1;
 				}
+
 			}
 			
 			&:hover{
@@ -392,20 +374,19 @@ body{
 	GALLERY
    ====================== */ 
 
-#gallery-content{
+.gallery-content{
 	position: absolute;
 	top:0;right:0;bottom:0;left:0;
 	padding-top: 45px;
 	background-color: #fff;
 	@include transition(bottom,0.5s);
-	z-index: 2;
+	z-index: 10;
 
 	@media screen and (max-width:700px){
 		overflow-y: auto;
 	}
 
 	&.hide{
-		position:absolute;
 		top: 100%;
 	}
 	
@@ -434,10 +415,6 @@ body{
 		height: 100%;
 		padding-bottom: 10px;
 		overflow-y: auto;
-		
-		.page-template-page-lightbox-php &{
-			padding-bottom: 150px;
-		}
 
 		@media screen and (max-width:700px){
 			width: 100%;
@@ -449,10 +426,8 @@ body{
 			list-style: none;
 
 			li.column{
-				height:100%;
 				margin-bottom: 0.5em;
 				padding: 0.5em;
-				overflow: hidden;
 
 				&.col-1-3{
 					@media screen and (max-width:1000px){
@@ -488,12 +463,11 @@ body{
 						height: auto;
 						vertical-align: middle;
 					}
-				}
-			}			
-		}
-
-	}
-} 
+				}//a
+			}//li.column
+		}//ul
+	}//.gallery
+} //.gallery-content
 
 .vertical{
 	display: inline-block;
@@ -504,24 +478,22 @@ body{
 /* ======================
 	LIGHTBOX
    ====================== */
-
-.lightbox-actions{
-	position: absolute;
-	top:initial;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	text-align: center;
-	background-color: black;
-
-	&.hide{
-		top:100%;
+.page-template-page-lightbox-php{
+	.gallery-content{
+		footer{
+			position: absolute;
+			bottom:0;
+			width:100%;
+			padding: 5px 15px;
+			background-color: #fff;
+			z-index: 10;
+			@include transition(all,0.3s);
+		}
 	}
-} 
+}
+
 
 .lightbox{
-	width:100%;
-	height: 90%;
 	padding: 0 15px;
 	color: #000;
 	overflow-y: auto;
@@ -596,118 +568,148 @@ body{
 /* ======================
 	CONTACT
    ====================== */
+#contact{
+	header{
+		height: 400px;
+		overflow: hidden;
+		background-size: cover;
+		border-bottom: 5px solid #000;
 
-.bio-section{
-	position: relative;
-	height: 388px;
-	overflow: hidden;
-	border-bottom: 5px solid #000;
-
-	.bio-text{
-		float: right;
-		height: 100%;
-		width: 70%;
-		padding:5em 2em 0 20%;
-		color: #fff;
-		text-align: justify;
-		line-height: 1.8;
-		@include filter-gradient(#000000, #a60000, horizontal); // IE6-9
-		@include background-image(linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 52%,rgba(0,0,0,0.65) 99%));
-		
-		@media screen and (max-width:800px){
-			width: 100%;
-			padding: 5em 2em;
-		}
-
-		h3:first-child{
-			margin:0;
-		}
-	}
-}// .bio-section
-
-.contact-section{
-	overflow: hidden;
-	border-right: 1px solid rgba(151,151,151,0.17);
-	border-left: 1px solid rgba(151,151,151,0.17);
-
-	.contact-details{
-		padding: 0;
-		text-align: center;
-		border-right: 1px solid rgba(151,151,151,0.17);
-		
-		@media screen and (max-width:765px){
-			width: 100%;
-			border-right: none;
-			border-bottom: 1px solid rgba(151,151,151,0.17);
-		}
-
-		.detail{
-			padding: 3em 0 2em 0;
-			border-top:1px solid rgba(151,151,151,0.17);
-			@include single-transition(background-color, 0.5s);
-
-			@media screen and (max-width:765px){
-				float:left;
-				width: 33%;
-				height: 260px;
-			}
-
-			@media screen and (max-width:600px){
-				float: none;
+		.content{
+			float: right;
+			height: 100%;
+			width: 70%;
+			padding:5em 2em 0 20%;
+			color: #fff;
+			text-align: justify;
+			line-height: 1.8;
+			@include filter-gradient(#000000, #a60000, horizontal); // IE6-9
+			@include background-image(linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 52%,rgba(0,0,0,0.65) 99%));
+			
+			@media screen and (max-width:800px){
 				width: 100%;
-				height: initial;
+				padding: 5em 2em;
 			}
 
-			&:first-child{
-				border-top: none;
+			h3:first-child{
+				margin:0;
+			}
+		}
+	}//header	
+
+	.contact-section{
+		overflow: hidden;
+
+		.details{
+			padding: 0;
+			text-align: center;
+			border-right: 1px solid rgba(151,151,151,0.17);
+			
+			@media screen and (max-width:765px){
+				width: 100%;
+				border-right: none;
+				border-bottom: 1px solid rgba(151,151,151,0.17);
 			}
 
-			&:hover{
-				background-color: #F5F5F5;
-			}
+			.detail{
+				padding: 3em 0 2em 0;
+				border-top:1px solid rgba(151,151,151,0.17);
+				@include single-transition(background-color, 0.5s);
 
-			a{
-				color: #e74c3c;
-				border-bottom: 1px solid transparent;
-				@include single-transition(border-color, 0.3s);
+				@media screen and (max-width:765px){
+					float:left;
+					width: 33%;
+					height: 260px;
+				}
+
+				@media screen and (max-width:600px){
+					float: none;
+					width: 100%;
+					height: initial;
+				}
+
+				&:first-child{
+					border-top: none;
+				}
 
 				&:hover{
-					border-bottom: 1px solid #e74c3c;
+					background-color: #F5F5F5;
+				}
+
+				a{
+					color: #e74c3c;
+					border-bottom: 1px solid transparent;
+					@include single-transition(border-color, 0.3s);
+
+					&:hover{
+						border-bottom: 1px solid #e74c3c;
+					}
 				}
 			}
+
+			i{
+				display: block;
+				@extend %icon;
+				font-size: 3em;
+			}
+
+			h3{
+				display: inline-block;
+				margin:1em 0 0.5em 0;
+				font-size: 1.29em;
+				text-transform: uppercase;
+				border-bottom: 2px solid #000;
+			}
+
+			p{
+				margin-top: 0;
+			}
+		}//.contact-details
+
+		.form{
+			padding: 4em 10% 0;
+
+			@media screen and (max-width: 765px){
+				width: 100%;
+			}
 		}
-
-		i{
-			display: block;
-			@extend %icon;
-			font-size: 3em;
-		}
-
-		h3{
-			display: inline-block;
-			margin:1em 0 0.5em 0;
-			font-size: 1.29em;
-			text-transform: uppercase;
-			border-bottom: 2px solid #000;
-		}
-
-		p{
-			margin-top: 0;
-		}
-	}//.contact-details
-
-	div.form-section{
-		padding-top: 4em;
-
-		@media screen and (max-width: 765px){
-			width: 100%;
-		}
-	}
-}//.contact-section
-
+	}//.contact-section
+}//#header
 /* ======================
 	OVERLAY MENU
    ====================== */ 
+%category-heading{
+	margin-bottom: 0.5em;
+	font-size: 1.43em;
+	@include fanwood;
+	font-style: italic;
+}
+
+%category-link{
+	color: #fff;
+	font-size: 2.5em;
+	@include gtbold;
+	font-style: normal;
+	text-transform: uppercase;
+	line-height: 0.9;
+
+	a{
+		@include backface-visibility(hidden);
+		display: inline-block;
+		padding: 0.35em 0.35em 0.15em 0.35em;
+		color: #fff;
+		border: 1px solid transparent;
+		@include transition(border,.3s);
+
+		&:hover{
+			border: 1px solid white;
+		}
+	}
+
+	@media screen and (max-width: 768px){
+		font-size: 2em;
+	}
+}
 
 #overlaymenu{
 	z-index: 10;
@@ -800,16 +802,14 @@ body{
 
 .modal{
 	position: absolute;
-	top:0;
 	visibility: hidden;
-	width:100%;
-	padding: 0em 1em;
+	width: 100%;
+	padding: 0em 2em;
 	text-align: center;
 	background-color: #fff;
-	border: 1px solid rgba(51,51,51,0.2);
 	z-index:10;
 	@include opacity(0);
-	@include border-radius(1px);
+	@include border-radius(50px);
 	@include single-transition(all,0.3s);
 
 	@media screen and (max-width: 600px){
@@ -854,15 +854,18 @@ body{
 }
 
 /* ======================
-	Single Albums
+	SINGLE ALBUM FLEXSLIDER
    ====================== */ 
 
-.flexslider{
-	z-index: 1;
-	visibility:hidden;
+section.flexslider{
+  height: 100%;
+  margin: 0;
+  padding: 0 0 60px 0;
+  border: none;
+  @include transition(background-color, 0.3s);
 
 	&.visible{
-		visibility: visible;
+		@extend .visible;
 	}
 
 	@media screen and (max-width: 480px){
@@ -870,50 +873,54 @@ body{
 	}
 
 	ul.slides{
-		padding: 0 60px;
+		height: 100%;
+		margin:0;
+  		padding:0 40px;
 		
-		.image{
-			&:hover a.lightbox-btn, &:hover a.lightbox-remove{
-				visibility: visible;
-				@include opacity(1);
+		li{
+			height: 100%;
+			text-align: center;
+
+			.image{
+				position: relative;
+			  	display: inline-block;
+			  	//height:100%; is not needed on chrome
+			  	@extend .valign;
+
+			  	&:hover{
+			  		button{
+			  			@extend .visible;
+			  		}
+			  	}
 			}
 
-			a.lightbox-btn, a.lightbox-remove{
-				position: absolute;
-				bottom:0;
-				left:0;
+			img{
+				max-height: 100%;
+				width: auto;//this creates the gap on mozilla set to a value max-width:100% for mozilla
+				@include backface-visibility(hidden);
+			}
+
+			button.lightbox-add, button.lightbox-remove{
+				visibility: hidden;
+				@include opacity(0);
+				@include transition(opacity, 0.2s);
+				display: inline-block;
 				padding: 10px;
 				color: #fff;
+				// background-color: #fff;
 				text-transform: uppercase;
-				background-color: #000;
-				cursor: pointer;
-				@include transition(all,0.2s);
 
 				&:before{
-					content: "\e603";
-					margin-right: 10px;
-					color: #fff;
-					font-size: 1em;
-					font-weight: 700;
-					@extend %icon;
-				}			
-			}
-		}
-	}
-
-	.toggle-gallery{
-		text-transform: uppercase;
-		&:before{
-			content: "\e600";
-			font-size: 2em;
-			@extend %icon;
+					font-size: 3em;
+				}
+			}				
 		}
 	}
 		
 	footer{
 		position: absolute;
 		bottom:0;
-		padding: 0 15px;
+		padding: 5px 15px;
 		z-index: 10;
 	}
 
@@ -921,6 +928,7 @@ body{
 		margin-left: 2.86em;
 		font-size: 1.14em;
 		@include fanwood;
+		text-transform: capitalize;
 		z-index: 2;
 
 		@media screen and (max-width:767px){
@@ -928,42 +936,6 @@ body{
 			margin-left: 0;
 		}
 	}
-
-	.flex-direction-nav{
-		li{
-			position: absolute;
-			top:0;
-			bottom:70px;
-			width: 60px;
-			z-index: 1;
-			background-color: #fff;
-			@include transition(background-color,0.3s);
-
-
-			&.leftnav{
-				left:0;
-			}
-
-			&.rightnav{
-				right:0;
-			}
-
-			&:hover{
-				@include filter-gradient(#ffffff, #ffffff, vertical); // IE6-8
-				// IE9 SVG, needs conditional override of 'filter' to 'none'
-				$experimental-support-for-svg: true;
-				@include background-image(linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 25%,rgba(229,229,229,1) 75%,rgba(255,255,255,1) 100%));
-			}
-		}
-		
-		a{
-			width: 25px
-		}
-
-	}
-
-	.flex-direction-nav .flex-prev .icon-circle-arrow-left:before {content:"\e600";}
-	.flex-direction-nav .flex-next .icon-circle-arrow-right:before {content:"\e6";}
 }
 /* ======================
 	LazyLoad
@@ -984,12 +956,21 @@ body{
 }
 
 /* ======================
-	TOUCH
+	TOUCH & STUFF
    ====================== */ 
+.firefox{
+	.slides .image{
+		width: 100%;
+		height:100%;
 
-   html.no-touch{
-		a.lightbox-btn, a.lightbox-remove{
-			visibility: hidden;
-			@include opacity(0);
+		img{
+			@extend .calign;
 		}
-   }
+	}
+}
+  //  html.no-touch{
+		// a.lightbox-btn, a.lightbox-remove{
+		// 	visibility: hidden;
+		// 	@include opacity(0);
+		// }
+  //  }

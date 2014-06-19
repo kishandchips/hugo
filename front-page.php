@@ -32,7 +32,9 @@
 					<?php foreach ($images as $image):?>
 						<div class="item" data-id="<?php echo $image['id']; ?>">
 							<a href="<?php the_permalink(); ?>">
-								<div class="overlay"></div>
+								<div class="overlay">
+									<span class="vertical"></span><span><?php echo $image['title']; ?></span>
+								</div>
 								<img class="b-lazy" data-src="<?php echo $image['sizes']['grid-item'] ?> " alt="<?php echo $image['alt']; ?>" width="<?php echo $image['width']; ?>" height="<?php echo $image['height'];?>" src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==>
 							</a>
 						</div>							

@@ -34,6 +34,19 @@ img {
 	@include translateY(-50%);
 }
 
+.halign{
+	position:absolute;
+	left:50%;
+	@include translateX(-50%);
+}
+
+.calign{
+	position: absolute;
+	top:50%;
+	left:50%;
+	@include transform(translateX(-50%) translateY(-50%));
+}
+
 %icon{
 	font-family: 'icomoon';
 	speak: none;
@@ -42,4 +55,9 @@ img {
 
 hr.split-page{
 	margin: 4em 0;
+}
+
+.visible{
+	visibility: visible;
+	@include opacity(1);
 }

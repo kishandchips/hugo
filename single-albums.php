@@ -10,18 +10,18 @@
 				<?php foreach( $images as $image ): ?>
 					<li data-id="<?php echo $image['id']; ?>">
 						<div class="image">
-							<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['title']; ?>" width="<?php echo $image['width']; ?>" height="<?php echo $image['height']; ?>"  >							
-							<a class="lightbox-btn" href="#" data-id="<?php echo $image['id']; ?>">Save to Lightbox</a>
-							<div class="modal">
+							<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['title']; ?>" />
+							<button aria-label="Add to lightbox"  class="lightbox-add icon-plus button calign" href="#" data-id="<?php echo $image['id']; ?>"></button>
+							<div class="modal calign">
 								<p class="message success"></p>
-							</div>
+							</div>								
 						</div>
 					</li>
 				<?php endforeach;?>
 			</ul>
-
 		<footer>
-			<a href="#" class="toggle-gallery">All Images</a>
+			<button aria-label="Gallery Toggle" class="toggle-gallery button">All Images</button>
+			<button aria-label="Switch Colour" class="color-toggle button" >Background</button>
 			<span class="gallery-meta"><?php gallery_meta() ?>&nbsp;
 				<span class="count"></span>
 				&nbsp;of <?php echo $total_number; ?> -
@@ -30,7 +30,7 @@
 		</footer>
 		</section><!-- end of flexslider -->	
 
-	<section id="gallery-content" class="clearfix">
+ 	<section class="gallery-content clearfix">
 		<div class="summary left">
 			<h2>
 				<?php the_title(); ?>
