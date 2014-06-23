@@ -4,6 +4,8 @@ Template Name: Lightbox
 */
 ?>
 <?php get_header(); ?>
+
+<div id="lightbox">
 <?php 	lightbox_images(); 
 		$total_number = count($lightbox_images);
 ?>
@@ -17,7 +19,7 @@ Template Name: Lightbox
 		</div>
 	</div><!-- end of lightbox-wrapper -->
 
-	<section class="flexslider">
+	<section id="slider" class="flexslider">
 		<ul class="slides">
 			<?php foreach( $lightbox_images as $image ): ?>
 				<li data-id="<?php echo $image ?>">
@@ -34,7 +36,7 @@ Template Name: Lightbox
 		</footer>
 	</section><!-- end of flexslider -->
 
-	<section class="gallery-content clearfix">
+	<section id="gallery-content" class="clearfix">
 		<div class="gallery column col-full">
 			<ul class="clearfix">
 				<?php foreach( $lightbox_images as $image ): ?>
@@ -83,10 +85,6 @@ Template Name: Lightbox
 		</div>
 	</div><!-- end of instructions -->
 <?php endif; ?>
-
-
-
-
-
+</div>
 
 <?php get_footer(); ?>

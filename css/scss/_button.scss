@@ -37,36 +37,51 @@
 	border: none;
 	background-color: transparent;
 }
+
 %button-toggle{
-	font-size: 0.875em;
 	text-transform: uppercase;
-	letter-spacing: 1px;	
+	letter-spacing: 1px;
 }
+
+%hover{
+	border-bottom: 1px solid transparent;
+	@include transition(all,0.3s);
+
+	&:hover{
+		border-bottom: 1px solid #000;
+	}	
+}
+
 .toggle-gallery{
 	@extend %button-toggle;
+	@extend %hover;
+
 
 	&:before{
 		position: relative;
 		top:-1px;
 		content: "\e600";
-		font-size: 2em;
+		font-size: 1.5em;
 		@extend %icon;
 	}
 }
 .color-toggle{
 	@extend %button-toggle;
+	@extend %hover;
 
 	&:before{
 		position: relative;
 		top:-1px;
 		margin-right: 5px;
 		content: "\e604";
+		font-size: 1.5em;
 		@extend %icon;
 	}
 }
 
 .lightbox-toggle{
 	@extend %button-toggle;
+	@extend %hover;
 
 	&:before{
 		position: relative;

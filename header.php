@@ -10,16 +10,24 @@
 
 <div id="weezy">
 	<header id="header" >
-		<div class="logo left">
-			<a href="<?php echo home_url(); ?>">
-				<img src="<?php echo get_template_directory_uri(); ?>/img/logo.png"  alt="Hugo Rittson Photography">
-			</a>
+		<div class="wrapper">
+			<div class="logo left">
+				<a href="<?php echo home_url(); ?>">
+					<i class="icon-logo"></i>
+					<!-- <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png"  alt="Hugo Rittson Photography"> -->
+				</a>
+			</div>
+			<?php 
+				$args = array(
+					'theme_location' => 'header_menu',
+					'menu' => '',
+					'container' => 'nav',
+					'container_class' => 'links right',
+				);
+			
+				wp_nav_menu( $args ); 
+			?>
 		</div>
-		<div class="links right">
-			<a class="menu-button" href="#" title="Galleries">Galleries</a>
-			<a href="<?php bloginfo('url'); ?>/lightbox" title="Lightbox">Lightbox<span class="counter"></span></a>
-			<a href="<?php bloginfo('url'); ?>/contact" title="Galleries">Contact</a>
-		</div>
-	</header>	
+	</header>			
 
 	<main id="main" class="clearfix">

@@ -44,7 +44,7 @@ input[type="submit"]{
 .lightbox-form-wrapper{
 	visibility: hidden;
 	@include opacity(0);
-	z-index: 10;
+	z-index: 20;
 	position: absolute;
 	top:0;
 	bottom: 0;
@@ -250,4 +250,9 @@ input[type="submit"]{
 
 .gform_confirmation_wrapper.lightbox-email{
 	color: #fff;
+}
+
+//IE BS
+.gform_wrapper.gf_browser_ie .gform_footer input.button{
+	padding: 1em 1.4em 0.7em 1.4em !important;
 }

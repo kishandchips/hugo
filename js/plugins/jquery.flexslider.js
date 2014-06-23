@@ -295,7 +295,7 @@
       },
       directionNav: {
         setup: function() {
-          var directionNavScaffold = $('<ul class="' + namespace + 'direction-nav"><li><a class="' + namespace + 'prev" href="#"><i></i>' + slider.vars.prevText + '</a></li><li><a class="' + namespace + 'next" href="#"><i></i>' + slider.vars.nextText + '</a></li></ul>');
+          var directionNavScaffold = $('<ul class="' + namespace + 'direction-nav"><li class="prev-li"><a class="' + namespace + 'prev" href="#"><i></i>' + slider.vars.prevText + '</a></li><li class="next-li"><a class="' + namespace + 'next" href="#"><i></i>' + slider.vars.nextText + '</a></li></ul>');
 
           // CONTROLSCONTAINER:
           if (slider.controlsContainer) {

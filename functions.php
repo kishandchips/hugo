@@ -110,7 +110,7 @@ function gallery_meta(){
 
  	$output = $catname;
  	$output .= ' / ' . get_the_title();
- 	echo $output;
+ 	echo ucwords($output);
 }
 
 function lightbox_images(){

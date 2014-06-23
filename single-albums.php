@@ -1,11 +1,13 @@
 <?php get_header(); ?>
+
+<div id="single-albums">
 <?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
 	<?php 	$images = get_field('images'); 
 			$total_number = count($images);
 	?>
 
 	<?php if ($images) : ?>
-		<section class="flexslider">
+		<section id="slider" class="flexslider">
 			<ul class="slides">
 				<?php foreach( $images as $image ): ?>
 					<li data-id="<?php echo $image['id']; ?>">
@@ -30,7 +32,7 @@
 		</footer>
 		</section><!-- end of flexslider -->	
 
- 	<section class="gallery-content clearfix">
+ 	<section id="gallery-content" class="clearfix">
 		<div class="summary left">
 			<h2>
 				<?php the_title(); ?>
@@ -43,7 +45,7 @@
 				<?php foreach( $images as $image ): ?>
 					<li class="column col-1-3" data-id="<?php echo $image['id']; ?>">
 						<a href="#" >
-							<span class="vertical"></span><img class="b-lazy" src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== data-src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" width="<?php echo $image['width']; ?>" height="<?php echo $image['height']; ?>">
+							<span class="vertical"></span><img class="lazy" data-original="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" width="<?php echo $image['width']; ?>" height="<?php echo $image['height']; ?>">
 						</a>
 					</li>
 				<?php endforeach;?>
@@ -52,5 +54,7 @@
 	<?php endif; ?>
 	</section><!-- end of album content -->
 
-<?php endwhile; endif; ?>
+<?php endwhile; endif; ?>	
+</div>
+
 <?php get_footer(); ?>

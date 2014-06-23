@@ -3,17 +3,6 @@
 
 <div id="overlaymenu">
 
-	<header class="clearfix">
-		<div class="logo left">
-		<a href="#">
-			<img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="">
-		</a>
-		</div>
-		<div class="right">
-			<a class="menu-button" href="">Close Menu</a>
-		</div>
-	</header>
-
 	<div class="valign">
 		<h2>Galleries</h2>
 		<?php 
