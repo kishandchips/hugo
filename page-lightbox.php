@@ -5,13 +5,12 @@ Template Name: Lightbox
 ?>
 <?php get_header(); ?>
 
-<div id="lightbox">
 <?php 	lightbox_images(); 
 		$total_number = count($lightbox_images);
 ?>
 
 <?php if ( $lightbox_images ) : ?>
-
+<div id="lightbox">
 	<div class="lightbox-form-wrapper">
 		<div class="lightbox-form">
 			<button aria-label="Lightbox Toggle" class="lightbox-toggle icon-cross button"></button>
@@ -23,18 +22,17 @@ Template Name: Lightbox
 		<ul class="slides">
 			<?php foreach( $lightbox_images as $image ): ?>
 				<li data-id="<?php echo $image ?>">
-					<div class="image">
-						<?php echo wp_get_attachment_image($image,'full'); ?>
-						<button aria-label="Remove from lightbox" class="lightbox-remove icon-minus button calign" href="#" data-id="<?php echo $image ?>"></button>					
-					</div>
+					<span class="vertical"></span><?php echo wp_get_attachment_image($image,'full'); ?>
+					<button aria-label="Remove from lightbox" class="lightbox-remove icon-minus button midway-horizontal midway-vertical" data-id="<?php echo $image ?>"></button>					
 				</li>
 			<?php endforeach;?>
 		</ul>		
 		<footer>
 			<button aria-label="Gallery Toggle" class="toggle-gallery button">All Images</button>
 			<button aria-label="Switch Colour" class="color-toggle button">Background</button>
-		</footer>
-	</section><!-- end of flexslider -->
+			<button aria-label="Remove from lightbox" class="remove button" data-id="">Remove from Lightbox</button>
+		</footer><!-- end of footer -->
+	</section><!-- end of #slider -->
 
 	<section id="gallery-content" class="clearfix">
 		<div class="gallery column col-full">
@@ -42,8 +40,8 @@ Template Name: Lightbox
 				<?php foreach( $lightbox_images as $image ): ?>
 					<?php if($image !== '0') : ?>
 					<li class="column col-1-6" data-id="<?php echo $image ?>">
-						<a href="#" >
-							<span class="vertical"></span><?php echo wp_get_attachment_image( $image, 'full' ); ?>
+						<span class="vertical"></span><a href="#" >
+							<?php echo wp_get_attachment_image( $image, 'full' ); ?>
 						</a>
 					</li>
 					<?php endif; ?>
@@ -55,13 +53,14 @@ Template Name: Lightbox
 			<button aria-label="Switch Colour" class="color-toggle button" >Background</button>
 			<button aria-label="Clear Selection" class="lightbox-clear btn" >Clear Selection</button>
 		</footer>
-	</section><!-- end of lightbox content -->
+	</section><!-- end of #gallery-content -->
+</div><!-- end of #lightbox -->
 
 <?php else : ?>
-	<div class="lightbox">
-		<header>
+	<div class="instructions">
+<!-- 		<header>
 			<h2 class="title">My Favourites</h2>
-		</header>
+		</header> -->
 
 		<div class="frame">
 			<div class="row">
@@ -70,21 +69,23 @@ Template Name: Lightbox
 				</div>
 				
 				<div class="column col-1-3">
-					<strong>1</strong>
-					<p>Click the "Save to Lightbox" link under any image you are interested in</p>
+					<img src="<?php echo get_template_directory_uri(); ?>/img/step1.png" alt="">
+					
+					<p><strong>1.</strong>Hover over any image and add it to your lightbox by clicking the icon.</p>
 				</div>
 				<div class="column col-1-3">
-					<strong>2</strong>
-					<p>Images will be saved to this page for future reference</p>
+					<img src="<?php echo get_template_directory_uri(); ?>/img/step2.png" alt="">
+					
+					<p><strong>2.</strong>Images will be saved to the lightbox page for future reference.</p>
 				</div>
 				<div class="column col-1-3">
-					<strong>3</strong>
-					<p>You can also share your lightbox with others by email</p>
+					<img src="<?php echo get_template_directory_uri(); ?>/img/step3.png" alt="">
+					
+					<p><strong>3.</strong>Click the share icon and share your collection with your friends.</p>
 				</div>
 			</div>			
 		</div>
 	</div><!-- end of instructions -->
 <?php endif; ?>
-</div>
 
 <?php get_footer(); ?>

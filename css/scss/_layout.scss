@@ -9,6 +9,7 @@
 	background-image: url(../img/colour06.jpg);
 	background-size: cover;
 	z-index:9999;
+	@include transition(opacity, 1s);
 
 	&.visible{
 		@extend .visible;
@@ -28,12 +29,25 @@
 	}
 }
 
+.fadeIn{
+	position: fixed;
+	top:0;right:0;bottom:0;left:0;
+	background-color:#fff;
+	z-index:9000;
+	@include transition(opacity, 1s);
+
+	&.invisible{
+		visibility: hidden;
+		opacity: 0;
+	}
+}
+
 #header{
 	position: fixed;
 	top:0;
 	width: 100%;
-	height:45px;
-	line-height: 45px;
+	height:60px;
+	line-height: 60px;
 	text-align: center;
 	background-color: #fff;
 	z-index: 15;
@@ -42,14 +56,51 @@
 
 	@media screen and (max-width: 550px){
 		height:60px;
+
+		.logo{
+			height: 30px;
+			overflow: hidden;
+		}
 	}
 
 	.wrapper{
-		padding: 0 15px;
+		padding: 0 3em;
 	}
 	
 	.logo{
-		font-size: 0.8em;
+		
+		a{
+			display: inline-block;
+			@include transition(margin-top, .3s);
+
+			i{
+				display: inline-block;
+				width: 100%;
+				@include transition(opacity, .1s);
+			}
+
+			.icon-logo{
+				opacity: 1;
+			}
+
+			.icon-home{
+				display: none;
+				opacity: 0;
+				font-size: 1.2em;
+			}
+
+			&:hover{
+				margin-top: -60px;
+
+				.icon-logo{
+					@include opacity(0);
+				}
+
+				.icon-home{
+					@include opacity(1);
+				}
+			}
+		}
 	}
 
 	.links {
@@ -107,13 +158,27 @@
 /* ==========================================================================
 	CONTENT
    ========================================================================== */
-#home, #single-albums, #lightbox{
+#single-albums, #lightbox{
 	height:100%;
+}
+
+#home{
+	height: initial;
 }
 
 body{
 
+	&.home{
+		#main{
+			overflow: auto;
+		}
+	}
+
 	&.page-template-page-contact-php{
+		#main{
+			overflow: auto;
+		}
+
 		#weezy{
 			height: initial;
 
@@ -149,17 +214,15 @@ body{
 		#header{
 			background-color: #000;
 			
-			a{
-				color:#fff;
+			.links{
+				a{
+					color:#fff;
+					&:hover{
+						border-bottom:1px solid #fff;
+					}
+				}				
 			}
 
-			.links a{
-				font-weight: 600;
-
-				&:hover{
-					border-bottom:1px solid #fff;
-				}
-			}
 		}
 
 		//Flexslider
@@ -171,10 +234,10 @@ body{
 			}
 
 			.flex-direction-nav li{
-				@include filter-gradient(#ffffff, #ffffff, vertical); // IE6-8
+				@include filter-gradient(#000, #000, vertical); // IE6-8
 				// IE9 SVG, needs conditional override of 'filter' to 'none'
 				$experimental-support-for-svg: true;
-				@include background-image(linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(205,205,205,1) 25%,rgba(205,205,205,1) 75%,rgba(0,0,0,1) 100%));
+				@include background-image(linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(51,51,51,1) 25%,rgba(51,51,51,1) 75%,rgba(0,0,0,1) 100%));
 			}
 
 			.flex-direction-nav a{
@@ -206,13 +269,12 @@ body{
 			}
 		}
 
-		//Lightbox
-		.lightbox{
+		//Instructions
+		.instructions{
 			color: #fff;
 
 			strong{
-				color: #000;
-				background-color:#fff;
+				color: #fff;
 			}
 		}
 	}//black
@@ -221,12 +283,12 @@ body{
 #main{
 	position: relative;
 	height:100%;
-	padding-top:45px;
+	padding-top:60px;
 	overflow:hidden;
 	@include transition(background-color, 0.3s);
 
 	@media screen and (max-width: 550px){
-		padding-top: 60px;
+		padding-top: 75px;
 	}
 
 	.home &{
@@ -266,11 +328,19 @@ body{
 		&.sizeone{
 			@extend %albums;
 			padding-top: 60%;
+			
+			#home2 &{
+				padding-top: 50%;
+			}
 		}
 
 		&.sizetwo{
 			@extend %albums;
 			padding-top: 120%;
+
+			#home2 &{
+				padding-top: 150%;
+			}
 			
 			@media screen and (max-width: 767px){
 				padding-top: 60%;
@@ -296,17 +366,6 @@ body{
 			width: 100%;
 			text-align: center;
 		}
-	
-		h2{
-			position: relative;
-			top:0;
-			margin: 0;
-			color: #fff;
-			font-size: 5em;
-			@include gtlight;
-			text-transform: uppercase;
-			@include transition(all,.3s);
-		}
 
 		.category-links{
 			position: relative;
@@ -330,18 +389,22 @@ body{
 		}
 		
 		.background{
-			@extend %albums;
 			position: absolute;
 			top:0;right:0;bottom:0;left:0;
-			visibility: hidden;
-			@include opacity(0);
-			@include transition(opacity,.5s);
-			@include transition-delay(0.3s);
 			@include translateZ(0);
 
-			&.visible{
-				visibility: visible;
-				@include opacity(1);
+			.bg{
+				@include opacity(0);
+				visibility:hidden;
+				position: absolute;
+				top:0;right:0;bottom:0;left:0;
+				background-position: top center;
+				background-size: cover;
+				@include transition(all .8s);
+
+				&.visible{
+					@extend .visible;
+				}
 			}
 		}
 
@@ -450,9 +513,9 @@ body{
 #gallery-content{
 	position: absolute;
 	top:0;right:0;bottom:0;left:0;
-	padding-top: 45px;
+	padding-top: 90px;
 	background-color: #fff;
-	@include transition(all,0.3s);
+	@include transition(top 1s, background-color .3s);
 	z-index: 10;
 
 	@media screen and (max-width:700px){
@@ -464,8 +527,8 @@ body{
 	}
 	
 	.summary{
-		width: 300px;
-		padding: 2em 2em 2em 15px;
+		width: 400px;
+		padding: 2em 3em;
 
 		@media screen and (max-width:767px){
 			width: 250px;
@@ -486,6 +549,7 @@ body{
 	.gallery{
 		height: 100%;
 		padding-bottom: 10px;
+		padding-right: 2.5em;
 		overflow-y: auto;
 
 		@media screen and (max-width:700px){
@@ -498,8 +562,8 @@ body{
 			list-style: none;
 
 			li.column{
-				margin-bottom: 0.5em;
-				padding: 0.5em;
+				padding: 1em;
+				text-align: center;
 
 				&.col-1-3{
 					@media screen and (max-width:1000px){
@@ -519,21 +583,75 @@ body{
 					}
 				}
 
-				a{
-					display: inline-block;
-					width: 100%;
-					height: 100%;
-					text-align: center;
-					
-					.portrait{
+				&.portrait{
+					a{
 						height:100%;
-						width: auto;
+					}
+					img{
+						height:100%;
+						width: auto;							
 					}
 
-					.landscape{
+				}
+
+				&.landscape{
+					a{
+						width: 100%;
+					}
+
+					img{
 						width: 100%;
 						height: auto;
-						vertical-align: middle;
+						vertical-align: middle;							
+					}
+
+				}
+
+				&.square{
+					padding: 2%;
+					a{
+						width: 100%;
+						height:100%;
+					}
+				}
+				a{
+					position: relative;
+					display: inline-block;
+					text-align: center;
+
+					&:after{
+						content:"";
+						position: absolute;
+						display:none;
+						top:0;right:0;bottom:0;left:0;
+						@include transition(background-color, 0.3s);
+					}
+
+					img{
+						@include translateZ(0);
+						@include transition(filter,.3s);
+					}
+
+					i{
+						visibility: hidden;
+						@include opacity(0);
+						display: none;
+						left:0;
+						width: 100%;
+						color: #fff;
+						@include fanwood;
+						@include transition(color,.3s);
+					}
+
+					&:hover{
+						&:after{
+							background-color: rgba(0,0,0,0.65);
+						}
+
+						i{
+							z-index: 5;
+							@extend .visible;
+						}
 					}
 				}//a
 			}//li.column
@@ -554,8 +672,10 @@ body{
 #lightbox{
 	@include transition(background-color, .3s);
 	#gallery-content{
+		padding-bottom:50px;
+
 		footer{
-			position: absolute;
+			position: fixed;
 			bottom:0;
 			width:100%;
 			padding: 5px 15px;
@@ -567,23 +687,19 @@ body{
 }
 
 
-.lightbox{
+.instructions{
+	height:100%;
 	padding: 0 15px;
 	color: #000;
 	overflow-y: auto;
 
 	.frame{
-		padding: 5%;
-		border: 2px dashed #3f3f3f;
+		// padding: 5%;
+		// border: 2px dashed #3f3f3f;
 		@include border-radius(3px);
-
-		.row{
-			width: 80%;
-			margin: 0 auto;
-
-			@media screen and (max-width: 650px){
-				width: 100%;
-			}
+		
+		img{
+			border: 1px solid #f0f0f0;
 		}
 
 		h2.big{
@@ -602,7 +718,7 @@ body{
 			text-align: center;
 
 			@media screen and (max-width: 650px){
-				text-align: left;
+				// text-align: left;
 				&.col-1-3{
 					width: 100%;
 					margin-bottom: 1em;
@@ -611,13 +727,13 @@ body{
 		}
 
 		strong{
-			display: inline-block;
-			line-height: 50px;
-			width: 50px;
-			color: #fff;
-			font-size: 2.5em;
-			text-align: center;
-			background-color: #000;
+			// display: inline-block;
+			// line-height: 50px;
+			// width: 50px;
+			// color: #fff;
+			font-size: 1.2em;
+			// text-align: center;
+			// background-color: #000;
 			@include border-radius(50px);
 
 			@media screen and (max-width: 650px){
@@ -629,12 +745,18 @@ body{
 		}
 
 		p{
-			padding-right: 5%;
-			
-			@media screen and (max-width: 650px){
-				display: inline;
-				padding-left: 5px;
-			}
+			display: inline-block;
+			width: 100%;
+			max-width: 500px;
+			margin:0;
+			padding: 1em;
+			color: #333;
+			font-size: 0.875em;
+			text-align: center;
+			background-color: #f0f0f0;
+
+			@include border-bottom-left-radius(15px);
+			@include border-bottom-right-radius(15px);
 		}
 	}
 }
@@ -644,6 +766,8 @@ body{
    ====================== */
 
 #contact{
+	height: initial;
+
 	header{
 		overflow: hidden;
 		background-color:#000;
@@ -662,7 +786,7 @@ body{
 
 		.bio{
 			height: 100%;
-			padding:5em 2em 0 2em;
+			padding:5em 3em 0 3em;
 			color: #fff;
 			text-align: justify;
 			line-height: 1.8;
@@ -686,7 +810,6 @@ body{
 		.details{
 			padding: 0;
 			text-align: center;
-			border-right: 1px solid rgba(151,151,151,0.17);
 			
 			@media screen and (max-width:765px){
 				width: 100%;
@@ -721,7 +844,7 @@ body{
 
 				a{
 					color: #616161;
-					border-bottom: 1px solid #616161;
+					border-bottom: 1px solid #dbdbdb;
 					@include single-transition(all, 0.3s);
 
 					&:hover{
@@ -732,17 +855,17 @@ body{
 			}
 
 			i{
-				display: block;
+				display: none;
 				@extend %icon;
-				font-size: 3em;
+				font-size: 1.5em;
 			}
 
 			h3{
 				display: inline-block;
 				margin:1em 0 0.5em 0;
 				font-size: 1.29em;
+				@include gtlight;
 				text-transform: uppercase;
-				border-bottom: 2px solid #000;
 			}
 
 			p{
@@ -751,7 +874,8 @@ body{
 		}//.contact-details
 
 		.form{
-			padding: 4em 10% 0;
+			padding: 3em 10% 0;
+			border-left: 1px solid rgba(151,151,151,0.17);
 
 			@media screen and (max-width: 765px){
 				width: 100%;
@@ -798,28 +922,21 @@ body{
 }
 
 #overlaymenu{
-	z-index: 10;
+	z-index: 9999;
 	visibility: hidden;
 	position: fixed;
-	top:45px;right:0;bottom: 0;left: 0;
+	top:0;right:0;bottom: 0;left: 0;
 	color: #fff;
 	text-align: center;
+	background-color: #000;
 	background-color: rgba(0,0,0, 0.9);
 	@include opacity(0);
 	@include single-transition(all,0.5s);
 	overflow-y: auto;
 
-	@media screen and (max-width:550px){
-		top:60px;
-	}
-
 	&.visible{
 		visibility: visible;
 		@include opacity(1);
-
-/*		@media screen and (max-width: 767px){
-			overflow-y: auto;
-		}*/
 	}
 
 	a{
@@ -827,9 +944,19 @@ body{
 	}
 
 	header{
-		padding: 0 15px;
-		line-height: 45px;
+		padding: 0 3em;
+		line-height: 60px;
 		text-transform: uppercase;
+		background-color: transparent;
+		.logo{
+			font-size: 0.8em;
+		}
+
+		button{
+			color: #fff;
+			@include gtlight;
+			text-transform: uppercase;
+		}
 	}
 
 	.valign{
@@ -876,7 +1003,7 @@ body{
 		}
 
 		ul.sub-menu{
-			margin: 0;
+			margin: 0 0 1em 0;
 			padding: 0;
 
 			li{
@@ -945,68 +1072,51 @@ body{
    ====================== */ 
 
 #slider{
-  height: 100%;
-  margin: 0;
-  padding: 0 0 60px 0;
-  border: none;
-  @include transition(background-color, 0.3s);
+  	height: 100%;
+  	margin: 0;
+  	padding: 0 0 70px 0;
+  	border: none;
+  	@include transition(all, .3s);
 
 	&.visible{
 		@extend .visible;
+
+		img{
+			@include opacity(1);
+		}
 	}
 
 	@media screen and (max-width: 480px){
-		padding-bottom: 90px;
+		padding-bottom: 100px;
 	}
 
 	ul.slides{
 		height: 100%;
 		margin:0;
-  		padding:0;
 		
 		li{
+			position: relative;
 			height: 100%;
 			text-align: center;
+			z-index: 4;
 
-			.image{
-				@include opacity(0);
-				@include transition(opacity,.5s);
-				position: relative;
-			  	display: inline-block;
-			  	//height:100%; is not needed on chrome
-			  	@extend .valign;
-
-			  	&:hover{
-			  		button{
-			  			@extend .visible;
-			  		}
-			  	}
+			&:hover{
+				button{
+					@extend .visible;
+				}
 			}
 
 			img{
 				max-height: 100%;
 				width: auto;//this creates the gap on mozilla set to a value max-width:100% for mozilla
+				@include opacity(0);
 				@include backface-visibility(hidden);
+				@include transition(opacity,.3s);
 			}
 
 			&.flex-active-slide{
-				.image{
+				img{
 					@include opacity(1);					
-				}
-			}
-
-			button.lightbox-add, button.lightbox-remove{
-				visibility: hidden;
-				@include opacity(0);
-				@include transition(opacity, 0.2s);
-				display: inline-block;
-				padding: 10px;
-				color: #fff;
-				// background-color: #fff;
-				text-transform: uppercase;
-
-				&:before{
-					font-size: 3em;
 				}
 			}				
 		}//li
@@ -1030,12 +1140,17 @@ body{
 	footer{
 		position: absolute;
 		bottom:0;
-		padding: 5px 15px;
+		padding: 15px 3em;
 		z-index: 10;
+		overflow: hidden;
+
+		button{
+			margin-right: 1em;
+		}
 	}
 
 	.gallery-meta{
-		margin-left: 2.86em;
+		margin-left: 1;
 		font-size: 1.14em;
 		@include fanwood;
 		z-index: 2;
@@ -1044,37 +1159,113 @@ body{
 			display: block;
 			margin-left: 0;
 		}
+
+		@media screen and (max-width:767px){
+			font-size: 0.8em
+		}
 	}
 }
 
 /* ======================
-	LazyLoad
+	Animation
    ====================== */ 
 
-.b-lazy {
-	max-width: 100%;
-	@include transition(all,0.3s);
-	@include filter(brightness(0.5));
+.slowfade{
+      -webkit-animation: fadeFromWhite 3s 1;
+      -moz-animation:    fadeFromWhite 3s 1;
+      -o-animation:      fadeFromWhite 3s 1;
+      -ms-animation:     fadeFromWhite 3s 1;
+      -khtml-animation:  fadeFromWhite 3s 1;
+      animation:         fadeFromWhite 3s 1;
 }
 
-.b-lazy.b-loaded {
+@-webkit-keyframes fadeFromWhite {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes fadeFromWhite {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-o-keyframes fadeFromWhite {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes fadeFromWhite {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
 
-	&:hover{
-		@include filter(brightness(1));
+
+.lazy{
+	@include opacity(0);
+	@include transition(opacity, 0.5s);
+
+	&.b-loaded{
+
+		@include opacity(1);
+	}
+}
+/* ======================
+	TOUCH & OTHER BS
+   ====================== */
+.no-touch{
+
+	#header{
+		.icon-home{
+			display: inline-block !important;
+		}
+	}
+
+	#slider{
+		.slides{
+			.lightbox-add, .lightbox-remove{
+				display: inline-block;
+			}
+		}
+
+		.add{
+			display: none;
+		}
+		.remove{
+			display: none;
+		}
+	}
+
+	.gallery{
+		li{
+			a{
+				&:after{
+					display: inline-block !important;
+				}
+
+				i{
+					display: inline !important;
+				}
+			}
+		}
 	}
 }
 
-/* ======================
-	TOUCH & STUFF
-   ====================== */
+// IE8
+html.lt-ie9{
+	#weezy{
+		min-width: 1024px;
+	}
 
-.firefox{
-	.slides .image{
-		width: 100%;
-		height:100%;
+	#overlaymenu{
+		.valign{
+			top:0;
+		}
+	}
 
-		img{
-			@extend .calign;
+	#slider{
+		footer{
+			overflow: hidden;
+
+			button{
+				float:left;
+			}
 		}
 	}
 }

@@ -48,7 +48,6 @@ body{
 	font-size: 0.875em;
 	@include opensans;
 	line-height: 1.7;
-	-webkit-font-smoothing: antialiased;
 
 	@media screen and (max-width: 767px){
 		font-size: 80%;
@@ -77,19 +76,6 @@ h4,h5,h6{
 a{
 	color: #111;
 	text-decoration: none;
-}
-
-#header .links{
-	a{
-		padding-bottom: 5px;
-		text-transform: uppercase;
-		border-bottom:1px solid transparent;
-		@include single-transition(all,0.3s);
-		
-		&:hover{
-			border-bottom:1px solid #111;
-		}
-	}
 }
 
 .meta{

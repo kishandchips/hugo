@@ -8,12 +8,13 @@ Template Name: Contact
 <div id="contact" class="container">
 <?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
 	<header>
-		<figure class="column col-1-2" style="background-image: url(<?php echo get_template_directory_uri(); ?>/img/hugo2bsedit.jpg)">
-		</figure>
 		<div class="bio column col-1-2">
 			<?php the_content(); ?>	
-		</div>		
+		</div>
+		<figure class="column col-1-2 slowfade" style="background-image: url(<?php echo get_template_directory_uri(); ?>/img/hugo2bsedit.jpg)">
+		</figure>
 	</header>
+	
 	<section class="contact-section">
 			<div class="details column col-1-2">
 				<div class="detail">

@@ -275,6 +275,17 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/img\/apples-homebg.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 95686,
+		"inputAbbreviatedPath": "\/img\/apples-homebg.jpg",
+		"outputAbbreviatedPath": "\/img\/apples-homebg.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/Chefs9-bg.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -293,6 +304,17 @@
 		"initialSize": 65201,
 		"inputAbbreviatedPath": "\/img\/colour06.jpg",
 		"outputAbbreviatedPath": "\/img\/colour06.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/colours-homebg.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 57628,
+		"inputAbbreviatedPath": "\/img\/colours-homebg.jpg",
+		"outputAbbreviatedPath": "\/img\/colours-homebg.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -359,6 +381,39 @@
 		"initialSize": 76656,
 		"inputAbbreviatedPath": "\/img\/screenshot.png",
 		"outputAbbreviatedPath": "\/img\/screenshot.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/step1.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/img\/step1.png",
+		"outputAbbreviatedPath": "\/img\/step1.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/step2.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 97014,
+		"inputAbbreviatedPath": "\/img\/step2.png",
+		"outputAbbreviatedPath": "\/img\/step2.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/step3.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 37685,
+		"inputAbbreviatedPath": "\/img\/step3.png",
+		"outputAbbreviatedPath": "\/img\/step3.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0

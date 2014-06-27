@@ -1,4 +1,6 @@
 <?php get_header(); ?>
+
+<div id="home">
 <?php
 	$pageid =$post->ID;
 ?>
@@ -8,6 +10,7 @@
 		<h1 class="splashdamage">Hugo Rittson-Thomas</h1>
 	</div>
 </div>
+
 
 <section class="album-grid clearfix">
 	<?php $terms = get_terms( 'album-category' ) ?>
@@ -35,7 +38,7 @@
 								<div class="overlay">
 									<span class="vertical"></span><span><?php echo $image['title']; ?></span>
 								</div>
-								<img class="b-lazy" data-src="<?php echo $image['sizes']['grid-item'] ?> " alt="<?php echo $image['alt']; ?>" width="<?php echo $image['width']; ?>" height="<?php echo $image['height'];?>" src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==>
+								<img class="lazy" data-src="<?php echo $image['sizes']['grid-item'] ?> " alt="<?php echo $image['alt']; ?>" width="<?php echo $image['width']; ?>" height="<?php echo $image['height'];?>" src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==>
 							</a>
 						</div>							
 					<?php endforeach; ?>				
@@ -46,5 +49,7 @@
 	<?php endforeach; ?>
 
 
-</section><!-- end of album-grid -->
+</section><!-- end of album-grid -->	
+</div>
+
 <?php get_footer(); ?>

@@ -20,8 +20,8 @@ define('THEME_NAME', 'hugo');
 
 // Image sizes
 	add_image_size( 'grid-item', 300, 300, true );
-// Functions
 
+// Functions
 function add_editor_styles() {
     add_editor_style('/css/editor-styles.css');
 }
@@ -33,6 +33,7 @@ function custom_styles(){
 
 function custom_scripts(){
 	wp_enqueue_script('modernizr', get_template_directory_uri() . '/js/plugins/modernizr.js', array('jquery'), '');
+	wp_enqueue_script('center', get_template_directory_uri() . '/js/plugins/jquery.center.js', array('jquery'), '');
 	wp_enqueue_script('lazyload', get_template_directory_uri() . '/js/plugins/jquery.lazyload.js', array('jquery'), '', true);
 	wp_enqueue_script('flexslider', get_template_directory_uri() . '/js/plugins/jquery.flexslider.js', array('jquery'), '', true);
 	wp_enqueue_script('cookie', get_template_directory_uri() . '/js/plugins/jquery.cookie.js', array('jquery'), '', true);
@@ -99,6 +100,28 @@ function album_category() {
 	register_taxonomy( 'album-category', array( 'albums' ), $args );
 }
 
+// REMOVE MENU ITEMS
+add_action( 'admin_menu', 'my_remove_menu_pages',999 );
+
+function my_remove_menu_pages() {
+    $admins = array( 
+        'admin', 
+    );
+
+    $current_user = wp_get_current_user();
+
+    if( !in_array( $current_user->user_login, $admins ) ){
+    
+	    remove_menu_page('edit.php');
+	    remove_menu_page('edit-comments.php');
+	    remove_menu_page('plugins.php');
+	    remove_menu_page('tools.php');
+	    remove_menu_page('edit.php?post_type=acf');
+	}
+}
+
+
+// MISC FUNCTIONS
 function gallery_meta(){
 	global $post;
 
