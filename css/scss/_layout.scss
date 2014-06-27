@@ -213,6 +213,12 @@ body{
 
 		#header{
 			background-color: #000;
+
+			.logo{
+				a{
+					color: #fff;
+				}
+			}
 			
 			.links{
 				a{
@@ -229,10 +235,6 @@ body{
 		#slider{
 			background-color: #000;
 
-			a{
-				color: #fff;
-			}
-
 			.flex-direction-nav li{
 				@include filter-gradient(#000, #000, vertical); // IE6-8
 				// IE9 SVG, needs conditional override of 'filter' to 'none'
@@ -242,9 +244,21 @@ body{
 
 			.flex-direction-nav a{
 				background-color: #000;
+				
+				i{
+					color: #fff;
+				}
 
 				&:hover{
 					background-color: rgba(0,0,0,0);
+				}
+
+				&.flex-disabled{
+					background-color: #000;
+
+					i{
+						color: transparent;
+					}
 				}
 			}
 			

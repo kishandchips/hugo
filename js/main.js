@@ -63,11 +63,6 @@
 
 				// links hover
 				main.frontPage.vars.links.mouseover(function(){
-					// //get background url from data-bg
-					// var newBg = $(this).parent().data('bg');
-					// //apply bg to .background and toggleClass
-					// $(this).closest('.album').find('.background').css('background-image', 'url('+newBg+')');
-					// $(this).closest('.album').find('.background').toggleClass('visible');
 					var index = $(this).parent().data('bg');
 					$(this).closest('.album').find('.bg[data-bg="'+index+'"]').toggleClass('visible');
 
@@ -75,16 +70,6 @@
 					//remove bg
 					var index = $(this).parent().data('bg');
 					$(this).closest('.album').find('.bg[data-bg="'+index+'"]').toggleClass('visible');
-				});
-
-				//Frontpage grid trigger
-				main.frontPage.vars.item.on('click', function(){
-					//Grabs id
-					var id = $(this).data('id');
-					//Appends id to url
-					$(this).children('a').attr( 'href', function(index, value) {
-					  return value + "#"+ id;
-					});
 				});
 			},
 		},

@@ -114,8 +114,12 @@ html[xmlns] .slides {display: block;}
 	}
 
 	.flex-disabled{
-		@include opacity(0);
-		cursor: default; 
+		cursor: default;
+		background-color: #fff;
+
+		i{
+			color: transparent;
+		}
 	}
 }
 
