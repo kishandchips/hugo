@@ -45,7 +45,7 @@
 				<?php foreach( $images as $image ): ?>
 					<li class="column col-1-3" data-id="<?php echo $image['id']; ?>">
 						<span class="vertical"></span><a href="#" >
-							<img class="lazy"  src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" width="<?php echo $image['width']; ?>" height="<?php echo $image['height']; ?>">
+							<img class="lazy"  src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo $image['sizes']['grid-item']; ?>" alt="<?php echo $image['alt']; ?>" width="<?php echo $image['width']; ?>" height="<?php echo $image['height']; ?>">
 							<i class="valign">View Image</i>
 						</a>
 					</li>

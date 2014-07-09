@@ -13,14 +13,16 @@
 
 <body <?php body_class(); ?>>
 
-<div id="weezy">
+<?php if(get_field('bg_color')): ?>
+	<?php $bgcolor = get_field('bg_color'); ?>
+<?php endif; ?>
+<div id="weezy" class="<?php echo $bgcolor; ?>">
 	<header id="header" >
 		<div class="wrapper clearfix">
 			<div class="logo left">
 				<a href="<?php echo home_url(); ?>">
 					<i class="icon-logo"></i>
 					<i class="icon-home"></i>
-					<!-- <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png"  alt="Hugo Rittson Photography"> -->
 				</a>
 			</div>
 			<?php 

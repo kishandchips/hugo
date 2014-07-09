@@ -237,8 +237,14 @@
 		},// Modal popup
 
 		colorToggle: function(){
+			var page = $('#weezy');
 			$('.color-toggle').on('click', function(){
-				$('#weezy').toggleClass('black');
+				if((page).hasClass('white')){
+					page.removeClass('white').addClass('black');
+				} else {
+					page.removeClass('black').addClass('white');
+				}
+				
 			});
 		},
 

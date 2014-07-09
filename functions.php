@@ -19,7 +19,7 @@ define('THEME_NAME', 'hugo');
 	add_action( 'wp_enqueue_scripts', 'custom_scripts', 30 );
 
 // Image sizes
-	add_image_size( 'grid-item', 300, 300, true );
+	add_image_size( 'grid-item', 300, 9999, false );
 
 // Functions
 function add_editor_styles() {

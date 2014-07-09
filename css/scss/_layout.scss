@@ -70,33 +70,42 @@
 	.logo{
 		
 		a{
+			position: relative;
+			width: 210px;
 			display: inline-block;
 			@include transition(margin-top, .3s);
 
 			i{
 				display: inline-block;
 				width: 100%;
-				@include transition(opacity, .1s);
+				@include transition(opacity, .3s);
+				@include translateZ(0);
 			}
 
 			.icon-logo{
-				opacity: 1;
+				@include opacity(1);
+				text-align: left;
+
+				@media screen and (max-width:550px){
+					text-align: center;
+				}
 			}
 
 			.icon-home{
-				display: none;
-				opacity: 0;
+				left: 0;
+				@extend .valign;
+				@include opacity(0);
 				font-size: 1.2em;
 			}
 
 			&:hover{
-				margin-top: -60px;
 
 				.icon-logo{
 					@include opacity(0);
 				}
 
 				.icon-home{
+					width: 100%;
 					@include opacity(1);
 				}
 			}
@@ -117,6 +126,7 @@
 				}
 
 				a{
+					padding: 0.7em 0 0.3em 0;
 					@include gtlight;
 					text-transform: uppercase;
 					border-bottom:1px solid transparent;
@@ -551,7 +561,12 @@ body{
 		@media screen and (max-width:700px){
 			float: none;
 			width: 100%;
-			padding: 2em 15px;
+			padding: 2em 3em;
+		}
+		@media screen and (max-width:550px){
+			float: none;
+			width: 100%;
+			padding: 2em 1em;
 		}
 
 		h2{
@@ -568,6 +583,7 @@ body{
 
 		@media screen and (max-width:700px){
 			width: 100%;
+			padding-right: 0;
 			height: initial;
 		}
 
@@ -700,7 +716,7 @@ body{
 
 		&.hide{
 			footer{
-				bottom:100%;
+				bottom:-100%;
 			}			
 		}
 	}
@@ -948,15 +964,18 @@ body{
 	top:0;right:0;bottom: 0;left: 0;
 	color: #fff;
 	text-align: center;
-	background-color: #000;
-	background-color: rgba(0,0,0, 0.9);
+	background-color: transparent;
 	@include opacity(0);
-	@include single-transition(all,0.5s);
+	@include transition(all,.5s);
+	@include translateZ(0);
 	overflow-y: auto;
 
 	&.visible{
+		background-color: #000;
+		background-color: rgba(0,0,0, 0.9);
 		visibility: visible;
 		@include opacity(1);
+		@include transition(all,.5s);
 	}
 
 	a{
@@ -964,13 +983,12 @@ body{
 	}
 
 	header{
+		position:relative;
+		z-index: 10;
 		padding: 0 3em;
 		line-height: 60px;
 		text-transform: uppercase;
 		background-color: transparent;
-		.logo{
-			font-size: 0.8em;
-		}
 
 		button{
 			color: #fff;
@@ -980,6 +998,7 @@ body{
 	}
 
 	.valign{
+		z-index: 5;
 		width: 100%;
 		@media screen and (max-width:767px){
 			position:relative;
