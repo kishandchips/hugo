@@ -697,6 +697,12 @@ body{
 			z-index: 10;
 			@include transition(all,0.3s);
 		}
+
+		&.hide{
+			footer{
+				bottom:100%;
+			}			
+		}
 	}
 }
 
