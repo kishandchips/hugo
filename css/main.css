@@ -91,20 +91,16 @@ textarea {
   width: auto; }
 
 /* line 95, scss/_boilerplate.scss */
-.invisible {
-  visibility: hidden; }
-
-/* line 99, scss/_boilerplate.scss */
 .clearfix:before,
 .clearfix:after {
   content: " ";
   display: table; }
 
-/* line 105, scss/_boilerplate.scss */
+/* line 101, scss/_boilerplate.scss */
 .clearfix:after {
   clear: both; }
 
-/* line 109, scss/_boilerplate.scss */
+/* line 105, scss/_boilerplate.scss */
 .clearfix {
   *zoom: 1; }
 
@@ -112,7 +108,7 @@ textarea {
    Print styles
    ========================================================================== */
 @media print {
-  /* line 118, scss/_boilerplate.scss */
+  /* line 114, scss/_boilerplate.scss */
   * {
     background: transparent !important;
     color: #000 !important;
@@ -120,58 +116,58 @@ textarea {
     box-shadow: none !important;
     text-shadow: none !important; }
 
-  /* line 125, scss/_boilerplate.scss */
+  /* line 121, scss/_boilerplate.scss */
   a,
   a:visited {
     text-decoration: underline; }
 
-  /* line 130, scss/_boilerplate.scss */
+  /* line 126, scss/_boilerplate.scss */
   a[href]:after {
     content: " (" attr(href) ")"; }
 
-  /* line 134, scss/_boilerplate.scss */
+  /* line 130, scss/_boilerplate.scss */
   abbr[title]:after {
     content: " (" attr(title) ")"; }
 
   /*
    * Don't show links for images, or javascript/internal links
    */
-  /* line 142, scss/_boilerplate.scss */
+  /* line 138, scss/_boilerplate.scss */
   .ir a:after,
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
     content: ""; }
 
-  /* line 148, scss/_boilerplate.scss */
+  /* line 144, scss/_boilerplate.scss */
   pre,
   blockquote {
     border: 1px solid #999;
     page-break-inside: avoid; }
 
-  /* line 154, scss/_boilerplate.scss */
+  /* line 150, scss/_boilerplate.scss */
   thead {
     display: table-header-group;
     /* h5bp.com/t */ }
 
-  /* line 158, scss/_boilerplate.scss */
+  /* line 154, scss/_boilerplate.scss */
   tr,
   img {
     page-break-inside: avoid; }
 
-  /* line 163, scss/_boilerplate.scss */
+  /* line 159, scss/_boilerplate.scss */
   img {
     max-width: 100% !important; }
 
   @page {
     margin: 0.5cm; }
-  /* line 171, scss/_boilerplate.scss */
+  /* line 167, scss/_boilerplate.scss */
   p,
   h2,
   h3 {
     orphans: 3;
     widows: 3; }
 
-  /* line 178, scss/_boilerplate.scss */
+  /* line 174, scss/_boilerplate.scss */
   h2,
   h3 {
     page-break-after: avoid; } }
@@ -603,7 +599,7 @@ button {
   background-color: transparent; }
 
 /* line 59, scss/_button.scss */
-.toggle-gallery, .color-toggle, .lightbox-toggle, .add, .remove {
+.toggle-gallery, .color-toggle, .lightbox-toggle, .add, .remove, .info {
   font-size: 0.875em;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -613,43 +609,51 @@ button {
   -webkit-transition: all, 0.3s;
   transition: all, 0.3s; }
   /* line 66, scss/_button.scss */
-  .toggle-gallery:hover, .color-toggle:hover, .lightbox-toggle:hover, .add:hover, .remove:hover {
+  .toggle-gallery:hover, .color-toggle:hover, .lightbox-toggle:hover, .add:hover, .remove:hover, .info:hover {
     border-bottom: 1px solid #000; }
-  /* line 70, scss/_button.scss */
-  .toggle-gallery:before, .color-toggle:before, .lightbox-toggle:before, .add:before, .remove:before {
+  /* line 71, scss/_button.scss */
+  .black .toggle-gallery:hover, .black .color-toggle:hover, .black .lightbox-toggle:hover, .black .add:hover, .black .remove:hover, .black .info:hover {
+    border-bottom: 1px solid #fff; }
+  /* line 76, scss/_button.scss */
+  .toggle-gallery:before, .color-toggle:before, .lightbox-toggle:before, .add:before, .remove:before, .info:before {
     position: relative;
     top: -1px;
     margin-right: 5px; }
 
-/* line 80, scss/_button.scss */
+/* line 86, scss/_button.scss */
 .toggle-gallery:before {
   content: "\e600";
   font-size: 1.5em; }
 
-/* line 89, scss/_button.scss */
+/* line 95, scss/_button.scss */
 .color-toggle:before {
   content: "\e604";
   font-size: 1.5em; }
 
-/* line 99, scss/_button.scss */
+/* line 105, scss/_button.scss */
 .lightbox-toggle:before {
   content: "\e609";
   font-size: 1.5em; }
 
-/* line 109, scss/_button.scss */
+/* line 115, scss/_button.scss */
 .add:before {
   content: "\e605";
   font-size: 1.1em; }
 
-/* line 119, scss/_button.scss */
+/* line 125, scss/_button.scss */
 .remove:before {
   content: "\e60a";
   font-size: 1.1em; }
 
+/* line 135, scss/_button.scss */
+.info:before {
+  content: "\e60d";
+  font-size: 1.5em; }
+
 @font-face {
   font-family: 'icomoon';
-  src: url("fonts/icomoon.eot?gsttf6");
-  src: url("fonts/icomoon.eot?#iefixgsttf6") format("embedded-opentype"), url("fonts/icomoon.woff?gsttf6") format("woff"), url("fonts/icomoon.ttf?gsttf6") format("truetype"), url("fonts/icomoon.svg?gsttf6#icomoon") format("svg");
+  src: url("fonts/icomoon.eot?-rx4ae0");
+  src: url("fonts/icomoon.eot?#iefix-rx4ae0") format("embedded-opentype"), url("fonts/icomoon.woff?-rx4ae0") format("woff"), url("fonts/icomoon.ttf?-rx4ae0") format("truetype"), url("fonts/icomoon.svg?-rx4ae0#icomoon") format("svg");
   font-weight: normal;
   font-style: normal; }
 /* line 12, scss/_icons.scss */
@@ -666,62 +670,74 @@ button {
   -moz-osx-font-smoothing: grayscale; }
 
 /* line 26, scss/_icons.scss */
-.icon-logo:before {
-  content: "\e60b"; }
+.icon-info:before {
+  content: "\e60d"; }
 
 /* line 29, scss/_icons.scss */
-.icon-minus:before {
-  content: "\e60a"; }
-
-/* line 32, scss/_icons.scss */
-.icon-plus:before {
-  content: "\e605"; }
-
-/* line 35, scss/_icons.scss */
-.icon-map:before {
-  content: "\e607"; }
-
-/* line 38, scss/_icons.scss */
-.icon-mail:before {
-  content: "\e608"; }
-
-/* line 41, scss/_icons.scss */
-.icon-lightbox-icon:before {
-  content: "\e603"; }
-
-/* line 44, scss/_icons.scss */
-.icon-arrowright:before {
-  content: "\e601"; }
-
-/* line 47, scss/_icons.scss */
-.icon-arrowleft:before {
-  content: "\e602"; }
-
-/* line 50, scss/_icons.scss */
-.icon-phone:before {
-  content: "\e606"; }
-
-/* line 53, scss/_icons.scss */
 .icon-toggle:before {
   content: "\e604"; }
 
-/* line 56, scss/_icons.scss */
+/* line 32, scss/_icons.scss */
 .icon-grid:before {
   content: "\e600"; }
 
-/* line 59, scss/_icons.scss */
+/* line 35, scss/_icons.scss */
 .icon-send:before {
   content: "\e609"; }
 
+/* line 38, scss/_icons.scss */
+.icon-logo:before {
+  content: "\e60b"; }
+
+/* line 41, scss/_icons.scss */
+.icon-minus:before {
+  content: "\e60a"; }
+
+/* line 44, scss/_icons.scss */
+.icon-plus:before {
+  content: "\e605"; }
+
+/* line 47, scss/_icons.scss */
+.icon-map:before {
+  content: "\e607"; }
+
+/* line 50, scss/_icons.scss */
+.icon-mail:before {
+  content: "\e608"; }
+
+/* line 53, scss/_icons.scss */
+.icon-lightbox-icon:before {
+  content: "\e603"; }
+
+/* line 56, scss/_icons.scss */
+.icon-arrowright:before {
+  content: "\e601"; }
+
+/* line 59, scss/_icons.scss */
+.icon-arrowleft:before {
+  content: "\e602"; }
+
 /* line 62, scss/_icons.scss */
+.icon-phone:before {
+  content: "\e606"; }
+
+/* line 65, scss/_icons.scss */
+.icon-grid:before {
+  content: "\e600"; }
+
+/* line 68, scss/_icons.scss */
+.icon-send:before {
+  content: "\e609"; }
+
+/* line 71, scss/_icons.scss */
 .icon-check:before {
   content: "\e116"; }
 
-/* line 65, scss/_icons.scss */
+/* line 74, scss/_icons.scss */
 .icon-cross:before {
   content: "\e117"; }
 
-/* line 68, scss/_icons.scss */
+/* line 77, scss/_icons.scss */
 .icon-home:before {
   content: "\e60c"; }
 
@@ -785,7 +801,7 @@ img {
   transform: translateX(-50%) translateY(-50%); }
 
 /* line 50, scss/_misc.scss */
-.toggle-gallery:before, .color-toggle:before, .lightbox-toggle:before, .add:before, .remove:before, #contact .contact-section .details i, .modal .message.success:before, .modal .message.fail:before {
+.toggle-gallery:before, .color-toggle:before, .lightbox-toggle:before, .add:before, .remove:before, .info:before, #contact .contact-section .details i, .modal .message.success:before, .modal .message.fail:before {
   font-family: 'icomoon';
   speak: none;
   vertical-align: middle; }
@@ -795,7 +811,13 @@ hr.split-page {
   margin: 4em 0; }
 
 /* line 60, scss/_misc.scss */
-.visible, .lightbox-form-wrapper.visible, .splash.visible, .albums .album .background .bg.visible, #gallery-content .gallery ul li.column a:hover i, #slider.visible, #slider ul.slides li:hover button {
+.invisible, #slider .desc-overlay {
+  visibility: hidden;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0; }
+
+/* line 64, scss/_misc.scss */
+.visible, .lightbox-form-wrapper.visible, .splash.visible, .albums .album .background .bg.visible, #gallery-content .gallery ul li.column a:hover i, #slider.visible, #slider ul.slides li:hover button, #slider .desc-overlay.visible {
   visibility: visible;
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1; }
@@ -856,10 +878,10 @@ input[type="text"], textarea {
   -webkit-transition: all, 0.3s;
   transition: all, 0.3s; }
   /* line 57, scss/_forms.scss */
-  .lightbox-form-wrapper.visible, .albums .album .background .lightbox-form-wrapper.bg.visible, #gallery-content .gallery ul li.column a:hover i.lightbox-form-wrapper, .lightbox-form-wrapper#slider.visible, #slider ul.slides li:hover button.lightbox-form-wrapper {
+  .lightbox-form-wrapper.visible, .albums .album .background .lightbox-form-wrapper.bg.visible, #gallery-content .gallery ul li.column a:hover i.lightbox-form-wrapper, .lightbox-form-wrapper#slider.visible, #slider ul.slides li:hover button.lightbox-form-wrapper, #slider .lightbox-form-wrapper.desc-overlay.visible {
     overflow-y: auto; }
     /* line 61, scss/_forms.scss */
-    .lightbox-form-wrapper.visible .lightbox-form, .albums .album .background .lightbox-form-wrapper.bg.visible .lightbox-form, #gallery-content .gallery ul li.column a:hover i.lightbox-form-wrapper .lightbox-form, .lightbox-form-wrapper#slider.visible .lightbox-form, #slider ul.slides li:hover button.lightbox-form-wrapper .lightbox-form {
+    .lightbox-form-wrapper.visible .lightbox-form, .albums .album .background .lightbox-form-wrapper.bg.visible .lightbox-form, #gallery-content .gallery ul li.column a:hover i.lightbox-form-wrapper .lightbox-form, .lightbox-form-wrapper#slider.visible .lightbox-form, #slider ul.slides li:hover button.lightbox-form-wrapper .lightbox-form, #slider .lightbox-form-wrapper.desc-overlay.visible .lightbox-form {
       top: 0; }
   /* line 66, scss/_forms.scss */
   .lightbox-form-wrapper .lightbox-form {
@@ -1353,7 +1375,7 @@ html[xmlns] .slides {
   -webkit-transition: opacity, 1s;
   transition: opacity, 1s; }
   /* line 39, scss/_layout.scss */
-  .fadeIn.invisible {
+  .fadeIn.invisible, #slider .fadeIn.desc-overlay {
     visibility: hidden;
     opacity: 0; }
 
@@ -1995,49 +2017,56 @@ body.page-template-page-contact-php #header .wrapper {
   /* line 807, scss/_layout.scss */
   #contact header {
     overflow: hidden;
-    background-color: #000;
+    padding: 2em 3em;
+    /*background-color:#000;*/
     border-bottom: 5px solid #000; }
-    /* line 812, scss/_layout.scss */
+    @media screen and (max-width: 800px) {
+      /* line 807, scss/_layout.scss */
+      #contact header {
+        padding: 0 0 2em 0; } }
+    /* line 817, scss/_layout.scss */
     #contact header figure {
       height: 400px;
-      background-size: cover;
+      background-size: contain;
+      background-repeat: no-repeat;
       background-position: center; }
       @media screen and (max-width: 800px) {
-        /* line 812, scss/_layout.scss */
+        /* line 817, scss/_layout.scss */
         #contact header figure {
           width: 100%;
           height: 200px; } }
-    /* line 823, scss/_layout.scss */
+    /* line 829, scss/_layout.scss */
     #contact header .bio {
       height: 100%;
-      padding: 5em 3em 0 3em;
-      color: #fff;
+      padding-left: 0;
+      padding-right: 2em;
+      font-size: 14px;
       text-align: justify;
       line-height: 1.8; }
       @media screen and (max-width: 800px) {
-        /* line 823, scss/_layout.scss */
+        /* line 829, scss/_layout.scss */
         #contact header .bio {
           width: 100%;
-          padding: 5em 2em; } }
-      /* line 835, scss/_layout.scss */
+          padding: 1em; } }
+      /* line 842, scss/_layout.scss */
       #contact header .bio h3:first-child {
         margin: 0; }
-  /* line 841, scss/_layout.scss */
+  /* line 848, scss/_layout.scss */
   #contact .contact-section {
     overflow: hidden;
     border-left: 1px solid rgba(151, 151, 151, 0.17);
     border-right: 1px solid rgba(151, 151, 151, 0.17); }
-    /* line 846, scss/_layout.scss */
+    /* line 853, scss/_layout.scss */
     #contact .contact-section .details {
       padding: 0;
       text-align: center; }
       @media screen and (max-width: 765px) {
-        /* line 846, scss/_layout.scss */
+        /* line 853, scss/_layout.scss */
         #contact .contact-section .details {
           width: 100%;
           border-right: none;
           border-bottom: 1px solid rgba(151, 151, 151, 0.17); } }
-      /* line 856, scss/_layout.scss */
+      /* line 863, scss/_layout.scss */
       #contact .contact-section .details .detail {
         padding: 3em 0 2em 0;
         border-top: 1px solid rgba(151, 151, 151, 0.17);
@@ -2046,24 +2075,24 @@ body.page-template-page-contact-php #header .wrapper {
         -webkit-transition: background-color 0.5s;
         transition: background-color 0.5s; }
         @media screen and (max-width: 765px) {
-          /* line 856, scss/_layout.scss */
+          /* line 863, scss/_layout.scss */
           #contact .contact-section .details .detail {
             float: left;
             width: 33%;
             height: 260px; } }
         @media screen and (max-width: 600px) {
-          /* line 856, scss/_layout.scss */
+          /* line 863, scss/_layout.scss */
           #contact .contact-section .details .detail {
             float: none;
             width: 100%;
             height: initial; } }
-        /* line 873, scss/_layout.scss */
+        /* line 880, scss/_layout.scss */
         #contact .contact-section .details .detail:first-child {
           border-top: none; }
-        /* line 877, scss/_layout.scss */
+        /* line 884, scss/_layout.scss */
         #contact .contact-section .details .detail:hover {
           background-color: #F5F5F5; }
-        /* line 881, scss/_layout.scss */
+        /* line 888, scss/_layout.scss */
         #contact .contact-section .details .detail a {
           color: #616161;
           border-bottom: 1px solid #dbdbdb;
@@ -2071,37 +2100,37 @@ body.page-template-page-contact-php #header .wrapper {
           -o-transition: all 0.3s;
           -webkit-transition: all 0.3s;
           transition: all 0.3s; }
-          /* line 886, scss/_layout.scss */
+          /* line 893, scss/_layout.scss */
           #contact .contact-section .details .detail a:hover {
             color: #000;
             border-bottom: 1px solid #000; }
-      /* line 893, scss/_layout.scss */
+      /* line 900, scss/_layout.scss */
       #contact .contact-section .details i {
         display: none;
         font-size: 1.5em; }
-      /* line 899, scss/_layout.scss */
+      /* line 906, scss/_layout.scss */
       #contact .contact-section .details h3 {
         display: inline-block;
         margin: 1em 0 0.5em 0;
         font-size: 1.29em;
         font-family: 'gt_pressura_triallight';
         text-transform: uppercase; }
-      /* line 907, scss/_layout.scss */
+      /* line 914, scss/_layout.scss */
       #contact .contact-section .details p {
         margin-top: 0; }
-    /* line 912, scss/_layout.scss */
+    /* line 919, scss/_layout.scss */
     #contact .contact-section .form {
       padding: 3em 10% 0;
       border-left: 1px solid rgba(151, 151, 151, 0.17); }
       @media screen and (max-width: 765px) {
-        /* line 912, scss/_layout.scss */
+        /* line 919, scss/_layout.scss */
         #contact .contact-section .form {
           width: 100%; } }
 
 /* ======================
 	OVERLAY MENU
    ====================== */
-/* line 927, scss/_layout.scss */
+/* line 934, scss/_layout.scss */
 .albums .album .category-links li.heading, #overlaymenu nav ul.menu > li > a {
   margin-bottom: 0.5em;
   font-size: 1.43em;
@@ -2109,7 +2138,7 @@ body.page-template-page-contact-php #header .wrapper {
   font-weight: normal;
   font-style: italic; }
 
-/* line 934, scss/_layout.scss */
+/* line 941, scss/_layout.scss */
 .albums .album .category-links li, #overlaymenu nav ul.sub-menu li {
   color: #fff;
   font-size: 2.5em;
@@ -2117,7 +2146,7 @@ body.page-template-page-contact-php #header .wrapper {
   font-style: normal;
   text-transform: uppercase;
   line-height: 0.9; }
-  /* line 942, scss/_layout.scss */
+  /* line 949, scss/_layout.scss */
   .albums .album .category-links li a, #overlaymenu nav ul.sub-menu li a {
     -moz-backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
@@ -2130,15 +2159,15 @@ body.page-template-page-contact-php #header .wrapper {
     -o-transition: border, 0.3s;
     -webkit-transition: border, 0.3s;
     transition: border, 0.3s; }
-    /* line 950, scss/_layout.scss */
+    /* line 957, scss/_layout.scss */
     .albums .album .category-links li a:hover, #overlaymenu nav ul.sub-menu li a:hover {
       border: 1px solid white; }
   @media screen and (max-width: 768px) {
-    /* line 934, scss/_layout.scss */
+    /* line 941, scss/_layout.scss */
     .albums .album .category-links li, #overlaymenu nav ul.sub-menu li {
       font-size: 2em; } }
 
-/* line 960, scss/_layout.scss */
+/* line 967, scss/_layout.scss */
 #overlaymenu {
   z-index: 9999;
   visibility: hidden;
@@ -2161,8 +2190,8 @@ body.page-template-page-contact-php #header .wrapper {
   transform: translateZ(0);
   overflow-y: auto;
   /*nav*/ }
-  /* line 973, scss/_layout.scss */
-  #overlaymenu.visible, #gallery-content .gallery ul li.column a:hover i#overlaymenu, #slider ul.slides li:hover button#overlaymenu {
+  /* line 980, scss/_layout.scss */
+  #overlaymenu.visible, #gallery-content .gallery ul li.column a:hover i#overlaymenu, #slider ul.slides li:hover button#overlaymenu, #slider #overlaymenu.desc-overlay.visible {
     background-color: #000;
     background-color: rgba(0, 0, 0, 0.9);
     visibility: visible;
@@ -2172,10 +2201,10 @@ body.page-template-page-contact-php #header .wrapper {
     -o-transition: all, 0.5s;
     -webkit-transition: all, 0.5s;
     transition: all, 0.5s; }
-  /* line 981, scss/_layout.scss */
+  /* line 988, scss/_layout.scss */
   #overlaymenu a {
     color: #fff; }
-  /* line 985, scss/_layout.scss */
+  /* line 992, scss/_layout.scss */
   #overlaymenu header {
     position: relative;
     z-index: 10;
@@ -2183,43 +2212,43 @@ body.page-template-page-contact-php #header .wrapper {
     line-height: 60px;
     text-transform: uppercase;
     background-color: transparent; }
-    /* line 993, scss/_layout.scss */
+    /* line 1000, scss/_layout.scss */
     #overlaymenu header button {
       color: #fff;
       font-family: 'gt_pressura_triallight';
       text-transform: uppercase; }
-  /* line 1000, scss/_layout.scss */
+  /* line 1007, scss/_layout.scss */
   #overlaymenu .valign, #overlaymenu #header .logo a .icon-home, #header .logo a #overlaymenu .icon-home {
     z-index: 5;
     width: 100%; }
     @media screen and (max-width: 767px) {
-      /* line 1000, scss/_layout.scss */
+      /* line 1007, scss/_layout.scss */
       #overlaymenu .valign, #overlaymenu #header .logo a .icon-home, #header .logo a #overlaymenu .icon-home {
         position: relative;
         top: initial; } }
-  /* line 1009, scss/_layout.scss */
+  /* line 1016, scss/_layout.scss */
   #overlaymenu h2 {
     font-size: 2.5em; }
-  /* line 1013, scss/_layout.scss */
+  /* line 1020, scss/_layout.scss */
   #overlaymenu nav.menu-overlay-menu-left-container, #overlaymenu nav.menu-overlay-menu-right-container {
     float: left;
     width: 50%; }
     @media screen and (max-width: 767px) {
-      /* line 1013, scss/_layout.scss */
+      /* line 1020, scss/_layout.scss */
       #overlaymenu nav.menu-overlay-menu-left-container, #overlaymenu nav.menu-overlay-menu-right-container {
         width: 100%; } }
-  /* line 1021, scss/_layout.scss */
+  /* line 1028, scss/_layout.scss */
   #overlaymenu nav {
     overflow: hidden;
     vertical-align: top; }
-    /* line 1025, scss/_layout.scss */
+    /* line 1032, scss/_layout.scss */
     #overlaymenu nav.menu-overlay-menu-left-container {
       border-right: 1px solid #525252; }
-    /* line 1033, scss/_layout.scss */
+    /* line 1040, scss/_layout.scss */
     #overlaymenu nav ul.menu {
       margin: 0;
       padding: 0; }
-    /* line 1044, scss/_layout.scss */
+    /* line 1051, scss/_layout.scss */
     #overlaymenu nav ul.sub-menu {
       margin: 0 0 1em 0;
       padding: 0; }
@@ -2228,7 +2257,7 @@ body.page-template-page-contact-php #header .wrapper {
 /* ======================
 	MODAL
    ====================== */
-/* line 1059, scss/_layout.scss */
+/* line 1066, scss/_layout.scss */
 .modal {
   position: absolute;
   visibility: hidden;
@@ -2248,12 +2277,12 @@ body.page-template-page-contact-php #header .wrapper {
   -o-transition: all 0.3s;
   -webkit-transition: all 0.3s;
   transition: all 0.3s; }
-  /* line 1073, scss/_layout.scss */
-  .modal.visible, .albums .album .background .modal.bg.visible, #gallery-content .gallery ul li.column a:hover i.modal, .modal#slider.visible, #slider ul.slides li:hover button.modal {
+  /* line 1080, scss/_layout.scss */
+  .modal.visible, .albums .album .background .modal.bg.visible, #gallery-content .gallery ul li.column a:hover i.modal, .modal#slider.visible, #slider ul.slides li:hover button.modal, #slider .modal.desc-overlay.visible {
     visibility: visible;
     filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
     opacity: 1; }
-  /* line 1079, scss/_layout.scss */
+  /* line 1086, scss/_layout.scss */
   .modal .message {
     margin: 0;
     color: #333;
@@ -2263,16 +2292,16 @@ body.page-template-page-contact-php #header .wrapper {
     font-weight: normal;
     background-color: #fff; }
     @media screen and (max-width: 600px) {
-      /* line 1079, scss/_layout.scss */
+      /* line 1086, scss/_layout.scss */
       .modal .message {
         font-size: 1em; } }
-    /* line 1091, scss/_layout.scss */
+    /* line 1098, scss/_layout.scss */
     .modal .message.success:before {
       margin-right: 0.5em;
       color: #2ecc71;
       content: "\e116";
       font-size: 1.5em; }
-    /* line 1099, scss/_layout.scss */
+    /* line 1106, scss/_layout.scss */
     .modal .message.fail:before {
       margin-right: 0.5em;
       color: #e74c3c;
@@ -2282,7 +2311,7 @@ body.page-template-page-contact-php #header .wrapper {
 /* ======================
 	SINGLE ALBUM FLEXSLIDER
    ====================== */
-/* line 1113, scss/_layout.scss */
+/* line 1120, scss/_layout.scss */
 #slider {
   height: 100%;
   margin: 0;
@@ -2292,25 +2321,25 @@ body.page-template-page-contact-php #header .wrapper {
   -o-transition: all, 0.3s;
   -webkit-transition: all, 0.3s;
   transition: all, 0.3s; }
-  /* line 1123, scss/_layout.scss */
-  #gallery-content .gallery ul li.column a:hover i#slider img, #slider.visible img, #slider ul.slides li:hover button#slider img {
+  /* line 1130, scss/_layout.scss */
+  #gallery-content .gallery ul li.column a:hover i#slider img, #slider.visible img, #slider ul.slides li:hover button#slider img, #slider #slider.desc-overlay.visible img {
     filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
     opacity: 1; }
   @media screen and (max-width: 480px) {
-    /* line 1113, scss/_layout.scss */
+    /* line 1120, scss/_layout.scss */
     #slider {
       padding-bottom: 100px; } }
-  /* line 1132, scss/_layout.scss */
+  /* line 1139, scss/_layout.scss */
   #slider ul.slides {
     height: 100%;
     margin: 0; }
-    /* line 1136, scss/_layout.scss */
+    /* line 1143, scss/_layout.scss */
     #slider ul.slides li {
       position: relative;
       height: 100%;
       text-align: center;
       z-index: 4; }
-      /* line 1148, scss/_layout.scss */
+      /* line 1155, scss/_layout.scss */
       #slider ul.slides li img {
         max-height: 100%;
         width: auto;
@@ -2323,35 +2352,35 @@ body.page-template-page-contact-php #header .wrapper {
         -o-transition: opacity, 0.3s;
         -webkit-transition: opacity, 0.3s;
         transition: opacity, 0.3s; }
-      /* line 1157, scss/_layout.scss */
+      /* line 1164, scss/_layout.scss */
       #slider ul.slides li.flex-active-slide img {
         filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
         opacity: 1; }
-  /* line 1165, scss/_layout.scss */
+  /* line 1172, scss/_layout.scss */
   #slider .flex-direction-nav .prev-li {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 10%; }
-  /* line 1171, scss/_layout.scss */
+  /* line 1178, scss/_layout.scss */
   #slider .flex-direction-nav .next-li {
     position: absolute;
     top: 0;
     right: 0;
     height: 100%;
     width: 10%; }
-  /* line 1179, scss/_layout.scss */
+  /* line 1186, scss/_layout.scss */
   #slider footer {
     position: absolute;
     bottom: 0;
     padding: 15px 3em;
     z-index: 10;
     overflow: hidden; }
-    /* line 1186, scss/_layout.scss */
+    /* line 1193, scss/_layout.scss */
     #slider footer button {
       margin-right: 1em; }
-  /* line 1191, scss/_layout.scss */
+  /* line 1198, scss/_layout.scss */
   #slider .gallery-meta {
     margin-left: 1;
     font-size: 1.14em;
@@ -2359,19 +2388,83 @@ body.page-template-page-contact-php #header .wrapper {
     font-weight: normal;
     z-index: 2; }
     @media screen and (max-width: 767px) {
-      /* line 1191, scss/_layout.scss */
+      /* line 1198, scss/_layout.scss */
       #slider .gallery-meta {
         display: block;
         margin-left: 0; } }
     @media screen and (max-width: 767px) {
-      /* line 1191, scss/_layout.scss */
+      /* line 1198, scss/_layout.scss */
       #slider .gallery-meta {
         font-size: 0.8em; } }
+  /* line 1214, scss/_layout.scss */
+  #slider .desc-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #000;
+    -moz-transition: all, 0.35s;
+    -o-transition: all, 0.35s;
+    -webkit-transition: all, 0.35s;
+    transition: all, 0.35s;
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    *zoom: 1;
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFFFFFF', endColorstr='#FFFFFFFF');
+    background-image: -moz-linear-gradient(top, #ffffff 0%, rgba(255, 255, 255, 0.65) 57%, rgba(255, 255, 255, 0) 100%);
+    background-image: -webkit-linear-gradient(top, #ffffff 0%, rgba(255, 255, 255, 0.65) 57%, rgba(255, 255, 255, 0) 100%);
+    background-image: linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0.65) 57%, rgba(255, 255, 255, 0) 100%); }
+    /* line 1231, scss/_layout.scss */
+    #slider #gallery-content .gallery ul li.column a:hover i.desc-overlay, #gallery-content .gallery ul li.column a:hover #slider i.desc-overlay, #slider ul.slides li:hover button.desc-overlay, #slider .desc-overlay.visible {
+      -moz-transform: translateY(0%);
+      -ms-transform: translateY(0%);
+      -webkit-transform: translateY(0%);
+      transform: translateY(0%); }
+    /* line 1236, scss/_layout.scss */
+    .black #slider .desc-overlay {
+      color: #fff;
+      *zoom: 1;
+      filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF000000', endColorstr='#FF000000');
+      background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.65) 1%, rgba(0, 0, 0, 0.65) 57%, rgba(0, 0, 0, 0) 100%);
+      background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.65) 1%, rgba(0, 0, 0, 0.65) 57%, rgba(0, 0, 0, 0) 100%);
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 1%, rgba(0, 0, 0, 0.65) 57%, rgba(0, 0, 0, 0) 100%); }
+      /* line 1246, scss/_layout.scss */
+      .black #slider .desc-overlay button {
+        color: #fff; }
+    /* line 1251, scss/_layout.scss */
+    #slider .desc-overlay .center {
+      width: 90%;
+      max-width: 320px; }
+    /* line 1256, scss/_layout.scss */
+    #slider .desc-overlay .description {
+      position: relative;
+      padding: 1em;
+      text-align: center; }
+      /* line 1261, scss/_layout.scss */
+      #slider .desc-overlay .description h3 {
+        margin-top: 0; }
+      /* line 1265, scss/_layout.scss */
+      #slider .desc-overlay .description p {
+        padding: 0;
+        font-size: 14px;
+        font-style: italic; }
+      /* line 1271, scss/_layout.scss */
+      #slider .desc-overlay .description button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        -moz-transition: all, 0.3s;
+        -o-transition: all, 0.3s;
+        -webkit-transition: all, 0.3s;
+        transition: all, 0.3s; }
 
 /* ======================
 	Animation
    ====================== */
-/* line 1212, scss/_layout.scss */
+/* line 1285, scss/_layout.scss */
 .slowfade {
   -webkit-animation: fadeFromWhite 3s 1;
   -moz-animation: fadeFromWhite 3s 1;
@@ -2381,38 +2474,38 @@ body.page-template-page-contact-php #header .wrapper {
   animation: fadeFromWhite 3s 1; }
 
 @-webkit-keyframes fadeFromWhite {
-  /* line 1222, scss/_layout.scss */
+  /* line 1295, scss/_layout.scss */
   0% {
     opacity: 0; }
 
-  /* line 1223, scss/_layout.scss */
+  /* line 1296, scss/_layout.scss */
   100% {
     opacity: 1; } }
 @-moz-keyframes fadeFromWhite {
-  /* line 1226, scss/_layout.scss */
+  /* line 1299, scss/_layout.scss */
   0% {
     opacity: 0; }
 
-  /* line 1227, scss/_layout.scss */
+  /* line 1300, scss/_layout.scss */
   100% {
     opacity: 1; } }
 @-o-keyframes fadeFromWhite {
-  /* line 1230, scss/_layout.scss */
+  /* line 1303, scss/_layout.scss */
   0% {
     opacity: 0; }
 
-  /* line 1231, scss/_layout.scss */
+  /* line 1304, scss/_layout.scss */
   100% {
     opacity: 1; } }
 @keyframes fadeFromWhite {
-  /* line 1234, scss/_layout.scss */
+  /* line 1307, scss/_layout.scss */
   0% {
     opacity: 0; }
 
-  /* line 1235, scss/_layout.scss */
+  /* line 1308, scss/_layout.scss */
   100% {
     opacity: 1; } }
-/* line 1239, scss/_layout.scss */
+/* line 1312, scss/_layout.scss */
 .lazy {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
@@ -2420,7 +2513,7 @@ body.page-template-page-contact-php #header .wrapper {
   -o-transition: opacity, 0.5s;
   -webkit-transition: opacity, 0.5s;
   transition: opacity, 0.5s; }
-  /* line 1243, scss/_layout.scss */
+  /* line 1316, scss/_layout.scss */
   .lazy.b-loaded {
     filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
     opacity: 1; }
@@ -2428,34 +2521,34 @@ body.page-template-page-contact-php #header .wrapper {
 /* ======================
 	TOUCH & OTHER BS
    ====================== */
-/* line 1254, scss/_layout.scss */
+/* line 1327, scss/_layout.scss */
 .no-touch #header .icon-home {
   display: inline-block !important; }
-/* line 1261, scss/_layout.scss */
+/* line 1334, scss/_layout.scss */
 .no-touch #slider .slides .lightbox-add, .no-touch #slider .slides .lightbox-remove {
   display: inline-block; }
-/* line 1266, scss/_layout.scss */
+/* line 1339, scss/_layout.scss */
 .no-touch #slider .add {
   display: none; }
-/* line 1269, scss/_layout.scss */
+/* line 1342, scss/_layout.scss */
 .no-touch #slider .remove {
   display: none; }
-/* line 1277, scss/_layout.scss */
+/* line 1350, scss/_layout.scss */
 .no-touch .gallery li a:after {
   display: inline-block !important; }
-/* line 1281, scss/_layout.scss */
+/* line 1354, scss/_layout.scss */
 .no-touch .gallery li a i {
   display: inline !important; }
 
-/* line 1291, scss/_layout.scss */
+/* line 1364, scss/_layout.scss */
 html.lt-ie9 #weezy {
   min-width: 1024px; }
-/* line 1296, scss/_layout.scss */
+/* line 1369, scss/_layout.scss */
 html.lt-ie9 #overlaymenu .valign, html.lt-ie9 #overlaymenu #header .logo a .icon-home, #header .logo a html.lt-ie9 #overlaymenu .icon-home {
   top: 0; }
-/* line 1302, scss/_layout.scss */
+/* line 1375, scss/_layout.scss */
 html.lt-ie9 #slider footer {
   overflow: hidden; }
-  /* line 1305, scss/_layout.scss */
+  /* line 1378, scss/_layout.scss */
   html.lt-ie9 #slider footer button {
     float: left; }

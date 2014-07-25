@@ -57,6 +57,10 @@ hr.split-page{
 	margin: 4em 0;
 }
 
+.invisible{
+	visibility: hidden;
+	@include opacity(0);
+}
 .visible{
 	visibility: visible;
 	@include opacity(1);

@@ -12,6 +12,7 @@
 			this.lightbox.init();
 			this.lightbox.basket();
 			
+			//FIREFOX TEST
 			Modernizr.addTest('firefox', function () {
  				return !!navigator.userAgent.match(/firefox/i);
 			});
@@ -26,7 +27,8 @@
 				body.toggleClass('no-scroll');
 				overlay.toggleClass('visible');
 			});
-			    // Example
+
+			// LAZY LOAD
     		var bLazy = new Blazy({ 
         		selector: '.lazy', // all images
         		container: '.gallery, #gallery-content, .album-items',
@@ -122,6 +124,10 @@
 						$(window).trigger('resize');
 						main.galleryMetaData();
 					},
+					before: function(){
+						$('.modal').removeClass('visible');
+						$('.desc-overlay').removeClass('visible');
+					},
 					after:function(){
 						main.hash.set();
 						main.galleryMetaData();
@@ -216,13 +222,13 @@
 				if(status === 'success'){
 					message.removeClass('fail');
 					message.addClass('success').html('Image successfully added to lightbox.');
-					modal.toggleClass('visible');
+					modal.addClass('visible');
 					main.modal.timeout();
 
 				} else {
 					message.removeClass('success');
 					message.addClass('fail').html('Image already exists in the lightbox.');
-					modal.toggleClass('visible');
+					modal.addClass('visible');
 					main.modal.timeout();
 				}
 			},
@@ -231,7 +237,7 @@
 				clearTimeout(foo);
 				var modal = $('.modal');
 				var foo = setTimeout(function(){
-					modal.toggleClass('visible');
+					modal.removeClass('visible');
 				},3000);
 			}
 		},// Modal popup
@@ -258,7 +264,7 @@ lightbox: {
 				this.triggers();
 
 				//add counter span
-				$('.lightbox-cart').append("<span class='counter'></span>")
+				$('.lightbox-cart').append("<span class='counter'></span>");
 				//set gform hidden field to array values
 				var url = $('#field_1_2 input').val();
 				$('#field_1_2 input').val(url + '?id=' + main.lightbox.vars.array);
@@ -283,7 +289,8 @@ lightbox: {
 					remove = $('.remove'),
 					btn2 = $('.lightbox-remove'),
 					btn3 = $('.lightbox-clear'),
-					img= $('.slides li');
+					btn4 = $('.info'),
+					img = $('.slides li');
 
 				btn.on('click', function(e){
 					e.preventDefault();
@@ -314,6 +321,16 @@ lightbox: {
 				btn3.on('click', function(e){
 					e.preventDefault();
 					main.lightbox.clearArray();
+				});
+
+				btn4.on('click', function(e){
+					e.preventDefault();
+					$(this).toggleClass('active');
+					$('.desc-overlay').toggleClass('visible');
+				});
+
+				$('.desc-overlay button').on('click', function(){
+					$('.desc-overlay').toggleClass('visible');
 				});
 
 				img.on('hover', function(){
@@ -376,6 +393,8 @@ lightbox: {
 	main.init();
 
 	$(window).load(function() {
+
+		$('.equal-height').matchHeight();
 
 		//Check whether page is single-albums and a query string is set.
 		if($('#single-albums') && main.hash.query() ){

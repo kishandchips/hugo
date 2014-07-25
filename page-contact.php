@@ -7,11 +7,12 @@ Template Name: Contact
 
 <div id="contact" class="container">
 <?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
+	<?php $image = get_field('contact_image'); ?>
 	<header>
-		<div class="bio column col-1-2">
+		<div class="bio column col-1-2 equal-height">
 			<?php the_content(); ?>	
 		</div>
-		<figure class="column col-1-2 slowfade" style="background-image: url(<?php echo get_template_directory_uri(); ?>/img/hugo2bsedit.jpg)">
+		<figure class="column col-1-2 slowfade equal-height" style="background-image: url(<?php echo $image['url']; ?>)">
 		</figure>
 	</header>
 	

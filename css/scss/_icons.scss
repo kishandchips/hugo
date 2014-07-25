@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?gsttf6');
-	src:url('fonts/icomoon.eot?#iefixgsttf6') format('embedded-opentype'),
-		url('fonts/icomoon.woff?gsttf6') format('woff'),
-		url('fonts/icomoon.ttf?gsttf6') format('truetype'),
-		url('fonts/icomoon.svg?gsttf6#icomoon') format('svg');
+	src:url('fonts/icomoon.eot?-rx4ae0');
+	src:url('fonts/icomoon.eot?#iefix-rx4ae0') format('embedded-opentype'),
+		url('fonts/icomoon.woff?-rx4ae0') format('woff'),
+		url('fonts/icomoon.ttf?-rx4ae0') format('truetype'),
+		url('fonts/icomoon.svg?-rx4ae0#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -23,6 +23,18 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.icon-info:before {
+	content: "\e60d";
+}
+.icon-toggle:before {
+	content: "\e604";
+}
+.icon-grid:before {
+	content: "\e600";
+}
+.icon-send:before {
+	content: "\e609";
+}
 .icon-logo:before {
 	content: "\e60b";
 }
@@ -49,9 +61,6 @@
 }
 .icon-phone:before {
 	content: "\e606";
-}
-.icon-toggle:before {
-	content: "\e604";
 }
 .icon-grid:before {
 	content: "\e600";

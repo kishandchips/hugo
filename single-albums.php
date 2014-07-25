@@ -15,7 +15,24 @@
 						<button aria-label="Add to lightbox"  class="lightbox-add icon-plus button calign" data-id="<?php echo $image['id']; ?>"></button>
 						<div class="modal midway-horizontal midway-vertical">
 							<p class="message success"></p>
-						</div>								
+						</div>
+
+						<?php if($image['description']): ?>
+							<div class="desc-overlay">
+								<div class="center midway-horizontal midway-vertical">
+									<div class="description">
+										<button class="button">
+											<i class="icon-cross"></i>
+										</button>
+
+										<h3><?php echo $image['title']; ?></h3>
+										<p>
+											<?php echo $image['description']; ?>
+										</p>								
+									</div>
+								</div>
+							</div>
+						<?php endif; ?>							
 					</li>
 				<?php endforeach;?>
 			</ul>
@@ -23,10 +40,10 @@
 			<button aria-label="Gallery Toggle" class="toggle-gallery button">All Images</button>
 			<button aria-label="Switch Colour" class="color-toggle button" >Background</button>
 			<button aria-label="Add to lightbox" class="add button" data-id="">Add to Lightbox</button>
+			<button aria-label="Show description" class="info button">Info</button>
 
-			<span class="gallery-meta"><?php gallery_meta() ?>&nbsp;
-				<span class="count"></span>
-				&nbsp;of <?php echo $total_number; ?> -
+			<span class="gallery-meta">
+				<span class="count"></span>&nbsp;of <?php echo $total_number; ?> -
 				<span class="title"></span>
 			</span>
 		</footer><!-- end footer -->

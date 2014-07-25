@@ -6,6 +6,7 @@
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
 <title><?php wp_title('-','true','right'); ?></title>
 
 <?php wp_head(); ?>
