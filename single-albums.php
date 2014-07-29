@@ -7,6 +7,29 @@
 	?>
 
 	<?php if ($images) : ?>
+
+	 	<section id="gallery-content" class="clearfix">
+			<div class="summary left">
+				<h2>
+					<?php the_title(); ?>
+				</h2>
+				<?php the_content(); ?>
+			</div>
+
+			<div class="gallery">
+				<ul class="clearfix">
+					<?php foreach( $images as $image ): ?>
+						<li class="column col-1-3" data-id="<?php echo $image['id']; ?>">
+							<span class="vertical"></span><a href="#" >
+								<img class="lazy"  src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo $image['sizes']['grid-item']; ?>" alt="<?php echo $image['alt']; ?>" width="<?php echo $image['width']; ?>" height="<?php echo $image['height']; ?>">
+								<i class="valign">View Image</i>
+							</a>
+						</li>
+					<?php endforeach;?>
+				</ul>
+			</div>
+		</section><!-- end of #gallery-content -->
+
 		<section id="slider" class="flexslider">
 			<ul class="slides">
 				<?php foreach( $images as $image ): ?>
@@ -47,31 +70,9 @@
 				<span class="title"></span>
 			</span>
 		</footer><!-- end footer -->
-		</section><!-- end of flexslider -->	
-
- 	<section id="gallery-content" class="clearfix">
-		<div class="summary left">
-			<h2>
-				<?php the_title(); ?>
-			</h2>
-			<?php the_content(); ?>
-		</div>
-
-		<div class="gallery">
-			<ul class="clearfix">
-				<?php foreach( $images as $image ): ?>
-					<li class="column col-1-3" data-id="<?php echo $image['id']; ?>">
-						<span class="vertical"></span><a href="#" >
-							<img class="lazy"  src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php echo $image['sizes']['grid-item']; ?>" alt="<?php echo $image['alt']; ?>" width="<?php echo $image['width']; ?>" height="<?php echo $image['height']; ?>">
-							<i class="valign">View Image</i>
-						</a>
-					</li>
-				<?php endforeach;?>
-			</ul>
-		</div>
+		</section><!-- end of flexslider -->
+		
 	<?php endif; ?>
-	</section><!-- end of album content -->
-
 <?php endwhile; endif; ?>	
 </div><!-- end of #single-albums -->
 
