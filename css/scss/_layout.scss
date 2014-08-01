@@ -1,6 +1,13 @@
 /* ==========================================================================
 	HEADER
    ========================================================================== */
+ .js-loader{
+ 	position: fixed;
+ 	top:0;right:0;bottom:0;left:0;
+ 	z-index: 9999;
+ 	overflow: visible;
+ 	background: #fff url(../img/loader.gif) no-repeat center center;
+ }
 .splash{
 	opacity: 0;
 	visibility: hidden;
@@ -818,7 +825,7 @@ body{
 			height:400px;
 			background-size: contain;
 			background-repeat: no-repeat;
-			background-position:center;
+			/*background-position:center;*/
 			
 			@media screen and (max-width:800px){
 				width: 100%;
@@ -831,7 +838,6 @@ body{
 			padding-left: 0;
 			padding-right: 2em;
 			font-size: 14px;
-			text-align: justify;
 			line-height: 1.8;
 			
 			@media screen and (max-width:800px){
@@ -847,8 +853,8 @@ body{
 
 	.contact-section{
 		overflow: hidden;
-		border-left: 1px solid rgba(151, 151, 151, 0.17);
-		border-right: 1px solid rgba(151, 151, 151, 0.17);
+		margin-top: 3em;
+		border:1px solid rgba(151, 151, 151, 0.17);
 
 		.details{
 			padding: 0;

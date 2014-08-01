@@ -13,7 +13,8 @@
 </head>
 
 <body <?php body_class(); ?>>
-
+<div class="js-loader">
+</div>
 <?php if(get_field('bg_color')): ?>
 	<?php $bgcolor = get_field('bg_color'); ?>
 <?php endif; ?>

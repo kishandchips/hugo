@@ -393,7 +393,7 @@ lightbox: {
 	main.init();
 
 	$(window).load(function() {
-
+		$('.js-loader').fadeOut('slow',function(){$(this).remove();});
 		$('.equal-height').matchHeight();
 
 		//Check whether page is single-albums and a query string is set.
