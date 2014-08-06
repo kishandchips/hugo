@@ -427,6 +427,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/img\/temple-bg.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 87146,
+		"inputAbbreviatedPath": "\/img\/temple-bg.jpg",
+		"outputAbbreviatedPath": "\/img\/temple-bg.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/The-Queens-People-Honorable-Lady-Justice-bg.jpg": {
 		"fileType": 16384,
 		"ignore": 0,

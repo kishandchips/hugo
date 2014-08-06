@@ -11,7 +11,18 @@
 			<ul class="slides">
 				<?php foreach( $images as $image ): ?>
 					<li data-id="<?php echo $image['id']; ?>">
-						<span class="vertical"></span><img src="<?php echo $image['url']; ?>" alt="<?php echo $image['title']; ?>" />
+
+
+						<picture>
+							<!--[if IE 9]><video style="display: none;"><![endif]-->
+							<source srcset="<?php echo $image['sizes']['massive-image']; ?>" media="(min-width: 1600px)">
+							<source srcset="<?php echo $image['sizes']['desktop']; ?>" media="(min-width: 1000px)">
+							<source srcset="<?php echo $image['sizes']['tablet']; ?>" media="(min-width: 500px)">
+							<source srcset="<?php echo $image['sizes']['mobile']; ?>" media="(min-width: 300px)">
+							<!--[if IE 9]></video><![endif]-->
+							<span class="vertical"></span><img srcset="<?php echo $image['url']; ?>" alt="<?php echo $image['title']; ?>" />
+						</picture>
+
 						<button aria-label="Add to lightbox"  class="lightbox-add icon-plus button calign" data-id="<?php echo $image['id']; ?>"></button>
 						<div class="modal midway-horizontal midway-vertical">
 							<p class="message success"></p>

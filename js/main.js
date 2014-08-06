@@ -140,6 +140,12 @@
 				//Gallery trigger
 				main.flexslider.vars.image.on('click',function(e){
 					e.preventDefault();
+
+					if($('body').hasClass('postid-13')){
+						console.log('true');
+						$('#weezy').removeClass('white').addClass('black');
+					}
+
 					var btn = $(this),
 						target = $('.gallery li').filter("[data-id="+ btn.data('id') + "]").index(),
 						slider = $('#slider'),
@@ -243,14 +249,15 @@
 		},// Modal popup
 
 		colorToggle: function(){
-			var page = $('#weezy');
+			var page = $('#weezy'),
+				body = $('body');
+
 			$('.color-toggle').on('click', function(){
 				if((page).hasClass('white')){
 					page.removeClass('white').addClass('black');
 				} else {
 					page.removeClass('black').addClass('white');
 				}
-				
 			});
 		},
 

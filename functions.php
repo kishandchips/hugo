@@ -20,6 +20,10 @@ define('THEME_NAME', 'hugo');
 
 // Image sizes
 	add_image_size( 'grid-item', 300, 9999, false );
+	add_image_size( 'massive-image', 1800, 1100, false );
+	add_image_size( 'desktop', 1000, 650, false );
+	add_image_size( 'tablet', 650, 550, false );
+	add_image_size( 'mobile', 250, 250, false );
 
 // Functions
 function add_editor_styles() {
