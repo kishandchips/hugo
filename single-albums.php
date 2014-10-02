@@ -6,6 +6,8 @@
 			$total_number = count($images);
 	?>
 
+
+
 	<?php if ($images) : ?>
 		<section id="slider" class="flexslider">
 			<ul class="slides">
@@ -68,6 +70,7 @@
 			<?php the_content(); ?>
 		</div>
 
+
 		<div class="gallery">
 			<ul class="clearfix">
 				<?php foreach( $images as $image ): ?>
@@ -80,6 +83,7 @@
 				<?php endforeach;?>
 			</ul>
 		</div>
+
 	<?php endif; ?>
 	</section><!-- end of album content -->
 

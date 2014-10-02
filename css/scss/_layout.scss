@@ -1366,9 +1366,11 @@ body{
 		@include opacity(1);
 	}
 }
+
 /* ======================
 	TOUCH & OTHER BS
    ====================== */
+
 .no-touch{
 
 	#header{
@@ -1429,3 +1431,32 @@ html.lt-ie9{
 		}
 	}
 }
+
+/* ======================
+	PASSWORD PROTECTED
+   ====================== */
+#hidden-content{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 9999;
+	background-color: rgba(0, 0, 0, 0.85);
+	
+	.valign{
+		width: 100%;
+		text-align: center;
+	}
+
+	.form{
+		display: inline-block;
+		padding: 2em;
+		background-color: #fff;
+
+		input[type="password"]{
+			margin: 1em 0;
+		}
+	}	
+}
+

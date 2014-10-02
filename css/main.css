@@ -1168,6 +1168,9 @@ html[xmlns] .slides {
   .flex-direction-nav li {
     *zoom: 1;
     filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFFFFFF', endColorstr='#FFFFFFFF');
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iMjUlIiBzdG9wLWNvbG9yPSIjZTVlNWU1Ii8+PHN0b3Agb2Zmc2V0PSI3NSUiIHN0b3AtY29sb3I9IiNlNWU1ZTUiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+    background-size: 100%;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(25%, #e5e5e5), color-stop(75%, #e5e5e5), color-stop(100%, #ffffff));
     background-image: -moz-linear-gradient(top, #ffffff 0%, #e5e5e5 25%, #e5e5e5 75%, #ffffff 100%);
     background-image: -webkit-linear-gradient(top, #ffffff 0%, #e5e5e5 25%, #e5e5e5 75%, #ffffff 100%);
     background-image: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 25%, #e5e5e5 75%, #ffffff 100%); }
@@ -1334,22 +1337,16 @@ html[xmlns] .slides {
 	HEADER
    ========================================================================== */
 @-webkit-keyframes load8 {
-  /* line 5, scss/_layout.scss */
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg); }
-
-  /* line 9, scss/_layout.scss */
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
 @keyframes load8 {
-  /* line 16, scss/_layout.scss */
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg); }
-
-  /* line 20, scss/_layout.scss */
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
@@ -1601,6 +1598,9 @@ body.page-template-page-contact-php #header .wrapper {
       #weezy.black #slider .flex-direction-nav li {
         *zoom: 1;
         filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF000000', endColorstr='#FF000000');
+        background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIvPjxzdG9wIG9mZnNldD0iMjUlIiBzdG9wLWNvbG9yPSIjMzMzMzMzIi8+PHN0b3Agb2Zmc2V0PSI3NSUiIHN0b3AtY29sb3I9IiMzMzMzMzMiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+        background-size: 100%;
+        background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #000000), color-stop(25%, #333333), color-stop(75%, #333333), color-stop(100%, #000000));
         background-image: -moz-linear-gradient(top, #000000 0%, #333333 25%, #333333 75%, #000000 100%);
         background-image: -webkit-linear-gradient(top, #000000 0%, #333333 25%, #333333 75%, #000000 100%);
         background-image: linear-gradient(to bottom, #000000 0%, #333333 25%, #333333 75%, #000000 100%); }
@@ -2369,7 +2369,7 @@ body.page-template-page-contact-php #header .wrapper {
   -webkit-transition: all, 0.3s;
   transition: all, 0.3s; }
   /* line 1178, scss/_layout.scss */
-  #gallery-content .gallery ul li.column a:hover i#slider img, #slider.visible img, #slider ul.slides li:hover button#slider img, #slider #slider.desc-overlay.visible img {
+  #slider.visible img, #gallery-content .gallery ul li.column a:hover i#slider img, #slider ul.slides li:hover button#slider img, #slider #slider.desc-overlay.visible img {
     filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
     opacity: 1; }
   @media screen and (max-width: 480px) {
@@ -2461,6 +2461,9 @@ body.page-template-page-contact-php #header .wrapper {
     transform: translateY(-50%);
     *zoom: 1;
     filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFFFFFF', endColorstr='#FFFFFFFF');
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iNTclIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjAuNjUiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMC4wIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+    background-size: 100%;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(57%, rgba(255, 255, 255, 0.65)), color-stop(100%, rgba(255, 255, 255, 0)));
     background-image: -moz-linear-gradient(top, #ffffff 0%, rgba(255, 255, 255, 0.65) 57%, rgba(255, 255, 255, 0) 100%);
     background-image: -webkit-linear-gradient(top, #ffffff 0%, rgba(255, 255, 255, 0.65) 57%, rgba(255, 255, 255, 0) 100%);
     background-image: linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0.65) 57%, rgba(255, 255, 255, 0) 100%); }
@@ -2475,6 +2478,9 @@ body.page-template-page-contact-php #header .wrapper {
       color: #fff;
       *zoom: 1;
       filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF000000', endColorstr='#FF000000');
+      background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIxJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjY1Ii8+PHN0b3Agb2Zmc2V0PSI1NyUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMC42NSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+      background-size: 100%;
+      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(1%, rgba(0, 0, 0, 0.65)), color-stop(57%, rgba(0, 0, 0, 0.65)), color-stop(100%, rgba(0, 0, 0, 0)));
       background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.65) 1%, rgba(0, 0, 0, 0.65) 57%, rgba(0, 0, 0, 0) 100%);
       background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.65) 1%, rgba(0, 0, 0, 0.65) 57%, rgba(0, 0, 0, 0) 100%);
       background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 1%, rgba(0, 0, 0, 0.65) 57%, rgba(0, 0, 0, 0) 100%); }
@@ -2521,35 +2527,23 @@ body.page-template-page-contact-php #header .wrapper {
   animation: fadeFromWhite 3s 1; }
 
 @-webkit-keyframes fadeFromWhite {
-  /* line 1343, scss/_layout.scss */
   0% {
     opacity: 0; }
-
-  /* line 1344, scss/_layout.scss */
   100% {
     opacity: 1; } }
 @-moz-keyframes fadeFromWhite {
-  /* line 1347, scss/_layout.scss */
   0% {
     opacity: 0; }
-
-  /* line 1348, scss/_layout.scss */
   100% {
     opacity: 1; } }
 @-o-keyframes fadeFromWhite {
-  /* line 1351, scss/_layout.scss */
   0% {
     opacity: 0; }
-
-  /* line 1352, scss/_layout.scss */
   100% {
     opacity: 1; } }
 @keyframes fadeFromWhite {
-  /* line 1355, scss/_layout.scss */
   0% {
     opacity: 0; }
-
-  /* line 1356, scss/_layout.scss */
   100% {
     opacity: 1; } }
 /* line 1360, scss/_layout.scss */
@@ -2568,34 +2562,59 @@ body.page-template-page-contact-php #header .wrapper {
 /* ======================
 	TOUCH & OTHER BS
    ====================== */
-/* line 1375, scss/_layout.scss */
+/* line 1377, scss/_layout.scss */
 .no-touch #header .icon-home {
   display: inline-block !important; }
-/* line 1382, scss/_layout.scss */
+/* line 1384, scss/_layout.scss */
 .no-touch #slider .slides .lightbox-add, .no-touch #slider .slides .lightbox-remove {
   display: inline-block; }
-/* line 1387, scss/_layout.scss */
+/* line 1389, scss/_layout.scss */
 .no-touch #slider .add {
   display: none; }
-/* line 1390, scss/_layout.scss */
+/* line 1392, scss/_layout.scss */
 .no-touch #slider .remove {
   display: none; }
-/* line 1398, scss/_layout.scss */
+/* line 1400, scss/_layout.scss */
 .no-touch .gallery li a:after {
   display: inline-block !important; }
-/* line 1402, scss/_layout.scss */
+/* line 1404, scss/_layout.scss */
 .no-touch .gallery li a i {
   display: inline !important; }
 
-/* line 1412, scss/_layout.scss */
+/* line 1414, scss/_layout.scss */
 html.lt-ie9 #weezy {
   min-width: 1024px; }
-/* line 1417, scss/_layout.scss */
+/* line 1419, scss/_layout.scss */
 html.lt-ie9 #overlaymenu .valign, html.lt-ie9 #overlaymenu #header .logo a .icon-home, #header .logo a html.lt-ie9 #overlaymenu .icon-home {
   top: 0; }
-/* line 1423, scss/_layout.scss */
+/* line 1425, scss/_layout.scss */
 html.lt-ie9 #slider footer {
   overflow: hidden; }
-  /* line 1426, scss/_layout.scss */
+  /* line 1428, scss/_layout.scss */
   html.lt-ie9 #slider footer button {
     float: left; }
+
+/* ======================
+	PASSWORD PROTECTED
+   ====================== */
+/* line 1438, scss/_layout.scss */
+#hidden-content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.85); }
+  /* line 1447, scss/_layout.scss */
+  #hidden-content .valign, #hidden-content #header .logo a .icon-home, #header .logo a #hidden-content .icon-home {
+    width: 100%;
+    text-align: center; }
+  /* line 1452, scss/_layout.scss */
+  #hidden-content .form {
+    display: inline-block;
+    padding: 2em;
+    background-color: #fff; }
+    /* line 1457, scss/_layout.scss */
+    #hidden-content .form input[type="password"] {
+      margin: 1em 0; }

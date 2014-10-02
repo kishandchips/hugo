@@ -19,7 +19,7 @@ define('THEME_NAME', 'hugo');
 	add_action( 'wp_enqueue_scripts', 'custom_scripts', 30 );
 
 // Image sizes
-	add_image_size( 'grid-item', 300, 9999, false );
+	add_image_size( 'grid-item', 500, 9999, false );
 	add_image_size( 'massive-image', 1800, 1100, false );
 	add_image_size( 'desktop', 1000, 650, false );
 	add_image_size( 'tablet', 650, 550, false );
@@ -159,5 +159,36 @@ function lightbox_images(){
 
 	return $lightbox_images;
 }
+
+function my_password_form() {
+    global $post;
+    $label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
+    $o = '<div id="hidden-content"><div class="valign"><div class="form"><form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post">
+    ' . __( "<p>To view this protected post, enter the password below:</p>" ) . '
+    <label for="' . $label . '">' . __( "Password" ) . ' </label><br><input name="post_password" id="' . $label . '" type="password" size="20" maxlength="20" /><br><input type="submit" name="Submit" value="' . esc_attr__( "Submit" ) . '" />
+    </form>
+    </div>
+    </div>
+    </div>
+    ';
+    return $o;
+}
+add_filter( 'the_password_form', 'my_password_form' );
+
+function the_title_trim($title) {
+	$title = esc_attr($title);
+	$findthese = array(
+		'#Protected:#',
+		'#Private:#'
+	);
+	$replacewith = array(
+		'', // What to replace "Protected:" with
+		'' // What to replace "Private:" with
+	);
+	$title = preg_replace($findthese, $replacewith, $title);
+	return $title;
+}
+
+add_filter('the_title', 'the_title_trim');
 
 ?>
