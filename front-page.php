@@ -8,10 +8,36 @@
 
 	<div class="splash">
 		<div class="valign">
-			<h1 class="splashdamage">Hugo Rittson-Thomas</h1>
+			<h1 class="splashdamage">Hugo Rittson Thomas</h1>
 		</div>
 	</div>
 	<div class="fadeIn"></div>
+	<style>
+		#exhibition {
+			background: #f3f3ee;
+			text-align: center;
+			padding: 33px;
+			line-height: 2;
+		}
+
+		#exhibition strong {
+			font-size: 16.55px;
+		}
+
+		#exhibition a {
+			text-decoration: underline;
+		}
+
+		#exhibition small {
+			font-weight: normal;
+			font-size: 14.5px;
+		};
+	</style>
+	<div id="exhibition">
+		<strong>Visit Hugo Rittson Thomas’s exhibition of <i>The Queen’s People</i> at the <a href="https://www.google.co.uk/maps/place/Eleven/@51.4943726,-0.1479269,17z/data=!3m1!4b1!4m2!3m1!1s0x487605220dc96543:0xc36d5e084e063c02" target="_blank">Eleven Gallery, 11 Eccleston Street, London SW1 9LX</a> 19 August – 19 September 2015</strong><br>
+		<small>For further information contact Susannah Haworth  +44 (0)20 7823 5540 <a href="mailto:susannah@elevenfineart.com">susannah@elevenfineart.com</a></small><br>
+		<a href="http://www.elevenfineart.com" target="_blank">www.elevenfineart.com</a>
+	</div>
 
 	<div class="albums clearfix">
 
