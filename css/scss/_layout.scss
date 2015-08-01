@@ -1,14 +1,68 @@
 /* ==========================================================================
 	HEADER
    ========================================================================== */
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+ .js-loader{
+		position: fixed;
+		top:0;right:0;bottom:0;left:0;
+		z-index: 9999;
+		overflow: visible;
+		text-align: center;
+		background-color: #fff;
+
+	.spinner {
+		display: inline-block;
+		font-size: 10px;
+		border-top: 0.3em solid rgba(0, 0, 0, 0.2);
+		border-right: 0.3em solid rgba(0, 0, 0, 0.2);
+		border-bottom: 0.3em solid rgba(0, 0, 0, 0.2);
+		border-left: 0.3em solid #000;
+		@extend .calign;
+		-webkit-animation: load8 1.1s infinite linear;
+		animation: load8 1.1s infinite linear;
+	}
+
+	.spinner,
+	.spinner:after {
+		border-radius: 50%;
+		width: 3em;
+		height: 3em;
+	}
+ }
 .splash{
-	opacity: 1;
-	visibility: visible;
+	opacity: 0;
+	visibility: hidden;
 	position:fixed;
 	top:0;right:0;bottom:0;left:0;
 	background-image: url(../img/colour06.jpg);
 	background-size: cover;
 	z-index:9999;
+	@include transition(opacity, 1s);
+
+	&.visible{
+		@extend .visible;
+	}
 
 	.valign{
 		width: 100%;
@@ -24,68 +78,127 @@
 	}
 }
 
-.header-weezy{
+.fadeIn{
 	position: fixed;
-	top:0;
-	left:0;
-	right:0;
-	height:45px;
-	padding: 0 15px;
-	background-color: #fff;
-	line-height: 45px;
-	text-align: center;
-	z-index: 5;
+	top:0;right:0;bottom:0;left:0;
+	background-color:#fff;
+	z-index:9000;
+	@include transition(opacity, 1s);
 
-	@media screen and (max-width: 550px){
-		height:60px;
+	&.invisible{
+		visibility: hidden;
+		opacity: 0;
 	}
 }
 
 #header{
-	display:inline-block;
-	width:100%;
-	/*max-width: 1220px;*/
+	position: fixed;
+	top:0;
+	width: 100%;
+	height:60px;
+	line-height: 60px;
+	text-align: center;
+	background-color: #fff;
+	z-index: 15;
 	overflow: hidden;
+	@include transition(background-color, .3s);
 
-	.color-toggle{
-		background-color: transparent;
-		border: none;
-		outline: none;
+	@media screen and (max-width: 550px){
+		height:60px;
 
-		&:before{
-			content: "\e604";
-			@extend %icon;
-			
+		.logo{
+			height: 30px;
+			overflow: hidden;
 		}
 	}
 
-	.links a{
-		margin-left: 1em;
-		padding-bottom: 5px;
-		@include gtlight;
-		text-transform: uppercase;
-		border-bottom:1px solid transparent;
-		@include single-transition(all,0.3s);
+	.wrapper{
+		padding: 0 3em;
+	}
+	
+	.logo{
 		
-		&:hover{
-			border-bottom:1px solid #111;
-		}
+		a{
+			position: relative;
+			width: 210px;
+			display: inline-block;
+			@include transition(margin-top, .3s);
 
-		&:first-child{
-			margin-left: 0;
+			i{
+				display: inline-block;
+				width: 100%;
+				@include transition(opacity, .3s);
+				@include translateZ(0);
+			}
+
+			.icon-logo{
+				@include opacity(1);
+				text-align: left;
+
+				@media screen and (max-width:550px){
+					text-align: center;
+				}
+			}
+
+			.icon-home{
+				left: 0;
+				@extend .valign;
+				@include opacity(0);
+				font-size: 1.2em;
+			}
+
+			&:hover{
+
+				.icon-logo{
+					@include opacity(0);
+				}
+
+				.icon-home{
+					width: 100%;
+					@include opacity(1);
+				}
+			}
 		}
 	}
+
+	.links {
+		ul.menu{
+			margin:0;
+			padding:0;
+
+			li.menu-item{
+				display: inline-block;
+				margin-left: 1em;
+				
+				&:first-child{
+					margin-left: 0;
+				}
+
+				a{
+					padding: 0.7em 0 0.3em 0;
+					@include gtlight;
+					text-transform: uppercase;
+					border-bottom:1px solid transparent;
+					@include single-transition(all,0.3s);
+					
+					&:hover{
+						border-bottom:1px solid #111;
+					}
+				}
+
+				&.current-menu-item{
+					a{
+						border-bottom:1px solid #111;
+					}
+				}
+			}
+		}
+	}
+
 
 	.counter{
-		position: relative;
-		padding: 4px 4px 1px 4px;
-		color: #fff;
-		background-color: #333;
-		@include transition(all,0.2s);
-
-		&.bounce{
-			top:-2px;
-		}
+		margin-left: 5px;
+		color: #e74c3c;
 	}
 
 	@media screen and (max-width: 550px){
@@ -104,70 +217,159 @@
 /* ==========================================================================
 	CONTENT
    ========================================================================== */
+#single-albums, #lightbox{
+	height:100%;
+}
+
+#home{
+	height: initial;
+}
 
 body{
-	
-	&.home{
-		#weezy{
-			padding: 0;
-		}
-	}/*home page*/
 
+	&.home{
+		#main{
+			overflow: auto;
+		}
+	}
+
+	&.page-template-page-contact-php{
+		#main{
+			overflow: auto;
+		}
+
+		#weezy{
+			height: initial;
+
+			&.no-scroll{
+				height: 100%;
+			}
+		}
+
+		#header .wrapper{
+			width: 100%;
+			max-width: 1200px;
+			margin: 0 auto;
+			overflow:hidden;
+		}
+	}
 }
+
 // WRAPPER
 #weezy{
-	max-width: 1600px;
+	// max-width: 1600px;
 	height:100%;
 	min-height:100%;
 	margin:0 auto;
+
+	&.no-scroll{
+		overflow:hidden;
+	}
+
+	&.black{
+		color: #fff;
+		background-color: #000;
+
+		#header{
+			background-color: #000;
+
+			.logo{
+				a{
+					color: #fff;
+				}
+			}
+			
+			.links{
+				a{
+					color:#fff;
+					&:hover{
+						border-bottom:1px solid #fff;
+					}
+				}				
+			}
+
+		}
+
+		//Flexslider
+		#slider{
+			background-color: #000;
+
+			.flex-direction-nav li{
+				@include filter-gradient(#000, #000, vertical); // IE6-8
+				// IE9 SVG, needs conditional override of 'filter' to 'none'
+				$experimental-support-for-svg: true;
+				@include background-image(linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(51,51,51,1) 25%,rgba(51,51,51,1) 75%,rgba(0,0,0,1) 100%));
+			}
+
+			.flex-direction-nav a{
+				background-color: #000;
+				
+				i{
+					color: #fff;
+				}
+
+				&:hover{
+					background-color: rgba(0,0,0,0);
+				}
+
+				&.flex-disabled{
+					background-color: #000;
+
+					i{
+						color: transparent;
+					}
+				}
+			}
+			
+			footer{
+				color: #fff;
+				.button{
+					color: #fff;					
+				}
+			}
+		}
+
+		//Galleries
+		#gallery-content{
+			color: #fff !important;
+			background-color: #000;
+			
+			footer{
+				background-color: #000;
+				.button{
+					color: #fff;					
+				}
+			}
+		}
+
+		//Instructions
+		.instructions{
+			color: #fff;
+
+			strong{
+				color: #fff;
+			}
+		}
+	}//black
 }
 
 #main{
 	position: relative;
 	height:100%;
-	padding-top:45px;
+	padding-top:60px;
 	overflow:hidden;
+	@include transition(background-color, 0.3s);
 
+	@media screen and (max-width: 550px){
+		padding-top: 75px;
+	}
 
 	.home &{
-		overflow: initial;
-
-		&.container{
-			width: 100%;
-			max-width: initial;
-		}
-	}
-
-	.page-template-page-contact-php &{
 		height: initial;
-		overflow: initial;
 	}
 
-	&.black{
-		.flexslider{
-			background-color: black;
-
-			a{
-				color: #fff;
-			}
-			
-			footer{
-				color: #fff;
-			}
-		}
-
-		#gallery-content{
-			color: #fff;
-			background-color: #000;
-		}
-
-		.flex-direction-nav li{
-			background-color: #000;
-
-			&:hover{
-				background-color: #000;
-			}
-		}
+	#lightbox &{
+		overflow: initial;
 	}
 }
 
@@ -199,11 +401,19 @@ body{
 		&.sizeone{
 			@extend %albums;
 			padding-top: 60%;
+			
+			#home2 &{
+				padding-top: 50%;
+			}
 		}
 
 		&.sizetwo{
 			@extend %albums;
 			padding-top: 120%;
+
+			#home2 &{
+				padding-top: 150%;
+			}
 			
 			@media screen and (max-width: 767px){
 				padding-top: 60%;
@@ -229,17 +439,6 @@ body{
 			width: 100%;
 			text-align: center;
 		}
-	
-		h2{
-			position: relative;
-			top:0;
-			margin: 0;
-			color: #fff;
-			font-size: 5em;
-			@include gtlight;
-			text-transform: uppercase;
-			@include transition(all,.3s);
-		}
 
 		.category-links{
 			position: relative;
@@ -263,17 +462,22 @@ body{
 		}
 		
 		.background{
-			@extend %albums;
 			position: absolute;
 			top:0;right:0;bottom:0;left:0;
-			visibility: hidden;
-			@include opacity(0);
-			@include transition(opacity,.5s);
 			@include translateZ(0);
 
-			&.visible{
-				visibility: visible;
-				@include opacity(1);
+			.bg{
+				@include opacity(0);
+				visibility:hidden;
+				position: absolute;
+				top:0;right:0;bottom:0;left:0;
+				background-position: top center;
+				background-size: cover;
+				@include transition(all .8s);
+
+				&.visible{
+					@extend .visible;
+				}
 			}
 		}
 
@@ -308,6 +512,73 @@ body{
 		}
 	}
 }
+
+// .album-grid{
+// 	header{
+// 		padding:0.9em 15px 0.5em 15px;;
+// 		background-color: #fff;
+// 		border-top: 1px solid rgba(51,51,51,0.2);
+// 		border-bottom: 1px solid rgba(51,51,51,0.2);
+		
+// 		h2{		
+// 			margin: 0;
+// 			font-size: 1.5em;
+// 			@include gtlight;
+// 			text-transform: uppercase;
+// 		}
+// 	}
+	
+// 	.album-items{
+// 		.item{
+// 			position: relative;
+// 			width: 10%;
+// 			float:left;
+// 			@include transition(all,0.3s);
+
+// 			@media screen and (max-width: 1000px){
+// 				width: 20%;
+// 			}
+
+// 			@media screen and (max-width: 800px){
+// 				width: 25%;
+// 			}
+
+// 			@media screen and (max-width: 600px){
+// 				width: 50%;
+// 			}
+
+// 			.overlay{
+// 				z-index: 2;
+// 				position: absolute;
+// 				width: 100%;
+// 				height: 100%;
+// 				background-color: rgba(0,0,0,.65);
+// 				visibility: hidden;
+// 				@include opacity(0);
+// 				@include transition(opacity,0.3s);
+// 				text-align: center;
+
+// 				span{
+// 					display: inline-block;
+// 					color: #fff;
+// 					font-style: italic;
+// 					@include fanwood;
+// 					line-height: 1;
+// 				}
+
+// 			}
+			
+// 			&:hover{
+// 				.overlay{
+// 					visibility: visible;
+// 					@include opacity(1);					
+// 				}
+// 			}
+// 		}
+// 	}
+// }//.album
+
+
 /* ======================
 	GALLERY
    ====================== */ 
@@ -315,23 +586,22 @@ body{
 #gallery-content{
 	position: absolute;
 	top:0;right:0;bottom:0;left:0;
-	padding-top: 45px;
+	padding-top: 90px;
 	background-color: #fff;
-	@include transition(bottom,0.3s);
-	z-index: 2;
+	@include transition(top 1s, background-color .3s);
+	z-index: 10;
 
 	@media screen and (max-width:700px){
 		overflow-y: auto;
 	}
 
 	&.hide{
-		position:absolute;
 		top: 100%;
 	}
 	
 	.summary{
-		width: 300px;
-		padding: 2em 4em 2em 15px;
+		width: 400px;
+		padding: 2em 3em;
 
 		@media screen and (max-width:767px){
 			width: 250px;
@@ -340,8 +610,12 @@ body{
 		@media screen and (max-width:700px){
 			float: none;
 			width: 100%;
-			padding: 2em 15px;
-			padding-right: 0;
+			padding: 2em 3em;
+		}
+		@media screen and (max-width:550px){
+			float: none;
+			width: 100%;
+			padding: 2em 1em;
 		}
 
 		h2{
@@ -353,14 +627,12 @@ body{
 	.gallery{
 		height: 100%;
 		padding-bottom: 10px;
+		padding-right: 2.5em;
 		overflow-y: auto;
-		
-		.page-template-page-lightbox-php &{
-			padding-bottom: 150px;
-		}
 
 		@media screen and (max-width:700px){
 			width: 100%;
+			padding-right: 0;
 			height: initial;
 		}
 
@@ -369,10 +641,8 @@ body{
 			list-style: none;
 
 			li.column{
-				height:100%;
-				margin-bottom: 0.5em;
-				padding: 0.5em;
-				overflow: hidden;
+				padding: 1em;
+				text-align: center;
 
 				&.col-1-3{
 					@media screen and (max-width:1000px){
@@ -392,28 +662,81 @@ body{
 					}
 				}
 
-				a{
-					display: inline-block;
-					width: 100%;
-					height: 100%;
-					text-align: center;
-					
-					.portrait{
+				&.portrait{
+					a{
 						height:100%;
-						width: auto;
+					}
+					img{
+						height:100%;
+						width: auto;							
 					}
 
-					.landscape{
+				}
+
+				&.landscape{
+					a{
+						width: 100%;
+					}
+
+					img{
 						width: 100%;
 						height: auto;
-						vertical-align: middle;
+						vertical-align: middle;							
+					}
+
+				}
+
+				&.square{
+					padding: 2%;
+					a{
+						width: 100%;
+						height:100%;
 					}
 				}
-			}			
-		}
+				a{
+					position: relative;
+					display: inline-block;
+					text-align: center;
 
-	}
-} 
+					&:after{
+						content:"";
+						position: absolute;
+						display:none;
+						top:0;right:0;bottom:0;left:0;
+						@include transition(background-color, 0.3s);
+					}
+
+					img{
+						@include translateZ(0);
+						@include transition(filter,.3s);
+					}
+
+					i{
+						visibility: hidden;
+						@include opacity(0);
+						display: none;
+						left:0;
+						width: 100%;
+						color: #fff;
+						@include fanwood;
+						@include transition(color,.3s);
+					}
+
+					&:hover{
+						&:after{
+							background-color: rgba(0,0,0,0.65);
+						}
+
+						i{
+							z-index: 5;
+							@extend .visible;
+						}
+					}
+				}//a
+			}//li.column
+		}//ul
+	}//.gallery
+} //#gallery-content
 
 .vertical{
 	display: inline-block;
@@ -425,39 +748,43 @@ body{
 	LIGHTBOX
    ====================== */
 
-.lightbox-actions{
-	position: absolute;
-	top:initial;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	text-align: center;
-	background-color: black;
+#lightbox{
+	@include transition(background-color, .3s);
+	#gallery-content{
+		padding-bottom:50px;
 
-	&.hide{
-		top:100%;
+		footer{
+			position: fixed;
+			bottom:0;
+			width:100%;
+			padding: 5px 15px;
+			background-color: #fff;
+			z-index: 10;
+			@include transition(all,0.3s);
+		}
+
+		&.hide{
+			footer{
+				bottom:-100%;
+			}			
+		}
 	}
-} 
+}
 
-.lightbox{
-	width:100%;
-	height: 90%;
+
+.instructions{
+	height:100%;
 	padding: 0 15px;
-	color: #fff;
+	color: #000;
 	overflow-y: auto;
 
 	.frame{
-		padding: 5%;
-		border: 2px dashed #3f3f3f;
+		// padding: 5%;
+		// border: 2px dashed #3f3f3f;
 		@include border-radius(3px);
-
-		.row{
-			width: 80%;
-			margin: 0 auto;
-
-			@media screen and (max-width: 650px){
-				width: 100%;
-			}
+		
+		img{
+			border: 1px solid #f0f0f0;
 		}
 
 		h2.big{
@@ -476,7 +803,7 @@ body{
 			text-align: center;
 
 			@media screen and (max-width: 650px){
-				text-align: left;
+				// text-align: left;
 				&.col-1-3{
 					width: 100%;
 					margin-bottom: 1em;
@@ -485,13 +812,13 @@ body{
 		}
 
 		strong{
-			display: inline-block;
-			line-height: 50px;
-			width: 50px;
-			color: #000;
-			font-size: 2.5em;
-			text-align: center;
-			background-color: #fff;
+			// display: inline-block;
+			// line-height: 50px;
+			// width: 50px;
+			// color: #fff;
+			font-size: 1.2em;
+			// text-align: center;
+			// background-color: #000;
 			@include border-radius(50px);
 
 			@media screen and (max-width: 650px){
@@ -503,12 +830,18 @@ body{
 		}
 
 		p{
-			padding-right: 5%;
-			
-			@media screen and (max-width: 650px){
-				display: inline;
-				padding-left: 5px;
-			}
+			display: inline-block;
+			width: 100%;
+			max-width: 500px;
+			margin:0;
+			padding: 1em;
+			color: #333;
+			font-size: 0.875em;
+			text-align: center;
+			background-color: #f0f0f0;
+
+			@include border-bottom-left-radius(15px);
+			@include border-bottom-right-radius(15px);
 		}
 	}
 }
@@ -517,137 +850,187 @@ body{
 	CONTACT
    ====================== */
 
-.bio-section{
-	position: relative;
-	height: 388px;
-	overflow: hidden;
-	border-bottom: 5px solid #000;
+#contact{
+	height: initial;
 
-	.bio-text{
-		float: right;
-		height: 100%;
-		width: 70%;
-		padding:5em 2em 0 20%;
-		color: #fff;
-		text-align: justify;
-		line-height: 1.8;
-		@include filter-gradient(#000000, #a60000, horizontal); // IE6-9
-		@include background-image(linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 52%,rgba(0,0,0,0.65) 99%));
-		
+	header{
+		overflow: hidden;
+		padding: 2em 3em;
+		/*background-color:#000;*/
+		border-bottom: 5px solid #000;
+
 		@media screen and (max-width:800px){
-			width: 100%;
-			padding: 5em 2em;
+			padding:0 0 2em 0;
 		}
 
-		h3:first-child{
-			margin:0;
-		}
-	}
-}// .bio-section
-
-.contact-section{
-	overflow: hidden;
-	border-right: 1px solid rgba(151,151,151,0.17);
-	border-left: 1px solid rgba(151,151,151,0.17);
-
-	.contact-details{
-		padding: 0;
-		text-align: center;
-		border-right: 1px solid rgba(151,151,151,0.17);
-		
-		@media screen and (max-width:765px){
-			width: 100%;
-			border-right: none;
-			border-bottom: 1px solid rgba(151,151,151,0.17);
-		}
-
-		.detail{
-			padding: 3em 0 2em 0;
-			border-top:1px solid rgba(151,151,151,0.17);
-			@include single-transition(background-color, 0.5s);
-
-			@media screen and (max-width:765px){
-				float:left;
-				width: 33%;
-				height: 260px;
-			}
-
-			@media screen and (max-width:600px){
-				float: none;
+		figure{
+			height:400px;
+			background-size: contain;
+			background-repeat: no-repeat;
+			/*background-position:center;*/
+			
+			@media screen and (max-width:800px){
 				width: 100%;
-				height: initial;
+				height:200px;
+			}
+		}
+
+		.bio{
+			height: 100%;
+			padding-left: 0;
+			padding-right: 2em;
+			font-size: 14px;
+			line-height: 1.8;
+			
+			@media screen and (max-width:800px){
+				width: 100%;
+				padding: 1em;
 			}
 
-			&:first-child{
-				border-top: none;
+			h3:first-child{
+				margin:0;
+			}
+		}
+	}//header	
+
+	.contact-section{
+		overflow: hidden;
+		margin-top: 3em;
+		border:1px solid rgba(151, 151, 151, 0.17);
+
+		.details{
+			padding: 0;
+			text-align: center;
+			
+			@media screen and (max-width:765px){
+				width: 100%;
+				border-right: none;
+				border-bottom: 1px solid rgba(151,151,151,0.17);
 			}
 
-			&:hover{
-				background-color: #F5F5F5;
-			}
+			.detail{
+				padding: 3em 0 2em 0;
+				border-top:1px solid rgba(151,151,151,0.17);
+				@include single-transition(background-color, 0.5s);
 
-			a{
-				color: #e74c3c;
-				border-bottom: 1px solid transparent;
-				@include single-transition(border-color, 0.3s);
+				@media screen and (max-width:765px){
+					float:left;
+					width: 33%;
+					height: 260px;
+				}
+
+				@media screen and (max-width:600px){
+					float: none;
+					width: 100%;
+					height: initial;
+				}
+
+				&:first-child{
+					border-top: none;
+				}
 
 				&:hover{
-					border-bottom: 1px solid #e74c3c;
+					background-color: #F5F5F5;
+				}
+
+				a{
+					color: #616161;
+					border-bottom: 1px solid #dbdbdb;
+					@include single-transition(all, 0.3s);
+
+					&:hover{
+						color: #000;
+						border-bottom: 1px solid #000;
+					}
 				}
 			}
-		}
 
-		i{
-			display: block;
-			@extend %icon;
-			font-size: 3em;
-		}
+			i{
+				display: none;
+				@extend %icon;
+				font-size: 1.5em;
+			}
 
-		h3{
-			display: inline-block;
-			margin:1em 0 0.5em 0;
-			font-size: 1.29em;
-			text-transform: uppercase;
-			border-bottom: 2px solid #000;
-		}
+			h3{
+				display: inline-block;
+				margin:1em 0 0.5em 0;
+				font-size: 1.29em;
+				@include gtlight;
+				text-transform: uppercase;
+			}
 
-		p{
-			margin-top: 0;
-		}
-	}//.contact-details
+			p{
+				margin-top: 0;
+			}
+		}//.contact-details
 
-	div.form-section{
-		padding-top: 4em;
+		.form{
+			padding: 3em 10% 0;
+			border-left: 1px solid rgba(151,151,151,0.17);
 
-		@media screen and (max-width: 765px){
-			width: 100%;
+			@media screen and (max-width: 765px){
+				width: 100%;
+			}
 		}
-	}
-}//.contact-section
+	}//.contact-section
+}//#header
 
 /* ======================
 	OVERLAY MENU
    ====================== */ 
 
+%category-heading{
+	margin-bottom: 0.5em;
+	font-size: 1.43em;
+	@include fanwood;
+	font-style: italic;
+}
+
+%category-link{
+	color: #fff;
+	font-size: 2.5em;
+	@include gtbold;
+	font-style: normal;
+	text-transform: uppercase;
+	line-height: 0.9;
+
+	a{
+		@include backface-visibility(hidden);
+		display: inline-block;
+		padding: 0.35em 0.35em 0.15em 0.35em;
+		color: #fff;
+		border: 1px solid transparent;
+		@include transition(border,.3s);
+
+		&:hover{
+			border: 1px solid white;
+		}
+	}
+
+	@media screen and (max-width: 768px){
+		font-size: 2em;
+	}
+}
+
 #overlaymenu{
-	z-index: 10;
+	z-index: 9999;
 	visibility: hidden;
 	position: fixed;
 	top:0;right:0;bottom: 0;left: 0;
 	color: #fff;
 	text-align: center;
-	background-color: rgba(0,0,0, 0.9);
+	background-color: transparent;
 	@include opacity(0);
-	@include single-transition(all,0.5s);
+	@include transition(all,.5s);
+	@include translateZ(0);
 	overflow-y: auto;
 
 	&.visible{
+		background-color: #000;
+		background-color: rgba(0,0,0, 0.9);
 		visibility: visible;
 		@include opacity(1);
-
-/*		@media screen and (max-width: 767px){
-			overflow-y: auto;
-		}*/
+		@include transition(all,.5s);
 	}
 
 	a{
@@ -655,12 +1038,22 @@ body{
 	}
 
 	header{
-		padding: 0 15px;
-		line-height: 45px;
+		position:relative;
+		z-index: 10;
+		padding: 0 3em;
+		line-height: 60px;
 		text-transform: uppercase;
+		background-color: transparent;
+
+		button{
+			color: #fff;
+			@include gtlight;
+			text-transform: uppercase;
+		}
 	}
 
 	.valign{
+		z-index: 5;
 		width: 100%;
 		@media screen and (max-width:767px){
 			position:relative;
@@ -704,7 +1097,7 @@ body{
 		}
 
 		ul.sub-menu{
-			margin: 0;
+			margin: 0 0 1em 0;
 			padding: 0;
 
 			li{
@@ -719,19 +1112,18 @@ body{
    ====================== */ 
 
 .modal{
+	position: absolute;
 	visibility: hidden;
-	padding: 0em 1em;
+	width: 100%;
+	max-width: 400px;
+	padding: 0.5em 2em;
+	text-align: center;
+	line-height: 1;
 	background-color: #fff;
-	border: 1px solid rgba(51,51,51,0.2);
 	z-index:10;
 	@include opacity(0);
-	@include border-radius(1px);
+	@include border-radius(50px);
 	@include single-transition(all,0.3s);
-
-	@media screen and (max-width: 600px){
-		left: 5%;
-		width: 90%;
-	}
 	
 	&.visible{
 		visibility: visible;
@@ -742,9 +1134,10 @@ body{
 	.message{
 		margin: 0;
 		color: #333;
-		font-size: 1.2em;
+		font-size: 1.14em;
 		letter-spacing: 1px;
 		@include fanwood;
+		background-color: #fff;
 		
 		@media screen and (max-width:600px){
 			font-size: 1em;
@@ -753,7 +1146,7 @@ body{
 		&.success:before{
 			margin-right: 0.5em;
 			color: #2ecc71;
-			content: "\e604";
+			content: "\e116";
 			font-size: 1.5em;
 			@extend %icon;
 		}
@@ -761,7 +1154,7 @@ body{
 		&.fail:before{
 			margin-right: 0.5em;
 			color: #e74c3c;
-			content: "\e605";
+			content: "\e117";
 			font-size: 1.5em;
 			@extend %icon;
 		}
@@ -769,68 +1162,89 @@ body{
 }
 
 /* ======================
-	Flexslider
+	SINGLE ALBUM FLEXSLIDER
    ====================== */ 
 
-.flexslider{
-	z-index: 1;
+#slider{
+  	height: 100%;
+  	margin: 0;
+  	padding: 0 0 70px 0;
+  	border: none;
+  	@include transition(all, .3s);
+
+	&.visible{
+		@extend .visible;
+
+		img{
+			@include opacity(1);
+		}
+	}
 
 	@media screen and (max-width: 480px){
-		padding-bottom: 90px;
+		padding-bottom: 100px;
 	}
 
-	.slides{
-		padding: 0 60px;
-	}
-
-	.image{
-		display: inline-block;
-		position:relative;
-
-		&:hover a.lightbox-btn, &:hover a.lightbox-remove{
-			display: inline-block;
-		}
-
-		a.lightbox-btn, a.lightbox-remove{
-			position: absolute;
-			bottom:0;
-			left:0;
-			padding: 10px;
-			color: #fff;
-			text-transform: uppercase;
-			background-color: #000;
-			cursor: pointer;
-			@include transition(all,0.2s);
-
-			&:before{
-				content: "\e603";
-				margin-right: 10px;
-				color: #fff;
-				font-size: 1em;
-				font-weight: 700;
-				@extend %icon;
-			}			
-		}
-	}
-
-	.toggle-gallery{
-		text-transform: uppercase;
-		&:before{
-			content: "\e600";
-			font-size: 2em;
-			@extend %icon;
-		}
-	}
+	ul.slides{
+		height: 100%;
+		margin:0;
 		
+		li{
+			position: relative;
+			height: 100%;
+			text-align: center;
+			z-index: 4;
+
+			&:hover{
+				button{
+					@extend .visible;
+				}
+			}
+
+			img{
+				max-height: 100%;
+				width: auto;//this creates the gap on mozilla set to a value max-width:100% for mozilla
+				@include opacity(0);
+				@include backface-visibility(hidden);
+				@include transition(opacity,.3s);
+			}
+
+			&.flex-active-slide{
+				img{
+					@include opacity(1);					
+				}
+			}				
+		}//li
+	}//ul.slides
+		
+	.flex-direction-nav{
+		.prev-li{
+			position: absolute;
+			top:0;left:0;
+			height:100%;
+			width: 10%;
+		}
+		.next-li{
+			position: absolute;
+			top:0;right:0;
+			height:100%;
+			width: 10%;
+		}
+	}
+
 	footer{
 		position: absolute;
 		bottom:0;
-		padding: 0 15px;
+		padding: 15px 3em;
 		z-index: 10;
+		overflow: hidden;
+
+		button{
+			margin-right: 1em;
+		}
 	}
 
 	.gallery-meta{
-		margin-left: 2.86em;
+		margin-left: 1;
 		font-size: 1.14em;
 		@include fanwood;
 		z-index: 2;
@@ -839,70 +1253,210 @@ body{
 			display: block;
 			margin-left: 0;
 		}
+
+		@media screen and (max-width:767px){
+			font-size: 0.8em
+		}
 	}
 
-	.flex-direction-nav{
-		li{
-			position: absolute;
-			top:0;
-			bottom:70px;
-			width: 60px;
-			z-index: 1;
-			background-color: #fff;
-			@include transition(background-color,0.3s);
+	.desc-overlay{
+		@extend .invisible;
+		position: absolute;
+		top:0;left:0;
+		width: 100%;
+		height: 100%;
+		color: #000;
+		@include transition(all,0.35s);
+		@include translateY(-50%);
+		// needs latest Compass, add '@import "compass"' to your scss
+		@include filter-gradient(#ffffff, #ffffff, vertical); // IE6-8
+		// IE9 SVG, needs conditional override of 'filter' to 'none'
+		$experimental-support-for-svg: true;
+		@include background-image(linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.65) 57%,rgba(255,255,255,0) 100%));
 
 
-			&.leftnav{
-				left:0;
-			}
 
-			&.rightnav{
-				right:0;
-			}
-
-			&:hover{
-				@include filter-gradient(#ffffff, #ffffff, vertical); // IE6-8
-				// IE9 SVG, needs conditional override of 'filter' to 'none'
-				$experimental-support-for-svg: true;
-				@include background-image(linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 25%,rgba(229,229,229,1) 75%,rgba(255,255,255,1) 100%));
-			}
-		}
-		
-		a{
-			width: 25px
+		&.visible{
+			@extend .visible;
+			@include translateY(0%);
 		}
 
-	}
+		.black &{
+			color: #fff;
+			// needs latest Compass, add '@import "compass"' to your scss
+			@include filter-gradient(#000000, #000000, vertical); // IE6-8
+			// IE9 SVG, needs conditional override of 'filter' to 'none'
+			$experimental-support-for-svg: true;
+			@include background-image(linear-gradient(top,  rgba(0,0,0,0.65) 1%,rgba(0,0,0,0.65) 57%,rgba(0,0,0,0) 100%));
 
-	.flex-direction-nav .flex-prev .icon-circle-arrow-left:before {content:"\e600";}
-	.flex-direction-nav .flex-next .icon-circle-arrow-right:before {content:"\e6";}
+
+
+			button{
+				color: #fff;
+			}
+		}
+
+		.center{
+			width: 90%;
+			max-width: 320px;
+		}
+
+		.description{
+			position: relative;
+			padding: 1em;
+			text-align: center;
+			
+			h3{
+				margin-top: 0;
+			}
+
+			p{
+				padding: 0;
+				font-size: 14px;
+				font-style: italic;
+			}
+
+			button{
+				position: absolute;
+				top: 0;
+				right: 0;
+				@include transition(all,0.3s);
+			}
+		}
+	}// .desc-overlay
 }
+
 /* ======================
-	LazyLoad
+	Animation
    ====================== */ 
 
-.b-lazy {
-	max-width: 100%;
-	@include transition(opacity,1s);
+.slowfade{
+      -webkit-animation: fadeFromWhite 3s 1;
+      -moz-animation:    fadeFromWhite 3s 1;
+      -o-animation:      fadeFromWhite 3s 1;
+      -ms-animation:     fadeFromWhite 3s 1;
+      -khtml-animation:  fadeFromWhite 3s 1;
+      animation:         fadeFromWhite 3s 1;
+}
+
+@-webkit-keyframes fadeFromWhite {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes fadeFromWhite {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-o-keyframes fadeFromWhite {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes fadeFromWhite {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
+.lazy{
 	@include opacity(0);
-}
+	@include transition(opacity, 0.5s);
 
-.b-lazy.b-loaded {
-	@include opacity(0.8);
-	@include filter(grayscale(80%));
+	&.b-loaded{
 
-	&:hover{
 		@include opacity(1);
-		@include filter(grayscale(0%));
 	}
 }
 
 /* ======================
-	TOUCH
-   ====================== */ 
+	TOUCH & OTHER BS
+   ====================== */
 
-   html.no-touch{
-		a.lightbox-btn, a.lightbox-remove{
+.no-touch{
+
+	#header{
+		.icon-home{
+			display: inline-block !important;
+		}
+	}
+
+	#slider{
+		.slides{
+			.lightbox-add, .lightbox-remove{
+				display: inline-block;
+			}
+		}
+
+		.add{
 			display: none;
 		}
-   }
+		.remove{
+			display: none;
+		}
+	}
+
+	.gallery{
+		li{
+			a{
+				&:after{
+					display: inline-block !important;
+				}
+
+				i{
+					display: inline !important;
+				}
+			}
+		}
+	}
+}
+
+// IE8
+html.lt-ie9{
+	#weezy{
+		min-width: 1024px;
+	}
+
+	#overlaymenu{
+		.valign{
+			top:0;
+		}
+	}
+
+	#slider{
+		footer{
+			overflow: hidden;
+
+			button{
+				float:left;
+			}
+		}
+	}
+}
+
+/* ======================
+	PASSWORD PROTECTED
+   ====================== */
+#hidden-content{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 9999;
+	background-color: rgba(0, 0, 0, 0.85);
+	
+	.valign{
+		width: 100%;
+		text-align: center;
+	}
+
+	.form{
+		display: inline-block;
+		padding: 2em;
+		background-color: #fff;
+
+		input[type="password"]{
+			margin: 1em 0;
+		}
+	}	
+}
+

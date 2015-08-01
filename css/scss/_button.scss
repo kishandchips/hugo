@@ -1,0 +1,140 @@
+/* ======================
+	BUTTON STYLES
+   ====================== */
+
+button{
+	display: inline-block;
+	padding:0;
+	
+	&.lightbox-add, &.lightbox-remove{
+		visibility: hidden;
+		@include opacity(0);
+		@include transition(opacity, 0.2s);
+		padding: 10px;
+		color: #fff;
+		text-transform: uppercase;
+
+		&:before{
+			font-size: 3em;
+		}
+	}
+}
+
+.btn{
+	display: inline-block;
+	padding: 1em 1.4em 0.7em 1.4em;
+	color: #fff;
+	text-transform: uppercase;
+	@include gtlight;
+	line-height: 1;
+	letter-spacing: 1px;
+	border: 1px solid transparent;
+	background-color: #000;
+	@include transition(all,0.3s);
+
+	&:hover{
+		color: #333;
+		background-color: #fff;
+		border: 1px solid #333;
+	}
+
+	&.secondary{
+		color: #fff;
+		background-color: #000;
+		
+		&:hover{
+			color: #333;
+			background-color: #fff;
+			border: 1px solid #000;
+		}
+	}
+}
+
+.button{
+	outline: none;
+	border: none;
+	background-color: transparent;
+}
+
+%button-toggle{
+	font-size: 0.875em;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	border-bottom: 1px solid transparent;
+	@include transition(all,0.3s);
+
+	&:hover{
+		border-bottom: 1px solid #000;
+	}
+	
+	.black &{
+		&:hover{
+			border-bottom: 1px solid #fff;
+		}
+	}
+
+	&:before{
+		position: relative;
+		top:-1px;
+		margin-right: 5px;
+	}	
+}
+
+.toggle-gallery{
+	@extend %button-toggle;
+
+	&:before{
+		content: "\e600";
+		font-size: 1.5em;
+		@extend %icon;
+	}
+}
+.color-toggle{
+	@extend %button-toggle;
+
+	&:before{
+		content: "\e604";
+		font-size: 1.5em;
+		@extend %icon;
+	}
+}
+
+.lightbox-toggle{
+	@extend %button-toggle;
+
+	&:before{
+		@extend %icon;
+		content: "\e609";
+		font-size: 1.5em;
+	}
+}
+
+.add{
+	@extend %button-toggle;
+
+	&:before{
+		@extend %icon;
+		content: "\e605";
+		font-size: 1.1em;
+	}
+}
+
+.remove{
+	@extend %button-toggle;
+
+	&:before{
+		@extend %icon;
+		content: "\e60a";
+		font-size: 1.1em;
+	}
+}
+
+.info{
+	@extend %button-toggle;
+
+	&:before{
+		@extend %icon;
+		content: "\e60d";
+		font-size: 1.5em;
+	}
+}

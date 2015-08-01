@@ -4,14 +4,20 @@ Template Name: Contact
 */
 ?>
 <?php get_header(); ?>
+
+<div id="contact" class="container">
 <?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
-	<div class="bio-section" style="background-image: url(<?php echo get_template_directory_uri(); ?>/img/hugo2bsedit.jpg)">
-		<div class="bio-text">
+	<?php $image = get_field('contact_image'); ?>
+	<header>
+		<div class="bio column col-1-2 equal-height">
 			<?php the_content(); ?>	
 		</div>
-	</div>
-	<div class="contact-section">
-			<div class="contact-details column col-2-5">
+		<figure class="column col-1-2 slowfade equal-height" style="background-image: url(<?php echo $image['url']; ?>)">
+		</figure>
+	</header>
+	
+	<section class="contact-section">
+			<div class="details column col-1-2">
 				<div class="detail">
 					<i class="icon-phone"></i>
 					<h3>Call Us</h3>
@@ -28,9 +34,11 @@ Template Name: Contact
 					<p><a href="<?php the_field('address_link') ?>" title="Hugo Rittson Photography Studio Address" target="_blank"><?php the_field('contact_address') ?></a></p>
 				</div>
 			</div>	
-			<div class="form-section column col-3-5">
-				<?php gravity_form(2, true, true, false, '', false); ?>
+			<div class="form column col-1-2">
+				<?php gravity_form(2, true, true, false, '', true); ?>
 			</div>
-	</div>
-<?php endwhile; endif; ?>
+	</section>		
+<?php endwhile; endif; ?>	
+</div>
+
 <?php get_footer(); ?>

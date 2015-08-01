@@ -2,18 +2,19 @@
 </div><!-- weezy baby -->
 
 <div id="overlaymenu">
-
-	<header class="clearfix">
-		<div class="logo left">
-		<a href="#">
-			<img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="">
-		</a>
-		</div>
-		<div class="right">
-			<a class="menu-button" href="">Close Menu</a>
+	<header>
+		<div class="wrapper clearfix">
+			<div class="logo left">
+				<a href="<?php echo home_url(); ?>">
+					<i class="icon-logo"></i>
+				</a>
+			</div>
+			<div class="links right">
+				<button class="menu-button button">Close Menu</button>
+			</div>
 		</div>
 	</header>
-
+	
 	<div class="valign">
 		<h2>Galleries</h2>
 		<?php 
@@ -37,10 +38,6 @@
 	</div>
 
 </div><!-- OVERLAY MENU -->
-
-<div class="modal">
-	<p class="message success"></p>
-</div><!-- MODAL -->
 
 <?php wp_footer(); ?>
 </body>

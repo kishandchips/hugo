@@ -18,9 +18,14 @@ define('THEME_NAME', 'hugo');
 	add_action( 'wp_enqueue_scripts', 'custom_styles', 30 );
 	add_action( 'wp_enqueue_scripts', 'custom_scripts', 30 );
 
+// Image sizes
+	add_image_size( 'grid-item', 500, 9999, false );
+	add_image_size( 'massive-image', 1800, 1100, false );
+	add_image_size( 'desktop', 1000, 650, false );
+	add_image_size( 'tablet', 650, 550, false );
+	add_image_size( 'mobile', 250, 250, false );
 
 // Functions
-
 function add_editor_styles() {
     add_editor_style('/css/editor-styles.css');
 }
@@ -32,6 +37,8 @@ function custom_styles(){
 
 function custom_scripts(){
 	wp_enqueue_script('modernizr', get_template_directory_uri() . '/js/plugins/modernizr.js', array('jquery'), '');
+	wp_enqueue_script('center', get_template_directory_uri() . '/js/plugins/jquery.center.js', array('jquery'), '');
+	wp_enqueue_script('matchheight', get_template_directory_uri() . '/js/plugins/matchheight.js', array('jquery'), '');
 	wp_enqueue_script('lazyload', get_template_directory_uri() . '/js/plugins/jquery.lazyload.js', array('jquery'), '', true);
 	wp_enqueue_script('flexslider', get_template_directory_uri() . '/js/plugins/jquery.flexslider.js', array('jquery'), '', true);
 	wp_enqueue_script('cookie', get_template_directory_uri() . '/js/plugins/jquery.cookie.js', array('jquery'), '', true);
@@ -98,13 +105,40 @@ function album_category() {
 	register_taxonomy( 'album-category', array( 'albums' ), $args );
 }
 
+// REMOVE MENU ITEMS
+add_action( 'admin_menu', 'my_remove_menu_pages',999 );
+
+function my_remove_menu_pages() {
+    $admins = array( 
+        'admin', 
+    );
+
+    $current_user = wp_get_current_user();
+
+    if( !in_array( $current_user->user_login, $admins ) ){
+    
+	    remove_menu_page('edit.php');
+	    remove_menu_page('edit-comments.php');
+	    remove_menu_page('plugins.php');
+	    remove_menu_page('tools.php');
+	    remove_menu_page('edit.php?post_type=acf');
+	}
+}
+
+
+// MISC FUNCTIONS
 function gallery_meta(){
 	global $post;
-	$parents = get_post_ancestors( $post->ID ); 
-	$id = $parents[0];
- 	$output = get_the_title($id);
+
+	$categories = get_the_terms($post->ID, 'album-category' );
+
+	foreach ($categories as $category) {
+		$catname = $category->name;
+	}
+
+ 	$output = $catname;
  	$output .= ' / ' . get_the_title();
- 	echo $output;
+ 	echo ucwords($output);
 }
 
 function lightbox_images(){
@@ -125,5 +159,36 @@ function lightbox_images(){
 
 	return $lightbox_images;
 }
+
+function my_password_form() {
+    global $post;
+    $label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
+    $o = '<div id="hidden-content"><div class="valign"><div class="form"><form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post">
+    ' . __( "<p>To view this protected post, enter the password below:</p>" ) . '
+    <label for="' . $label . '">' . __( "Password" ) . ' </label><br><input name="post_password" id="' . $label . '" type="password" size="20" maxlength="20" /><br><input type="submit" name="Submit" value="' . esc_attr__( "Submit" ) . '" />
+    </form>
+    </div>
+    </div>
+    </div>
+    ';
+    return $o;
+}
+add_filter( 'the_password_form', 'my_password_form' );
+
+function the_title_trim($title) {
+	$title = esc_attr($title);
+	$findthese = array(
+		'#Protected:#',
+		'#Private:#'
+	);
+	$replacewith = array(
+		'', // What to replace "Protected:" with
+		'' // What to replace "Private:" with
+	);
+	$title = preg_replace($findthese, $replacewith, $title);
+	return $title;
+}
+
+add_filter('the_title', 'the_title_trim');
 
 ?>

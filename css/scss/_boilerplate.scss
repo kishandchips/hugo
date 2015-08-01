@@ -4,6 +4,7 @@
 
 html,body{
     height: 100%;
+     -webkit-tap-highlight-color: rgba(0, 0, 0, 0); 
 }
 
 body {
@@ -89,10 +90,6 @@ textarea {
     overflow: visible;
     position: static;
     width: auto;
-}
-
-.invisible {
-    visibility: hidden;
 }
 
 .clearfix:before,
