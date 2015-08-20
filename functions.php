@@ -25,6 +25,13 @@ define('THEME_NAME', 'hugo');
 	add_image_size( 'tablet', 650, 550, false );
 	add_image_size( 'mobile', 250, 250, false );
 
+	add_image_size( 'press-large', 840, 840, true);
+	add_image_size( 'press-medium', 420, 420, true);
+
+
+// Custom Filters
+
+
 // Functions
 function add_editor_styles() {
     add_editor_style('/css/editor-styles.css');
@@ -42,6 +49,12 @@ function custom_scripts(){
 	wp_enqueue_script('lazyload', get_template_directory_uri() . '/js/plugins/jquery.lazyload.js', array('jquery'), '', true);
 	wp_enqueue_script('flexslider', get_template_directory_uri() . '/js/plugins/jquery.flexslider.js', array('jquery'), '', true);
 	wp_enqueue_script('cookie', get_template_directory_uri() . '/js/plugins/jquery.cookie.js', array('jquery'), '', true);
+
+	if ( is_post_type_archive('press') ) {
+		wp_enqueue_script('imagesloaded',  get_template_directory_uri().'/js/plugins/jquery.imagesloaded.js', array('jquery'), '', true);
+		wp_enqueue_script('isotope',  get_template_directory_uri().'/js/plugins/jquery.isotope.js', array('jquery'), '', true);
+	}
+
 	wp_enqueue_script('main', get_template_directory_uri() . '/js/main.js', array('jquery'), '', true);
 }
 
@@ -66,6 +79,32 @@ function create_post_type() {
 			)
 		)
 	);
+
+	register_post_type( 'press',
+		array(
+			'rewrite' => array('with_front' => false, 'slug' => 'press'),
+			'capability_type' => 'post',
+			'publicly_queryable' => true,
+			'has_archive' => true, 
+			'hierarchical' => true,
+			'menu_position' => null,			
+			'labels' => array(
+				'name' => __( 'Press' ),
+				'singular_name' => __( 'Press' ),
+				'add_new' => __('Add Press Item'),
+				'search_items' => __('Search Press'),
+				'not_found' => __('No Press Item Found')
+			),
+			'public' => true,
+			'hierarchical' => true,
+			'supports' => array(
+				'title',
+				'editor',
+				'thumbnail',
+				'page-attributes'
+			)
+		)
+	);	
 }
 
 // Register Taxonomy
@@ -190,5 +229,3 @@ function the_title_trim($title) {
 }
 
 add_filter('the_title', 'the_title_trim');
-
-?>

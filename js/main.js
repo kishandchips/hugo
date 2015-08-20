@@ -11,6 +11,7 @@
 			this.colorToggle();
 			this.lightbox.init();
 			this.lightbox.basket();
+			this.initIsotope();
 			
 			//FIREFOX TEST
 			Modernizr.addTest('firefox', function () {
@@ -79,7 +80,7 @@
 		hash: {
 
 			query: function(){
-				var target = $('.gallery li').filter("[data-id="+ main.hash.get() + "]").index();
+				var target = $('.gallery li').filter("[data-id='+ main.hash.get() + ']").index();
 				
 				if(target !== -1){
 					return target;
@@ -392,7 +393,23 @@ lightbox: {
 				$.removeCookie('lightbox');
 				location.reload();
 			}
-		}//lightbox
+		},//lightbox
+
+		initIsotope: function() {
+			if ($('.isotope').length) {
+				var container = $('.isotope');
+
+				container.imagesLoaded( function(){
+				  container.fadeIn(1000).isotope({
+					itemSelector: '.item',
+					masonry: {
+					 columnWidth: 1
+					}
+				  });
+				});
+
+			}			
+		},		
 
 
 	};//main

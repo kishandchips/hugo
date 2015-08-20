@@ -1,6 +1,12 @@
 /* ==========================================================================
 	HEADER
    ========================================================================== */
+@mixin font-size($size){
+	font-size: ($size) + px;
+	font-size: ($size / 10) + rem;
+}
+
+
 @-webkit-keyframes load8 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -227,7 +233,7 @@
 
 body{
 
-	&.home{
+	&.home, &.post-type-archive-press {
 		#main{
 			overflow: auto;
 		}
@@ -1458,5 +1464,182 @@ html.lt-ie9{
 			margin: 1em 0;
 		}
 	}	
+}
+
+.isotope {
+	background: #000;
+
+	.column {
+		padding: 0;
+	}
+
+	.item {
+		background: #000;
+		overflow: hidden;
+
+		&.col-1-2 {
+			width:49.95%;
+		}
+
+		&.col-1-4 {
+			width:24.97%;
+
+			@media screen and (max-width: 840px){
+				width:49.95%;
+			}
+		}
+
+		.overlay {
+			opacity: 0;
+			background: rgba(0, 0, 0, 0.65);
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			@include transition(all 0.5s ease-in-out);
+		}		
+
+		@media screen and (max-width: 420px){
+			&.col-1-2, &.col-1-4 {
+				width:100%;
+			}
+		}			
+
+		img {
+			display: block;
+			@include transition(all 0.5s ease-in-out);
+			-webkit-transform: scale(1.15);
+			transform: scale(1.15);			
+		}
+		
+		figcaption {
+			opacity: 0;
+		    color: #fff;
+		    font-size: 2.5em;
+		    font-family: 'gt_pressura_trialbold';
+		    font-style: normal;
+		    text-transform: uppercase;
+		    line-height: 0.9;
+		    text-align: center;
+		    padding: 0 5%;
+		    border: 2px solid white;
+		    margin: 0 5%;	
+		    width: 90%;	    
+
+		    h2 {
+		    	font-family: 'gt_pressura_trialbold';
+		    }
+		}
+
+		.descriptionCenter {
+			font-family: 'Lato', sans-serif;
+		    position: absolute;
+		    bottom: 0;
+		    left: 0;
+		    right: 0;
+		    top: 0;
+		    text-transform: uppercase;
+		    color: #fff;
+		    width: 80%;
+		    height: auto;
+		    margin: auto;
+		    height: 150px;
+		    text-align: center;
+			z-index: 100;
+
+			h1 {
+				font-weight: 900;
+				color: #fff;
+				font-size: 30px;
+				line-height: 38px;
+				text-transform: none;
+				text-transform: uppercase;
+
+				span {
+				   font-weight: 300;
+				}		
+			}    
+
+			h4 {
+			    color: #810303;
+			    font-size: 11px;
+			    letter-spacing: 2px;
+				@include transition-property(all);
+				@include transition-duration(0.5s);
+				@include transition-timing-function(ease-in-out);	    
+			}
+
+			p {
+				margin-bottom: 25px;
+				font-size: 14px;
+				line-height: 18px;
+			}
+		}
+
+
+		/* GRID ITEM HOVER */
+		&:hover {
+
+			.overlay {
+				opacity: 1;
+			}
+
+			figcaption {
+				opacity: 1;
+			
+			}			
+		}
+
+		&.small {
+			figcaption {
+				h2 {
+					@include font-size(17);
+					line-height: 1.2;
+
+						@media screen and (max-width: 1000px){
+							@include font-size(14);	
+						}
+				}
+			}
+
+			.descriptionCenter {
+				h1 {
+					@include font-size(20);
+					line-height: 1.2;
+				}
+			}
+
+		}
+
+		&.large {
+			figcaption {
+				h2 {
+					@include font-size(27);
+					line-height: 1.2;
+
+					@media screen and (max-width: 1000px){
+						@include font-size(20);	
+					}					
+				}
+			}			
+		}	
+
+		@media screen and (max-width: 840px){
+				&.large, &.small {
+				figcaption {
+					h2 {
+						@include font-size(14);
+						line-height: 1.2;
+					}
+				}				
+			}
+		}			
+	}
+}
+
+div.ppt {
+	display: none !important;
+	opacity: 0;
 }
 
